@@ -1,0 +1,86 @@
+[
+  {
+    "key": 1,
+    "itemName": "제품1",
+    "itemImg": "/images/Jihong/sampleImg_1.jpeg",
+    "price": 35000,
+    "description": "이 제품 좋아요 1"
+  },
+  {
+    "key": 2,
+    "itemName": "제품2",
+    "itemImg": "/images/Jihong/sampleImg_2.jpeg",
+    "price": 40000,
+    "description": "이 제품 좋아요 2"
+  },
+  {
+    "key": 3,
+    "itemName": "제품3",
+    "itemImg": "/images/Jihong/sampleImg_3.jpeg",
+    "price": 45000,
+    "description": "이 제품 좋아요 3"
+  },
+  {
+    "key": 4,
+    "itemName": "제품4",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 50000,
+    "description": "이 제품 좋아요 4"
+  },
+  {
+    "key": 5,
+    "itemName": "제품5",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 55000,
+    "description": "이 제품 좋아요 5"
+  },
+  {
+    "key": 6,
+    "itemName": "제품6",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 60000,
+    "description": "이 제품 좋아요 6"
+  },
+  {
+    "key": 7,
+    "itemName": "제품7",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 65000,
+    "description": "이 제품 좋아요 7"
+  },
+  {
+    "key": 8,
+    "itemName": "제품8",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 70000,
+    "description": "이 제품 좋아요 8"
+  },
+  {
+    "key": 9,
+    "itemName": "제품9",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 75000,
+    "description": "이 제품 좋아요 9"
+  },
+  {
+    "key": 10,
+    "itemName": "제품10",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 80000,
+    "description": "이 제품 좋아요 10"
+  },
+  {
+    "key": 11,
+    "itemName": "제품11",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 85000,
+    "description": "이 제품 좋아요 11"
+  },
+  {
+    "key": 12,
+    "itemName": "제품12",
+    "itemImg": "/images/Jihong/sampleImg_4.jpeg",
+    "price": 90000,
+    "description": "이 제품 좋아요 12"
+  }
+]
