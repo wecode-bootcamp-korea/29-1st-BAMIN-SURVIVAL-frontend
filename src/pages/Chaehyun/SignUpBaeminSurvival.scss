@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.signUpBaeminSurvival {
+  @include flex-center;
+  height: 100vh;
+
+  .signUpHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .info {
+    font-size: 20px;
+  }
+
+  .sideInfo {
+    font-size: 12px;
+  }
+}
