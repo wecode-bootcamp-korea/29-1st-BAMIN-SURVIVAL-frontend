@@ -23,7 +23,6 @@ const Nav = () => {
   const onSubmit = e => {
     const value = e.target.value;
     setInputValue([...inputValue, value]);
-    console.log('hello');
     e.preventDefault();
   };
 
