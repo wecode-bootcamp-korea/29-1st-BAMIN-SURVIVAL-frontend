@@ -1,11 +1,7 @@
 @import '/src/styles/variables.scss';
 $borderColor: #eaeaea;
 
-a:link {
-  color: $textColor;
-}
-
-a:visited {
+a {
   color: $textColor;
 }
 
@@ -20,9 +16,15 @@ a:visited {
     align-items: center;
     margin-right: 100px;
 
-    a {
+    a,
+    .cartCount {
       font-size: 13px;
       font-weight: 500;
+    }
+
+    .cartCount {
+      margin: 4px 0 0 5px;
+      color: $mintColor;
     }
 
     .txtBar {
@@ -53,18 +55,18 @@ a:visited {
     position: absolute;
     right: 70px;
 
-    input {
+    .searchInput {
       width: 240px;
       border: none;
       padding: 7px;
       font-size: 15px;
       border-bottom: 2px solid black;
     }
-    input:focus {
+    .searchInput:focus {
       outline: none;
     }
 
-    button {
+    .searchIcon {
       border: none;
       background: transparent;
 

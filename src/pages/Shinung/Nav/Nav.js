@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.scss';
+import CATEGORY from './NavCategoryData';
+import Category from './Category';
 import RecentSearch from './RecentSearch/RecentSearch';
+import './Nav.scss';
 
 const Nav = () => {
+  const [cartCount, setCartCount] = useState(100);
   const [modal, setModal] = useState(false);
+  const [categories, setCategories] = useState(CATEGORY);
 
   const handleModal = () => {
     setModal(true);
@@ -50,6 +54,7 @@ const Nav = () => {
               장바구니
             </Link>
           </li>
+          <div className="cartCount">{cartCount}</div>
         </ul>
       </div>
       <div className="headerSearch">
@@ -60,8 +65,9 @@ const Nav = () => {
             placeholder="검색어를 입력해주세요"
             onClick={handleModal}
             onBlur={focusOut}
+            className="searchInput"
           />
-          <button type="sumbmit">
+          <button type="sumbmit" className="searchIcon">
             <i className="fas fa-search" />
           </button>
         </form>
@@ -69,14 +75,9 @@ const Nav = () => {
       </div>
       <div className="headerCategory">
         <ul>
-          <li>전체</li>
-          <li>멘토</li>
-          <li>매거진</li>
-          <li>회사에서</li>
-          <li>학교에서</li>
-          <li>코로나에서</li>
-          <li>랜덤박스</li>
-          <li>커뮤니티</li>
+          {categories.map((category, i) => (
+            <Category category={category} key={i} />
+          ))}
         </ul>
       </div>
     </header>
