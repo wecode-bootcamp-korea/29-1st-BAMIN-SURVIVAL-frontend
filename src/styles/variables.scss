@@ -1,3 +1,9 @@
 $mintColor: #2bc1bc;
 $textColor: #6d6d6d;
 $lightgreyColor: #f5f5f5;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} ;
