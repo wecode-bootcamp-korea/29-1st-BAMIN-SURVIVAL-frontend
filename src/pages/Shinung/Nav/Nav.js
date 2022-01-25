@@ -73,7 +73,7 @@ const Nav = () => {
         {modal && <RecentSearch value={inputValue} />}
       </div>
       <div className="headerCategory">
-        <ul>
+        <ul className="categoryList">
           {categories.map((category, i) => (
             <Category category={category} key={i} />
           ))}

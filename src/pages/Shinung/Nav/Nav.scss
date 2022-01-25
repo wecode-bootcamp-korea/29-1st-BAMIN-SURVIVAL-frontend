@@ -18,8 +18,8 @@ a {
 
     a,
     .cartCount {
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .cartCount {
@@ -81,7 +81,7 @@ a {
 .headerCategory {
   border-bottom: 1px solid $borderColor;
 
-  ul {
+  .categoryList {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,6 +90,10 @@ a {
     li {
       margin: 0 25px;
       cursor: pointer;
+
+      .categoryTitle {
+        color: black;
+      }
     }
   }
 }
