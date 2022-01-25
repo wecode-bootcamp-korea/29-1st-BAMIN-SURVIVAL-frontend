@@ -37,10 +37,10 @@ const Nav = () => {
         <form action="" className="search">
           <input type="text" placeholder="검색어를 입력해주세요" />
           <button type="sumbmit">
-            <i class="fas fa-search" />
+            <i className="fas fa-search" />
           </button>
         </form>
-        <RecentSearch />
+        {/* <RecentSearch /> */}
       </div>
       <div className="headerCategory">
         <ul>

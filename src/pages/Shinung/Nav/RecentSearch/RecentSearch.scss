@@ -6,15 +6,25 @@ $borderColor: #eaeaea;
   top: 90px;
   width: 240px;
   border: 1px solid $borderColor;
-  font-size: 13px;
+  font-size: 12px;
 
   .recentWord {
-    padding: 10px;
+    padding: 12px 0 10px 15px;
     font-weight: 600;
   }
 
-  .close {
+  .separateLine {
+    width: 90%;
+    height: 1px;
     background-color: $borderColor;
-    padding: 10px;
+    margin: auto;
+  }
+
+  .searchBoxControl {
+    button {
+      padding: 10px;
+      background: transparent;
+      border: none;
+    }
   }
 }
