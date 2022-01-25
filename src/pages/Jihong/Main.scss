@@ -6,19 +6,30 @@ main {
   flex-direction: column;
 
   section {
-    background-color: tomato;
-    height: 8%;
+    height: 50px;
     padding: 0 10px 0 10px;
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
+
+    .sectionRight {
+      button {
+        background-color: white;
+        padding: 0;
+        margin-left: 50px;
+        border: 0;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      button:focus {
+        color: #2bc1bc;
+      }
+    }
   }
 
   article {
-    height: 70%;
     // background-color: teal;
 
     li {
@@ -27,25 +38,27 @@ main {
 
       .itemBox {
         width: 25%;
-        // background-color: thistle;
-        border: 1px solid black;
+        border: 0px solid black;
         padding: 0 10px 0 10px;
+        margin-bottom: 20px;
         display: flex;
-
         flex-direction: column;
-        justify-content: space-between;
+        font-size: 12px;
 
         .itemImg {
           width: 100%;
-          height: 80%;
+          height: 90%;
+          margin-bottom: 10px;
         }
 
         a {
           color: black;
+          margin-bottom: 5px;
         }
 
         span {
           color: black;
+          font-weight: 600;
         }
       }
     }

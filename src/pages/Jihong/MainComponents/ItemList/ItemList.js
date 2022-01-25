@@ -3,7 +3,7 @@ import Item from '../Item/Item';
 
 const ItemList = ({ items }) => {
   return (
-    <>
+    <li>
       {items.map((item, idx) => {
         return (
           <Item
@@ -15,7 +15,7 @@ const ItemList = ({ items }) => {
           />
         );
       })}
-    </>
+    </li>
   );
 };
 

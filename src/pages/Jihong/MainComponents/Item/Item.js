@@ -5,7 +5,7 @@ const Item = ({ itemName, price, itemImg }) => {
     <div className="itemBox">
       <img className="itemImg" alt="제픔이미지" src={itemImg} />
       <a href="/#">{itemName}</a>
-      <span>{price}</span>
+      <span>{price}원</span>
     </div>
   );
 };

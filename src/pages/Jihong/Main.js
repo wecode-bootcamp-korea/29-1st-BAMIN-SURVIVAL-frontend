@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Main.scss';
 import ItemList from './MainComponents/ItemList/ItemList';
-import constantData from './constantData';
+import Section from './MainComponents/Section/Section';
 
 const Main = () => {
   const [items, setItems] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(items);
 
   useEffect(() => {
     fetch('/data/Jihong/ItemListData.json', {
@@ -14,40 +14,34 @@ const Main = () => {
       .then(res => res.json())
       .then(data => {
         setItems(data);
+        setIsClicked(data);
       });
   }, []);
-  const isClick = () => {
-    setIsClicked(!isClicked);
+
+  const isClick = e => {
+    const filterName = e.target.name;
+    if (filterName === '낮은가격순') {
+      setIsClicked(lowPriceOrder);
+    } else if (filterName === '높은가격순') {
+      setIsClicked(highPriceOrder);
+    } else if (filterName === '최신순') {
+      setIsClicked(items);
+    }
   };
 
-  console.log(items);
-  const items2 = items.sort(function (a, b) {
+  const lowPriceOrder = [...items].sort(function (a, b) {
     return a.price - b.price;
   });
-  console.log(items2);
 
-  const filteredItems = items.filter(item => item.price > 50000);
-  console.log(items.price);
-  console.log(filteredItems);
+  const highPriceOrder = [...items].sort(function (a, b) {
+    return b.price - a.price;
+  });
 
   return (
     <main>
-      <section>
-        <div className="sectionLeft">총 254개</div>
-        <div className="sectionRight">
-          {constantData.map((list, idx) => {
-            return (
-              <button type="button" onClick={isClick} key={idx}>
-                {list.listName}
-              </button>
-            );
-          })}
-        </div>
-      </section>
+      <Section isClick={isClick} totalNumberItems={items.length} />
       <article>
-        <li>
-          <ItemList items={items} />
-        </li>
+        <ItemList items={isClicked} />
       </article>
     </main>
   );
