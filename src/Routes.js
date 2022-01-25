@@ -1,7 +1,16 @@
 import React from 'react';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './pages/Shinung/Nav/Nav';
 
 const Routes = () => {
-  return <h1>배민 폰트 맞습니까?</h1>;
+  return (
+    // <BrowserRouter>
+    <Nav />
+    // <Routes>
+    // <Route />
+    // </Routes>
+    // </BrowserRouter>
+  );
 };
 
 export default Routes;

@@ -1,0 +1,91 @@
+@import '/src/styles/variables.scss';
+$borderColor: #eaeaea;
+
+a:link {
+  color: $textColor;
+}
+
+a:visited {
+  color: $textColor;
+}
+
+/* Header Top */
+.headerTop {
+  border-bottom: 1px solid $borderColor;
+
+  .headerTopList {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 100px;
+
+    a {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .txtBar {
+      display: inline-block;
+      width: 1px;
+      height: 9px;
+      margin: 0 10px;
+      background: $borderColor;
+      vertical-align: 0px;
+    }
+  }
+}
+
+/* Header Search */
+.headerSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 150px;
+
+  .logo {
+    width: 200px;
+    cursor: pointer;
+  }
+
+  .search {
+    position: absolute;
+    right: 70px;
+
+    input {
+      width: 240px;
+      border: none;
+      padding: 7px;
+      font-size: 15px;
+      border-bottom: 2px solid black;
+    }
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+
+      .fa-search {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* Header Category */
+.headerCategory {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      padding: 0 30px;
+      cursor: pointer;
+    }
+  }
+}
