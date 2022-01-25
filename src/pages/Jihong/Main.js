@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Main.scss';
 import ItemList from './MainComponents/ItemList/ItemList';
+import constantData from './constantData';
 
 const Main = () => {
   const [items, setItems] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     fetch('/data/Jihong/ItemListData.json', {
@@ -14,12 +16,32 @@ const Main = () => {
         setItems(data);
       });
   }, []);
+  const isClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  console.log(items);
+  const items2 = items.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  console.log(items2);
+
+  const filteredItems = items.filter(item => item.price > 50000);
+  console.log(items.price);
+  console.log(filteredItems);
+
   return (
     <main>
       <section>
         <div className="sectionLeft">총 254개</div>
         <div className="sectionRight">
-          추천순 인기순 최신순 낮은 가격순 높은 가격순
+          {constantData.map((list, idx) => {
+            return (
+              <button type="button" onClick={isClick} key={idx}>
+                {list.listName}
+              </button>
+            );
+          })}
         </div>
       </section>
       <article>

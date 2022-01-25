@@ -10,28 +10,28 @@
     "key": 2,
     "itemName": "제품2",
     "itemImg": "/images/Jihong/sampleImg_2.jpeg",
-    "price": 40000,
+    "price": 34000,
     "description": "이 제품 좋아요 2"
   },
   {
     "key": 3,
     "itemName": "제품3",
     "itemImg": "/images/Jihong/sampleImg_3.jpeg",
-    "price": 45000,
+    "price": 30000,
     "description": "이 제품 좋아요 3"
   },
   {
     "key": 4,
     "itemName": "제품4",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 50000,
+    "price": 100000,
     "description": "이 제품 좋아요 4"
   },
   {
     "key": 5,
     "itemName": "제품5",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 55000,
+    "price": 58000,
     "description": "이 제품 좋아요 5"
   },
   {
@@ -45,42 +45,42 @@
     "key": 7,
     "itemName": "제품7",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 65000,
+    "price": 66000,
     "description": "이 제품 좋아요 7"
   },
   {
     "key": 8,
     "itemName": "제품8",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 70000,
+    "price": 64000,
     "description": "이 제품 좋아요 8"
   },
   {
     "key": 9,
     "itemName": "제품9",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 75000,
+    "price": 70000,
     "description": "이 제품 좋아요 9"
   },
   {
     "key": 10,
     "itemName": "제품10",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 80000,
+    "price": 82000,
     "description": "이 제품 좋아요 10"
   },
   {
     "key": 11,
     "itemName": "제품11",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 85000,
+    "price": 80000,
     "description": "이 제품 좋아요 11"
   },
   {
     "key": 12,
     "itemName": "제품12",
     "itemImg": "/images/Jihong/sampleImg_4.jpeg",
-    "price": 90000,
+    "price": 80000,
     "description": "이 제품 좋아요 12"
   }
 ]
