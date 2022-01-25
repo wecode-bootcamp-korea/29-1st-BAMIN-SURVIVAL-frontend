@@ -1,46 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 import RecentSearch from './RecentSearch/RecentSearch';
 
 const Nav = () => {
+  const [modal, setModal] = useState(false);
+
+  const handleModal = () => {
+    setModal(true);
+  };
+
+  const focusOut = () => {
+    setModal(false);
+  };
+
+  const [inputValue, setInputValue] = useState('');
+
+  const onSubmit = e => {
+    const value = e.target.value;
+    setInputValue([...inputValue, value]);
+    console.log('hello');
+    e.preventDefault();
+  };
+
   return (
     <header>
       <div className="headerTop">
         <ul className="headerTopList">
           <li>
-            <a href="/" className="logIn">
+            <Link to="/login" className="logIn">
               로그인
-            </a>
+            </Link>
             <span className="txtBar" />
           </li>
           <li>
-            <a href="/" className="signUp">
+            <Link to="/signin" className="signUp">
               회원가입
-            </a>
+            </Link>
             <span className="txtBar" />
           </li>
           <li>
-            <a href="/" className="myPage">
+            <Link to="/mypage" className="myPage">
               마이페이지
-            </a>
+            </Link>
             <span className="txtBar" />
           </li>
           <li>
-            <a href="/" className="cart">
+            <Link to="/cart" className="cart">
               장바구니
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
       <div className="headerSearch">
         <img alt="logo" src="/images/Shinung/logo.png" className="logo" />
-        <form action="" className="search">
-          <input type="text" placeholder="검색어를 입력해주세요" />
+        <form action="" className="search" onSubmit={onSubmit}>
+          <input
+            type="text"
+            placeholder="검색어를 입력해주세요"
+            onClick={handleModal}
+            onBlur={focusOut}
+          />
           <button type="sumbmit">
             <i className="fas fa-search" />
           </button>
         </form>
-        <RecentSearch />
+        {modal && <RecentSearch value={inputValue} />}
       </div>
       <div className="headerCategory">
         <ul>

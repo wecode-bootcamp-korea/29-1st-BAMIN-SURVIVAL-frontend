@@ -1,16 +1,14 @@
 import React from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './pages/Shinung/Nav/Nav';
 
-const Routes = () => {
+function Router() {
   return (
-    // <BrowserRouter>
-    <Nav />
-    // <Routes>
-    // <Route />
-    // </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Nav />
+      <Routes />
+    </BrowserRouter>
   );
-};
+}
 
-export default Routes;
+export default Router;
