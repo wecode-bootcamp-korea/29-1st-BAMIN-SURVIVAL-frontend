@@ -1,4 +1,7 @@
 $borderColor: #eaeaea;
+$boxColor: #f5f5f5;
+$fontSize: 12px;
+$fontColor: #a3a3a3;
 
 .recentSearch {
   position: absolute;
@@ -6,7 +9,8 @@ $borderColor: #eaeaea;
   top: 90px;
   width: 240px;
   border: 1px solid $borderColor;
-  font-size: 12px;
+  font-size: $fontSize;
+  background-color: #fff;
 
   .recentWord {
     padding: 12px 0 10px 15px;
@@ -21,10 +25,17 @@ $borderColor: #eaeaea;
   }
 
   .searchBoxControl {
+    background-color: $boxColor;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+
     button {
       padding: 10px;
       background: transparent;
       border: none;
+      font-size: $fontSize;
+      color: $fontColor;
     }
   }
 }

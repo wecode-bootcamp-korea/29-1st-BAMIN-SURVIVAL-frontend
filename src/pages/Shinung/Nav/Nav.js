@@ -40,7 +40,7 @@ const Nav = () => {
             <i className="fas fa-search" />
           </button>
         </form>
-        {/* <RecentSearch /> */}
+        <RecentSearch />
       </div>
       <div className="headerCategory">
         <ul>
