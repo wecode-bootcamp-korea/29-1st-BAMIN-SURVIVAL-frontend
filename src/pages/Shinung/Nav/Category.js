@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
   return (
-    <li>
-      <Link to={category.url} className="categoryTitle">
+    <li className="active">
+      <Link to={category.url} className="categoryTitle categoryActive">
         {category.title}
       </Link>
     </li>
