@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.signUpBaeminSurvival {
+  @include flex-center;
+  height: 100vh;
+  font-family: 'Nanum Gothic', sans-serif;
+
+  .signUpHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .info {
+    font-size: 20px;
+  }
+
+  .sideInfo {
+    font-size: 12px;
+  }
+
+  .signUpButtonWrapper {
+    height: 45px;
+    text-align: center;
+
+    .signUpBtn,
+    .signUpCancelBtn {
+      width: 150px;
+      height: 100%;
+      border: 1px solid black;
+      margin: 0px 5px;
+    }
+
+    .signUpCancelBtn {
+      background-color: white;
+    }
+
+    .signUpBtn {
+      color: white;
+      background-color: black;
+    }
+  }
+}

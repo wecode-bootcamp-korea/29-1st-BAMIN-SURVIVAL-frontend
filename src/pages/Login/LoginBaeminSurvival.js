@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../Chaehyun/LoginBaeminSurvival.scss';
+import { useNavigate } from 'react-router-dom';
+import './LoginBaeminSurvival.scss';
 
 function LoginBaeminSurvival() {
   const [inputId, setInputId] = useState('');
@@ -14,7 +15,7 @@ function LoginBaeminSurvival() {
     setInputPw(e.target.value);
   };
 
-  const onSubmit = () => {
+  const loginValidation = () => {
     if (inputId === '') {
       alert('아이디를 입력해주세요');
     } else if (inputPw === '') {
@@ -24,8 +25,14 @@ function LoginBaeminSurvival() {
 
   const pressEnter = e => {
     if (e.key === 'Enter') {
-      onSubmit();
+      loginValidation();
     }
+  };
+
+  const navigate = useNavigate();
+
+  const goToSignUp = () => {
+    navigate('/signup');
   };
 
   return (
@@ -50,18 +57,23 @@ function LoginBaeminSurvival() {
               <input type="checkbox" className="idCheck" />
               <span className="idSave">아이디저장</span>
             </div>
-            <button className="loginButton buttonNoBorder" onClick={onSubmit}>
+            <button
+              className="loginButton buttonNoBorder"
+              onClick={loginValidation}
+            >
               로그인
             </button>
           </div>
           <ul className="loginButtonBox">
-            <li className="buttonList">
-              <button className="buttonNoBorder">회원가입</button>
+            <li className="signUp buttonList">
+              <button className="buttonNoBorder" onClick={goToSignUp}>
+                회원가입
+              </button>
             </li>
             <li className="findId buttonList">
               <button className="buttonNoBorder">아이디 찾기</button>
             </li>
-            <li className="buttonList">
+            <li className="findPw buttonList">
               <button className="buttonNoBorder">비밀번호 찾기</button>
             </li>
           </ul>

@@ -1,9 +1,9 @@
 import React from 'react';
-import './Input.scss';
+import './SignUpInput.scss';
 
-function Input({ type, text, placeholder }) {
+function SignUpInput({ type, text, placeholder }) {
   return (
-    <div className="inputBox">
+    <div className="SignUpInput">
       <div className="inputTextBox">
         <p className="inputText">{`* ${text}`}</p>
       </div>
@@ -14,4 +14,4 @@ function Input({ type, text, placeholder }) {
   );
 }
 
-export default Input;
+export default SignUpInput;

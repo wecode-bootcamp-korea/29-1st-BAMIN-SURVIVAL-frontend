@@ -1,9 +1,9 @@
 @import '../../styles/variables.scss';
 
-.inputBox {
+.SignUpInput {
   display: flex;
   position: relative;
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid $greyBorderColor;
 
   .inputTextBox {
     flex: 2;
@@ -14,7 +14,9 @@
       height: 20%;
       top: 0;
       bottom: 0;
-      margin: auto 0;
+      margin: auto 10px;
+      font-size: 14px;
+      font-weight: bold;
     }
   }
 

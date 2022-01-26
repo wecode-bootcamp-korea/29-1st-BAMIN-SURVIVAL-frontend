@@ -1,12 +1,12 @@
 import React from 'react';
-import Input from './Input';
+import SignUpInput from './SignUpInput';
 import './InputList.scss';
 
 function InputList({ signup }) {
   return (
     <div className="signUpBox">
       {signup.map(data => (
-        <Input
+        <SignUpInput
           type={data.type}
           text={data.text}
           key={data.id}
