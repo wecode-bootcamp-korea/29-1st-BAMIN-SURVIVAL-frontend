@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './Main.scss';
+import Carousel from './MainComponents/Section/Carousel';
+import SortCategory from './MainComponents/Section/SortCategory';
 import ItemList from './MainComponents/ItemList/ItemList';
-import Section from './MainComponents/Section/Section';
+import './Main.scss';
 
 const Main = () => {
   const [items, setItems] = useState([]);
-  const [isClicked, setIsClicked] = useState(items);
+  const carouselItems = [...items].filter(item => item.price > 70000);
 
   useEffect(() => {
     fetch('/data/Jihong/ItemListData.json', {
@@ -14,34 +15,37 @@ const Main = () => {
       .then(res => res.json())
       .then(data => {
         setItems(data);
-        setIsClicked(data);
       });
   }, []);
-
-  const isClick = e => {
-    const filterName = e.target.name;
-    if (filterName === '낮은가격순') {
-      setIsClicked(lowPriceOrder);
-    } else if (filterName === '높은가격순') {
-      setIsClicked(highPriceOrder);
-    } else if (filterName === '최신순') {
-      setIsClicked(items);
+  const sortFucntion = e => {
+    const recent = [...items].sort(function (a, b) {
+      let dateA = new Date(a.updateDate).getTime();
+      let dateB = new Date(b.updateDate).getTime();
+      return dateA < dateB ? 1 : -1;
+    });
+    const ascend = [...items].sort((a, b) => a.price - b.price);
+    const decend = [...items].sort((a, b) => b.price - a.price);
+    if (e.target.innerText === '높은가격순') {
+      setItems(decend);
+      return;
+    } else if (e.target.innerText === '낮은가격순') {
+      setItems(ascend);
+      return;
+    } else if (e.target.innerText === '최신순') {
+      setItems(recent);
+      return;
     }
   };
 
-  const lowPriceOrder = [...items].sort(function (a, b) {
-    return a.price - b.price;
-  });
-
-  const highPriceOrder = [...items].sort(function (a, b) {
-    return b.price - a.price;
-  });
-
   return (
-    <main>
-      <Section isClick={isClick} totalNumberItems={items.length} />
-      <article>
-        <ItemList items={isClicked} />
+    <main className="main">
+      <Carousel carouselItems={carouselItems} />
+      <SortCategory
+        totalNumberItems={items.length}
+        sortFucntion={sortFucntion}
+      />
+      <article className="article">
+        <ItemList items={items} />
       </article>
     </main>
   );

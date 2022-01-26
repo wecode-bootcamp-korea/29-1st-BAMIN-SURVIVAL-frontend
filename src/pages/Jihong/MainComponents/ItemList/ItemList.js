@@ -3,14 +3,14 @@ import Item from '../Item/Item';
 
 const ItemList = ({ items }) => {
   return (
-    <li>
-      {items.map((item, idx) => {
+    <li className="itemList">
+      {items.map((item, id) => {
         return (
           <Item
             itemName={item.itemName}
             itemImg={item.itemImg}
             price={item.price}
-            key={idx}
+            key={id}
             description={item.description}
           />
         );

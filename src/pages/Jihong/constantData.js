@@ -1,7 +1,7 @@
-const FILTER_LIST = [
-  { filterListName: '최신순' },
-  { filterListName: '낮은가격순' },
-  { filterListName: '높은가격순' },
+const SORT_LIST = [
+  { name: '최신순', id: 'recent' },
+  { name: '낮은가격순', id: 'ascend' },
+  { name: '높은가격순', id: 'descend' },
 ];
 
-export default FILTER_LIST;
+export default SORT_LIST;
