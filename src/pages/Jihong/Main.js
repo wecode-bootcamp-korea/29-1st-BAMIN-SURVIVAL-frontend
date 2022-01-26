@@ -17,6 +17,7 @@ const Main = () => {
         setItems(data);
       });
   }, []);
+
   const sortFucntion = e => {
     const recent = [...items].sort(function (a, b) {
       let dateA = new Date(a.updateDate).getTime();

@@ -12,6 +12,9 @@ const ItemList = ({ items }) => {
             price={item.price}
             key={id}
             description={item.description}
+            discount={item.discountRate}
+            sale={item.sale}
+            green={item.green}
           />
         );
       })}

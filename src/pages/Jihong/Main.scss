@@ -1,5 +1,4 @@
 @import '../../styles/variables.scss';
-
 @mixin slideImg {
   .slideImg {
     width: 100%;
@@ -9,7 +8,6 @@
 }
 
 $btnColor: #d6d6d6;
-
 $btnFocusColor: #bebebe;
 
 .main {
@@ -22,7 +20,7 @@ $btnFocusColor: #bebebe;
   .carousel {
     .carouselContainer {
       width: 100%;
-      height: 400px;
+      height: 300px;
       position: relative;
       overflow: hidden;
 
@@ -83,7 +81,13 @@ $btnFocusColor: #bebebe;
           background-color: #b5b5b5;
         }
 
-        .dot:focus {
+        .dotActive {
+          width: 10px;
+          height: 10px;
+          padding: 0;
+          border-radius: 50%;
+          border: 0;
+          margin: 0 5px;
           background-color: white;
         }
       }
@@ -130,6 +134,11 @@ $btnFocusColor: #bebebe;
         display: flex;
         flex-direction: column;
         font-size: 12px;
+        transition: transform 0.3s ease-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
 
         .itemImg {
           width: 100%;
@@ -145,6 +154,14 @@ $btnFocusColor: #bebebe;
         span {
           color: black;
           font-weight: 600;
+        }
+
+        span:nth-child(2) {
+          color: red;
+        }
+
+        span:nth-child(3) {
+          color: yellowgreen;
         }
       }
     }

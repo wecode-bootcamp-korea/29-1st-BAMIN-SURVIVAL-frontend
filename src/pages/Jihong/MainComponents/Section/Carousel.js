@@ -4,10 +4,10 @@ const Carousel = ({ carouselItems }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = carouselItems.length - 1;
   const nextSlide = () => {
-    if (currentSlide >= totalSlides) {
-      setCurrentSlide(0);
-    } else {
+    if (currentSlide !== totalSlides) {
       setCurrentSlide(currentSlide + 1);
+    } else {
+      setCurrentSlide(0);
     }
   };
 
@@ -21,7 +21,9 @@ const Carousel = ({ carouselItems }) => {
           return (
             <div
               key={item.id}
-              className={currentSlide === idx ? 'slideActive' : 'slideItem'}
+              className={
+                currentSlide === idx ? 'slideItem slideActive' : 'slideItem'
+              }
             >
               <img
                 className="slideImg"
@@ -38,7 +40,11 @@ const Carousel = ({ carouselItems }) => {
 
         <div className="slideDots">
           {carouselItems.map((promotionImg, idx) => (
-            <button key={idx} onClick={() => moveDot(idx)} className="dot" />
+            <button
+              key={idx}
+              onClick={() => moveDot(idx)}
+              className={currentSlide === idx ? 'dotActive' : 'dot'}
+            />
           ))}
         </div>
       </div>
