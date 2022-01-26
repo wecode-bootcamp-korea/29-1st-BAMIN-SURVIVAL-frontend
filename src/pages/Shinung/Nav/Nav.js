@@ -41,12 +41,18 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="navMiddle">
+      <div className={searchInput ? 'navMiddle' : 'disapear'}>
         <img alt="logo" src="/images/Shinung/logo.png" className="navLogo" />
         {/* {searchInput && <Search onSubmit={onSubmit} />} */}
 
         {modal && <RecentSearch value={inputValue} />}
       </div>
+
+      {searchInput || (
+        <div className="scrollLogo">
+          <img alt="logo" src="/images/Shinung/logo.png" className="scroll" />
+        </div>
+      )}
 
       <div className="navBottom">
         <ul className="categoryList">

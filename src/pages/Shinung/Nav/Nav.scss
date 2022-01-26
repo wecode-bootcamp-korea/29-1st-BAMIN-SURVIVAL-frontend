@@ -61,10 +61,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 130px;
+    height: 100px;
 
     .navLogo {
-      width: 200px;
+      width: 160px;
       cursor: pointer;
     }
 
@@ -91,8 +91,26 @@ a {
     }
   }
 
+  .disapear {
+    display: none;
+  }
+
+  .scrollLogo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll {
+    width: 160px;
+    cursor: pointer;
+    position: fixed;
+    top: 1px;
+  }
+
   /* Nav Bottom */
   .navBottom {
+    margin-top: 20px;
+
     border-bottom: 1px solid $borderColor;
     height: 37px;
 
