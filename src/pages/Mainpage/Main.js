@@ -6,7 +6,7 @@ import './Main.scss';
 
 const Main = () => {
   const [items, setItems] = useState([]);
-  const carouselItems = [...items].filter(item => item.price > 70000);
+  const [carouselItems, setCarouselItems] = useState([]);
 
   useEffect(() => {
     fetch('/data/Jihong/ItemListData.json', {
@@ -15,6 +15,7 @@ const Main = () => {
       .then(res => res.json())
       .then(data => {
         setItems(data);
+        setCarouselItems(data.filter(item => item.price > 70000).slice(0, 4));
       });
   }, []);
 
@@ -26,14 +27,16 @@ const Main = () => {
     });
     const ascend = [...items].sort((a, b) => a.price - b.price);
     const decend = [...items].sort((a, b) => b.price - a.price);
-    if (e.target.innerText === '높은가격순') {
-      setItems(decend);
+    if (e.target.innerText === '최신순') {
+      setItems(recent);
       return;
-    } else if (e.target.innerText === '낮은가격순') {
+    }
+    if (e.target.innerText === '낮은가격순') {
       setItems(ascend);
       return;
-    } else if (e.target.innerText === '최신순') {
-      setItems(recent);
+    }
+    if (e.target.innerText === '높은가격순') {
+      setItems(decend);
       return;
     }
   };

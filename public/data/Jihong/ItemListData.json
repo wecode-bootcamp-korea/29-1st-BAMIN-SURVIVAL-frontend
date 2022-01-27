@@ -21,7 +21,7 @@
     "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
     "updateDate": "2022-01-02",
     "inventoryStatus": 200,
-    "sale": true,
+    "sale": false,
     "discountRate": 0,
     "green": false
   },
@@ -85,7 +85,7 @@
     "description": "이 제품 좋아요 7",
     "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
     "updateDate": "2022-01-07",
-    "inventoryStatus": 300,
+    "inventoryStatus": 200,
     "sale": false,
     "discountRate": 0,
     "green": false
@@ -97,7 +97,11 @@
     "price": 64000,
     "description": "이 제품 좋아요 8",
     "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-08"
+    "updateDate": "2022-01-08",
+    "inventoryStatus": 100,
+    "sale": false,
+    "discountRate": 0,
+    "green": false
   },
   {
     "id": 9,
@@ -107,7 +111,7 @@
     "description": "이 제품 좋아요 9",
     "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
     "updateDate": "2022-01-09",
-    "inventoryStatus": 300,
+    "inventoryStatus": 0,
     "sale": true,
     "discountRate": 30,
     "green": false
@@ -146,9 +150,9 @@
     "description": "이 제품 좋아요 12",
     "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
     "updateDate": "2022-01-12",
-    "inventoryStatus": 300,
-    "sale": true,
-    "discountRate": 30,
+    "inventoryStatus": 0,
+    "sale": false,
+    "discountRate": 0,
     "green": false
   }
 ]

@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from '../Item/Item';
+import './ItemList.scss';
 
 const ItemList = ({ items }) => {
   return (
@@ -15,6 +16,7 @@ const ItemList = ({ items }) => {
             discount={item.discountRate}
             sale={item.sale}
             green={item.green}
+            isInventoryStatus={item.inventoryStatus}
           />
         );
       })}

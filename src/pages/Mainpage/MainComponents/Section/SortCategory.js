@@ -1,5 +1,6 @@
 import React from 'react';
-import SORT_LIST from '../../constantData';
+import SORT_LIST from '../constantData';
+import './SortCategory.scss';
 
 const SortCategory = ({ totalNumberItems, sortFucntion }) => {
   return (
