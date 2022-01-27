@@ -10,32 +10,6 @@ function SignUpInput({
   setSignupInfo,
   name,
 }) {
-  // const [signUpId, setSignUpId] = useState('');
-  // const [signUpPw, setSignUpPw] = useState('');
-  // const [signUpPwCheck, setSignUpPwCheck] = useState('');
-  // const [signUpEmail, setSignUpEmail] = useState('');
-  // const [signUpNick, setSignUpNick] = useState('');
-
-  // const handleSignUpId = e => {
-  //   setSignUpId(e.target.value);
-  // };
-
-  // const handleSignUpPw = e => {
-  //   setSignUpPw(e.target.value);
-  // };
-
-  // const handleSignUpPwCheck = e => {
-  //   setSignUpPwCheck(e.target.value);
-  // };
-
-  // const handleSignUpEmail = e => {
-  //   setSignUpEmail(e.target.value);
-  // };
-
-  // const handleSignUpNick = e => {
-  //   setSignUpNick(e.target.value);
-  // };
-
   const onChange = e => {
     setSignupInfo({
       ...signupInfo,
