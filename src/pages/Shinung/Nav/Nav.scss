@@ -59,9 +59,14 @@ a {
   /* Nav Middle */
   .navMiddle {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 100px;
+
+    .nothing {
+      width: 267px;
+      background-color: yellow;
+    }
 
     .navLogo {
       width: 160px;
@@ -91,7 +96,7 @@ a {
     }
   }
 
-  .disapear {
+  .hideNavMiddle {
     display: none;
   }
 
