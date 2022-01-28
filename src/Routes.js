@@ -1,7 +1,8 @@
 import React from 'react';
+import Main from './pages/Jihong/Main';
 
 const Routes = () => {
-  return <h1>배민 폰트 맞습니까?</h1>;
+  return <Main />;
 };
 
 export default Routes;

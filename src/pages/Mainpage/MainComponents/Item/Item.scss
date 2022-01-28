@@ -1,0 +1,94 @@
+.itemBox {
+  width: 25%;
+  border: 0px solid black;
+  padding: 0 10px 0 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 16px;
+  transition: transform 0.3s ease-out;
+
+  .itemType {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    z-index: 1;
+
+    .saleLogo {
+      width: 10%;
+      margin-right: 5px;
+    }
+
+    .greenLogo {
+      width: 14%;
+    }
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  a {
+    .itemImgBox {
+      .itemImg {
+        width: 100%;
+        position: relative;
+      }
+      .soldoutStatus {
+        width: 50%;
+        position: absolute;
+        top: 28%;
+        left: 25%;
+
+        .soldoutLogo {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .soldoutImg {
+    width: 100%;
+    height: 100%;
+    filter: brightness(30%);
+  }
+
+  .itemInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .discountRate {
+      color: #ff6250;
+      font-weight: 900;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .itemName {
+      color: black;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .smallRegularPrice {
+      color: grey;
+      font-weight: 600;
+      font-size: 10px;
+      text-decoration: line-through;
+      margin-bottom: 5px;
+    }
+    .regularPrice {
+      color: black;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .bargainPrice {
+      color: #ff6250;
+      font-weight: 900;
+      font-size: 13px;
+    }
+  }
+}
