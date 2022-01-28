@@ -115,7 +115,6 @@ a {
   /* Nav Bottom */
   .navBottom {
     margin-top: 20px;
-
     border-bottom: 1px solid $borderColor;
     height: 37px;
 
@@ -136,12 +135,16 @@ a {
         .categoryActive {
           color: $mintColor;
           font-weight: bold;
+          padding-bottom: 19px;
+          border-bottom: 1px solid $mintColor;
+        }
+        :hover {
+          color: black;
         }
       }
 
       .active {
         color: $mintColor;
-        border-bottom: 1px solid $mintColor;
       }
     }
   }

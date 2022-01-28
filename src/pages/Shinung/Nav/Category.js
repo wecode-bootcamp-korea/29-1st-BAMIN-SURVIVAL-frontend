@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Category = ({ category }) => {
-  const { id } = useLocation();
-
-  console.log(id);
-
   return (
-    <li className="active">
-      <Link to={category.url} className="categoryTitle categoryActive">
+    <li>
+      <NavLink
+        to={category.url}
+        className={({ isActive }) =>
+          isActive ? 'categoryActive' : 'categoryTitle'
+        }
+      >
         {category.title}
-      </Link>
+      </NavLink>
     </li>
   );
 };
