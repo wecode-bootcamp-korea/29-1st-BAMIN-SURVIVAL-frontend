@@ -42,7 +42,7 @@ const UserInfo = () => {
       </li>
 
       <li>
-        <Link to="/cart" className="cart">
+        <Link to="/cart" className="myCart">
           장바구니
         </Link>
       </li>
