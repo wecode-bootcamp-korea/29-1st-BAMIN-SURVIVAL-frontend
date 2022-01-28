@@ -13,28 +13,92 @@ function SignUp() {
     signUpPhone: '',
   });
 
+  const {
+    signUpId,
+    signUpPw,
+    signUpPwCheck,
+    signUpEmail,
+    signUpNick,
+    signUpPhone,
+  } = signUpInfo;
+
   const navigate = useNavigate();
 
   const goToLogin = () => {
     navigate('/login');
   };
 
+  const isValidPw = value => {
+    let pwRegex =
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+    return pwRegex.test(value);
+  };
+  const isPwSame = signUpPw !== signUpPwCheck;
+
+  const isValidEmail = value => {
+    let emailRegex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return emailRegex.test(value);
+  };
+
+  const isValidPhone = value => {
+    let phoneRegex = /^[0-9\b -]{0,13}$/;
+    return phoneRegex.test(value);
+  };
+
+  const isFilledMandatory =
+    !signUpId ||
+    !signUpPw ||
+    !signUpPwCheck ||
+    !signUpEmail ||
+    !signUpNick ||
+    !signUpPhone;
+
+  const signUpValidation = e => {
+    e.preventDefault();
+    if (isFilledMandatory) {
+      alert('필수항목을 입력해주세요!');
+    } else if (!isValidPw(signUpPw)) {
+      alert(
+        '사용불가! 영문자,숫자,특수문자 조합으로 8-16글자 범위로 입력해주세요! '
+      );
+    } else if (isPwSame) {
+      alert('비밀번호와 비밀번호확인은 같아야 합니다.');
+    } else if (!isValidEmail(signUpEmail)) {
+      alert('올바른 이메일 형식이 아닙니다.');
+    } else if (!isValidPhone(signUpPhone)) {
+      alert('올바른 전화번호 형식이 아닙니다.');
+    }
+  };
+
   const signUpRegister = () => {
     fetch('http://10.58.5.43/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        account: signUpInfo.signUpId,
-        password: signUpInfo.signUpPw,
-        email: signUpInfo.signUpEmail,
-        phone: signUpInfo.signUpPhone,
-        nickname: signUpInfo.signUpNick,
+        account: signUpId,
+        password: signUpPw,
+        email: signUpEmail,
+        phone: signUpPhone,
+        nickname: signUpNick,
       }),
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ACCOUNT ALREADY EXISTS') {
+          alert('중복된 아이디입니다!');
+        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
+          alert('중복된 닉네임입니다!');
+        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
+          alert('중복된 이메일입니다!');
+        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
+          alert('중복된 휴대폰번호입니다!');
+        }
+      });
   };
 
   return (
     <div className="signUpBaeminSurvival">
-      <div className="signUpForm">
+      <form className="signUpForm" onSubmit={signUpValidation}>
         <header className="signUpHeader">
           <h1 className="info">기본정보</h1>
           <h4 className="sideInfo">
@@ -42,7 +106,6 @@ function SignUp() {
           </h4>
         </header>
         <SignUpInputList
-          // signup={SIGNUP_INPUT_DATA}
           setSignupInfo={setSignUpInfo}
           signupInfo={signUpInfo}
         />
@@ -54,7 +117,7 @@ function SignUp() {
             회원가입
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
