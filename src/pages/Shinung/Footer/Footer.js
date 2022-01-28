@@ -7,7 +7,7 @@ const Footer = () => {
       <img alt="logo" src="/images/Shinung/logo.png" className="companyLogo" />
       <div className="footerInfo">
         <p className="companyTitle">
-          상호 : (주)배민서바이벌 대표 : 나지현, 주지홍, 최희택, 임채현, 힌신웅
+          상호 : (주)배민서바이벌 대표 : 임채현, 주지홍, 최희택, 힌신웅
         </p>
         <p className="companyNumber">
           사업자등록번호 : 123-45-67890 통신판매업신고번호 : 2022-서울강남-7777
