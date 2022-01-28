@@ -1,4 +1,4 @@
-const CATEGORY = [
+const CATEGORIES = [
   {
     id: 1,
     title: '전체',
@@ -41,4 +41,4 @@ const CATEGORY = [
   },
 ];
 
-export default CATEGORY;
+export default CATEGORIES;

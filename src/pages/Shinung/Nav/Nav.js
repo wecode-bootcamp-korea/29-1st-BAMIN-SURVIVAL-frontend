@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CATEGORY from './CategoryData';
+import CATEGORIES from './CategoryData';
 import Category from './Category';
 // import RecentSearch from './RecentSearch/RecentSearch';
 import './Nav.scss';
@@ -9,9 +9,7 @@ import Search from './Search';
 
 const Nav = () => {
   const [searchInput, setSearchInput] = useState(true);
-  const [cartCount, setCartCount] = useState(100);
   // const [modal, setModal] = useState(false);
-  const [categories, setCategories] = useState(CATEGORY);
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setSearchInput(false) : setSearchInput(true);
@@ -28,7 +26,7 @@ const Nav = () => {
     <div className="nav">
       <div className="navTop">
         <div className="userInfo">
-          <UserInfo cartCount={cartCount} />
+          <UserInfo />
         </div>
       </div>
 
@@ -49,8 +47,8 @@ const Nav = () => {
 
       <div className="navBottom">
         <ul className="categoryList">
-          {categories.map((category, i) => (
-            <Category category={category} key={i} />
+          {CATEGORIES.map((CATEGORY, i) => (
+            <Category category={CATEGORY} key={i} />
           ))}
         </ul>
       </div>
