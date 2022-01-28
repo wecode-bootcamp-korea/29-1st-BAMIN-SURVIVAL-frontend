@@ -26,9 +26,3 @@ yarn-error.log*
 # 채현님
 src/pages/Shinung/Pages/LogIn
 
-# Routes
-.Routes.js
-
-.gitignore
-
-.variables.scss
