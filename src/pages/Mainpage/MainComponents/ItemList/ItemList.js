@@ -17,6 +17,7 @@ const ItemList = ({ items }) => {
             sale={item.sale}
             green={item.green}
             isInventoryStatus={item.inventoryStatus}
+            id={item.id}
           />
         );
       })}

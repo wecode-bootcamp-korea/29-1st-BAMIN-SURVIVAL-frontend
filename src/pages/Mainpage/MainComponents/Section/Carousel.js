@@ -38,14 +38,13 @@ const Carousel = ({ carouselItems }) => {
   const moveDot = idx => {
     setCurrentSlide(idx);
   };
-
   return (
     <section className="carousel">
       <div className="carouselContainer">
         {carouselItems.map((item, idx) => {
           return (
             <Link
-              to="/"
+              to={`/detailpage/${item.id}`}
               key={item.id}
               className={
                 currentSlide === idx ? 'slideItem slideActive' : 'slideItem'
@@ -65,7 +64,7 @@ const Carousel = ({ carouselItems }) => {
           <i className="far fa-arrow-alt-circle-right" />
         </button>
 
-        <Link to="/" className="slideDots">
+        <div className="slideDots">
           {carouselItems.map((item, idx) => (
             <div
               key={item.id}
@@ -73,7 +72,7 @@ const Carousel = ({ carouselItems }) => {
               className={currentSlide === idx ? 'dotActive' : 'dot'}
             />
           ))}
-        </Link>
+        </div>
       </div>
     </section>
   );

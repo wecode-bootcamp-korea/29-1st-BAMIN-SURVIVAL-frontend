@@ -10,6 +10,7 @@ const Item = ({
   green,
   discount,
   isInventoryStatus,
+  id,
 }) => {
   return (
     <div className="itemBox">
@@ -29,7 +30,7 @@ const Item = ({
           />
         ) : null}
       </div>
-      <Link to="/">
+      <Link to={`/detailpage/${id}`}>
         <div className="itemImgBox">
           <img
             className={isInventoryStatus ? 'itemImg' : 'soldoutImg'}
@@ -49,7 +50,7 @@ const Item = ({
       </Link>
       <div className="itemInfo">
         <span className="discountRate">{discount ? discount + '%' : null}</span>
-        <Link className="itemName" to="/">
+        <Link className="itemName" to={`/detailpage/${id}`}>
           {itemName}
         </Link>
         <span className={discount ? 'smallRegularPrice' : 'regularPrice'}>
