@@ -1,8 +1,14 @@
 import React from 'react';
-import Main from './pages/Jihong/Main';
+import { BrowserRouter, Routes } from 'react-router-dom';
+import Nav from './pages/Shinung/Nav/Nav';
 
-const Routes = () => {
-  return <Main />;
-};
+function Router() {
+  return (
+    <BrowserRouter>
+      <Nav />
+      <Routes />
+    </BrowserRouter>
+  );
+}
 
-export default Routes;
+export default Router;
