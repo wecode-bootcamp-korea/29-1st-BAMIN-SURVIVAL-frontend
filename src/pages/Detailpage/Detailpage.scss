@@ -1,214 +1,23 @@
 $blackColor: #333333;
 $tagColor: #717171;
 $mintColor: #2bc1bc;
-* {
-  box-sizing: border-box;
-}
-.detailWrraper {
+
+.detailWrraper2 {
+  width: 100%;
   height: 100%;
   min-height: 100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 118px;
+  padding-top: 40px;
+}
 
-  .productInfo {
-    font-size: 12px;
-    margin: 30px 150px 0 150px;
-    padding: 0 40px;
-    display: flex;
-    justify-content: center;
-
-    .InfoImgBox {
-      width: 470px;
-      height: 500px;
-
-      .productImg {
-        height: 100%;
-        cursor: pointer;
-      }
-    }
-
-    .InfoTextBox {
-      width: 500px;
-      display: flex;
-      flex-direction: column;
-      // border: 1px solid black;
-      margin-left: 40px;
-
-      .productName {
-        font-size: 30px;
-        font-weight: 700;
-        color: $blackColor;
-        padding-bottom: 25px;
-        height: 70px;
-      }
-
-      .productPriceBox {
-        padding: 4px 0;
-        height: 40px;
-        display: flex;
-        align-items: flex-start;
-
-        .pdPriceTag {
-          width: 100px;
-          font-size: 16px;
-          font-weight: 500;
-          color: $tagColor;
-          margin-right: 10px;
-        }
-
-        .pdOriginalPrice {
-          font-size: 16px;
-          font-weight: 500;
-          color: $blackColor;
-          text-decoration: line-through;
-        }
-
-        .pdPrice {
-          font-size: 21px;
-          font-weight: 800;
-          color: $blackColor;
-        }
-      }
-
-      .shippingInfoBox {
-        padding: 4px 0;
-        height: 56px;
-        display: flex;
-        align-items: flex-start;
-
-        .shippingInfo {
-          width: 100px;
-          font-size: 16px;
-          font-weight: 500;
-          color: $tagColor;
-          margin-right: 10px;
-        }
-        .shippingContents {
-          display: flex;
-          flex-direction: column;
-          color: $blackColor;
-
-          .content {
-            margin-bottom: 10px;
-          }
-        }
-      }
-      .quantityOptionBox {
-        width: 480px;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-        height: 60px;
-
-        .smallNameBox {
-          width: 273px;
-          padding: 23.5px 0 23.5px 20px;
-          font-size: 13px;
-          font-weight: 600;
-        }
-
-        .quantityInputBox {
-          padding: 13.5px 0;
-
-          .quantityInput {
-            width: 43px;
-            height: 33px;
-            padding: 0 5px;
-            color: $blackColor;
-            font-size: 12px;
-            line-height: 31px;
-            text-align: center;
-            outline-style: none;
-            outline: none;
-            border: 1px solid #ccc;
-            border-right: 0;
-          }
-        }
-
-        .countBtnBox {
-          display: flex;
-          flex-direction: column;
-          border-collapse: separate;
-          padding: 13.5px 17px 13.5px 0;
-
-          .increaseBtn {
-            background-image: url(../../../public/images/Jihong/btn_count_up.png);
-            width: 23px;
-            height: 17px;
-            border: 0 none;
-            text-indent: -9999px;
-            padding-top: 0;
-            padding-bottom: 0;
-            margin-top: -1px;
-          }
-
-          .decreaseBtn {
-            background-image: url(../../../public/images/Jihong/btn_count_down.png);
-            width: 23px;
-            height: 17px;
-            border: 0 none;
-            text-indent: -9999px;
-            padding-top: 0;
-            padding-bottom: 0;
-            margin: -1px 0;
-          }
-        }
-
-        .optionPriceBox {
-          font-size: 14px;
-          font-weight: 600;
-          padding: 22px 0 22px 20px;
-        }
-      }
-
-      .sizeOptionBox {
-        display: flex;
-        height: 49px;
-        padding: 10px 0 5px 0;
-        margin: 10px 0 0 0;
-
-        .optionInfo {
-          width: 100px;
-          font-size: 16px;
-          font-weight: 500;
-          color: $tagColor;
-          margin-right: 10px;
-          padding: 12px 0 8px 0;
-        }
-
-        .sizeSelect {
-          width: 370px;
-          font-size: 13px;
-          color: $blackColor;
-          padding-left: 8px;
-
-          .optionContents {
-          } //수정필요
-        }
-      }
-
-      .payBox {
-        width: 480px;
-        margin-top: 200px;
-        border-top: 1px solid #dbdbdb;
-        display: flex;
-        justify-content: space-between;
-
-        .ho {
-          font-weight: 500;
-          font-size: 16px;
-          color: $tagColor;
-        }
-
-        .ho2 {
-          font-weight: 800;
-          font-size: 36px;
-          color: $mintColor;
-          padding-right: 0;
-        }
-      }
-    }
-  }
+.detailWrraper {
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  margin: 0 auto;
+  position: absolute;
+  top: 202px;
+  padding-top: 40px;
 }

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Carousel from './MainComponents/Section/Carousel';
 import SortCategory from './MainComponents/Section/SortCategory';
 import ItemList from './MainComponents/ItemList/ItemList';
+import Nav from '../Nav/Nav';
 import './Main.scss';
 
 const Main = () => {
   const [items, setItems] = useState([]);
   const [carouselItems, setCarouselItems] = useState([]);
+  const [isMainScroll, setIsMainScroll] = useState(true);
 
   useEffect(() => {
     fetch('/data/Jihong/ItemListData.json', {
@@ -17,6 +19,13 @@ const Main = () => {
         setItems(data);
         setCarouselItems(data.filter(item => item.price > 70000).slice(0, 4));
       });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+    return () => {
+      window.removeEventListener('scroll', listenScrollEvent);
+    };
   }, []);
 
   const sortFucntion = e => {
@@ -41,17 +50,24 @@ const Main = () => {
     }
   };
 
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setIsMainScroll(false) : setIsMainScroll(true);
+  };
+
   return (
-    <main className="main">
-      <Carousel carouselItems={carouselItems} />
-      <SortCategory
-        totalNumberItems={items.length}
-        sortFucntion={sortFucntion}
-      />
-      <article className="article">
-        <ItemList items={items} />
-      </article>
-    </main>
+    <>
+      <Nav />
+      <main className={isMainScroll ? 'main' : 'mainWithNav'}>
+        <Carousel carouselItems={carouselItems} />
+        <SortCategory
+          totalNumberItems={items.length}
+          sortFucntion={sortFucntion}
+        />
+        <article className="article">
+          <ItemList items={items} />
+        </article>
+      </main>
+    </>
   );
 };
 

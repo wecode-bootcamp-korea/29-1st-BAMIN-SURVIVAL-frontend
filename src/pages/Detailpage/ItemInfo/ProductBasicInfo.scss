@@ -1,0 +1,63 @@
+$blackColor: #333333;
+$tagColor: #717171;
+
+.productName {
+  font-size: 30px;
+  font-weight: 700;
+  color: $blackColor;
+  padding-bottom: 25px;
+  height: 70px;
+}
+
+.productPriceBox {
+  padding: 4px 0;
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+
+  .pdPriceTag {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $tagColor;
+    margin-right: 10px;
+  }
+
+  .pdOriginalPrice {
+    font-size: 16px;
+    font-weight: 500;
+    color: $blackColor;
+    text-decoration: line-through;
+  }
+
+  .pdPrice {
+    font-size: 21px;
+    font-weight: 800;
+    color: $blackColor;
+  }
+}
+
+.shippingInfoBox {
+  padding: 4px 0;
+  height: 56px;
+  display: flex;
+  align-items: flex-start;
+
+  .shippingInfo {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $tagColor;
+    margin-right: 10px;
+  }
+  .shippingContents {
+    display: flex;
+    flex-direction: column;
+    color: $blackColor;
+
+    .content {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+  }
+}

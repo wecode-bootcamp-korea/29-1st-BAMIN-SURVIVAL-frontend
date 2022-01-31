@@ -11,7 +11,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -29,7 +29,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": ""
+    "options": ""
   },
   {
     "id": 3,
@@ -43,7 +43,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -61,7 +61,7 @@
     "sale": true,
     "discountRate": 30,
     "green": true,
-    "option": ""
+    "options": ""
   },
   {
     "id": 5,
@@ -75,7 +75,7 @@
     "sale": false,
     "discountRate": 0,
     "green": true,
-    "option": ""
+    "options": ""
   },
   {
     "id": 6,
@@ -89,7 +89,7 @@
     "sale": true,
     "discountRate": 30,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -107,7 +107,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -125,7 +125,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": ""
+    "options": ""
   },
   {
     "id": 9,
@@ -139,7 +139,7 @@
     "sale": true,
     "discountRate": 30,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -157,7 +157,7 @@
     "sale": true,
     "discountRate": 30,
     "green": false,
-    "option": ""
+    "options": ""
   },
   {
     "id": 11,
@@ -171,7 +171,7 @@
     "sale": true,
     "discountRate": 30,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }
@@ -189,7 +189,7 @@
     "sale": false,
     "discountRate": 0,
     "green": false,
-    "option": [
+    "options": [
       { "id": 1, "size": 1 },
       { "id": 2, "size": 2 },
       { "id": 3, "size": 3 }

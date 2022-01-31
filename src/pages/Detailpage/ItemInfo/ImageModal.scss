@@ -2,6 +2,7 @@ $blackColor: #333333;
 $tagColor: #717171;
 $mintColor: #2bc1bc;
 .modalWrraper {
+  z-index: 3;
   .modalBox {
     width: 100vw;
     height: 100vh;
@@ -48,7 +49,7 @@ $mintColor: #2bc1bc;
         padding: 37px 15px 15px 50px;
       }
 
-      .closeModal {
+      .closeModalBtn {
         background-color: transparent;
         border: 0;
         position: absolute;
@@ -56,6 +57,7 @@ $mintColor: #2bc1bc;
         right: 26px;
         font-size: 13px;
         color: #777777;
+        cursor: pointer;
       }
     }
   }

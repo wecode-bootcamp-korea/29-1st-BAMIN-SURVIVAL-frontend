@@ -13,7 +13,7 @@ const ImageModal = ({ itemName, itemImg, modal, toggleModal }) => {
               <span className="modalProductName">{itemName}</span>
             </h4>
             <img alt="제품이미지" className="modalProductImg" src={itemImg} />
-            <button className="closeModal" onClick={toggleModal}>
+            <button className="closeModalBtn" onClick={toggleModal}>
               닫기
             </button>
           </div>

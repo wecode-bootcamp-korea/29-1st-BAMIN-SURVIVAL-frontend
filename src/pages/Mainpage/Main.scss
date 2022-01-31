@@ -1,7 +1,19 @@
 .main {
-  height: 100vh;
-  min-height: 100px;
-  margin: 0 auto;
+  margin: auto auto 0 auto;
+  position: absolute;
+  top: 202px;
+  display: flex;
+  flex-direction: column;
+
+  .article {
+    margin: 30px 150px 0 150px;
+  }
+}
+
+.mainWithNav {
+  margin: auto auto 0 auto;
+  position: absolute;
+  top: 102px;
   display: flex;
   flex-direction: column;
 
