@@ -97,7 +97,7 @@ function SignUp() {
   };
 
   return (
-    <div className="signUpBaeminSurvival">
+    <div className="signUp">
       <form className="signUpForm" onSubmit={signUpValidation}>
         <header className="signUpHeader">
           <h1 className="info">기본정보</h1>
