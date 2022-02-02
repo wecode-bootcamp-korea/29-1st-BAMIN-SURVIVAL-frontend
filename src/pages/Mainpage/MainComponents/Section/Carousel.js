@@ -2,11 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Carousel.scss';
 
-const Carousel = ({ carouselItems }) => {
+const Carousel = ({ carouselProducts }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = carouselItems.length - 1;
+  const totalSlides = carouselProducts.length - 1;
   const timeoutRef = useRef(null);
-
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -41,20 +40,20 @@ const Carousel = ({ carouselItems }) => {
   return (
     <section className="carousel">
       <div className="carouselContainer">
-        {carouselItems.map((item, idx) => {
+        {carouselProducts.map((product, idx) => {
           return (
             <Link
-              to={`/detailpage/${item.id}`}
-              key={item.id}
+              to={`/detailpage/${product.id}`}
+              key={product.id}
               className={
                 currentSlide === idx ? 'slideItem slideActive' : 'slideItem'
               }
             >
               <img
-                key={item.id}
+                key={product.id}
                 className="slideImg"
                 alt="제품홍보이미지"
-                src={item.promotionImg}
+                src={product.promotion_img}
               />
             </Link>
           );
@@ -65,9 +64,9 @@ const Carousel = ({ carouselItems }) => {
         </button>
 
         <div className="slideDots">
-          {carouselItems.map((item, idx) => (
+          {carouselProducts.map((product, idx) => (
             <div
-              key={item.id}
+              key={product.id}
               onClick={() => moveDot(idx)}
               className={currentSlide === idx ? 'dotActive' : 'dot'}
             />

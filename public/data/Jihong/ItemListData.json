@@ -1,198 +1,212 @@
-[
-  {
-    "id": 1,
-    "itemName": "제품1",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 35000,
-    "description": "이 제품 좋아요 1",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-01",
-    "inventoryStatus": 300,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 2,
-    "itemName": "매거진F No.19 Whisky",
-    "itemImg": "/images/Jihong/sampleImg_5.jpeg",
-    "price": 34000,
-    "description": "이 제품 좋아요 2",
-    "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-02",
-    "inventoryStatus": 200,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": ""
-  },
-  {
-    "id": 3,
-    "itemName": "제품3",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 30000,
-    "description": "이 제품 좋아요 3",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-03",
-    "inventoryStatus": 100,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 4,
-    "itemName": "제품4",
-    "itemImg": "/images/Jihong/sampleImg_5.jpeg",
-    "price": 100000,
-    "description": "이 제품 좋아요 4",
-    "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-04",
-    "inventoryStatus": 100,
-    "sale": true,
-    "discountRate": 30,
-    "green": true,
-    "options": ""
-  },
-  {
-    "id": 5,
-    "itemName": "제품5",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 58000,
-    "description": "이 제품 좋아요 5",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-05",
-    "inventoryStatus": 0,
-    "sale": false,
-    "discountRate": 0,
-    "green": true,
-    "options": ""
-  },
-  {
-    "id": 6,
-    "itemName": "배달이친구들 케이블타이",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 60000,
-    "description": "이 제품 좋아요 6",
-    "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-06",
-    "inventoryStatus": 300,
-    "sale": true,
-    "discountRate": 30,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 7,
-    "itemName": "제품7",
-    "itemImg": "/images/Jihong/sampleImg_5.jpeg",
-    "price": 66000,
-    "description": "이 제품 좋아요 7",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-07",
-    "inventoryStatus": 200,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 8,
-    "itemName": "제품8",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 64000,
-    "description": "이 제품 좋아요 8",
-    "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-08",
-    "inventoryStatus": 100,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": ""
-  },
-  {
-    "id": 9,
-    "itemName": "제품9",
-    "itemImg": "/images/Jihong/sampleImg_5.jpeg",
-    "price": 70000,
-    "description": "이 제품 좋아요 9",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-09",
-    "inventoryStatus": 0,
-    "sale": true,
-    "discountRate": 30,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 10,
-    "itemName": "제품10",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 82000,
-    "description": "이 제품 좋아요 10",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-10",
-    "inventoryStatus": 300,
-    "sale": true,
-    "discountRate": 30,
-    "green": false,
-    "options": ""
-  },
-  {
-    "id": 11,
-    "itemName": "제품11",
-    "itemImg": "/images/Jihong/sampleImg_5.jpeg",
-    "price": 80000,
-    "description": "이 제품 좋아요 11",
-    "promotionImg": "/images/Jihong/samplePromotionImg_2.jpeg",
-    "updateDate": "2022-01-11",
-    "inventoryStatus": 300,
-    "sale": true,
-    "discountRate": 30,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  },
-  {
-    "id": 12,
-    "itemName": "제품12",
-    "itemImg": "/images/Jihong/sampleImg_6.jpeg",
-    "price": 80000,
-    "description": "이 제품 좋아요 12",
-    "promotionImg": "/images/Jihong/samplePromotionImg_1.jpeg",
-    "updateDate": "2022-01-12",
-    "inventoryStatus": 0,
-    "sale": false,
-    "discountRate": 0,
-    "green": false,
-    "options": [
-      { "id": 1, "size": 1 },
-      { "id": 2, "size": 2 },
-      { "id": 3, "size": 3 }
-    ]
-  }
-]
+{
+  "result": [
+    {
+      "id": 1,
+      "name": "제품1",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 35000,
+      "description": "이 제품 좋아요 1",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-01",
+      "stock": 300,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 35000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "매거진F No.19 Whisky",
+      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "price": 34000,
+      "description": "이 제품 좋아요 2",
+      "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
+      "update_date": "2022-01-02",
+      "stock": 200,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 35000,
+      "is_green": false,
+      "options": ""
+    },
+    {
+      "id": 3,
+      "name": "제품3",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 30000,
+      "description": "이 제품 좋아요 3",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-03",
+      "stock": 100,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 35000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "제품4",
+      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "price": 100000,
+      "description": "이 제품 좋아요 4",
+      "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
+      "update_date": "2022-01-04",
+      "stock": 100,
+      "is_sale": true,
+      "discount_rate": 30,
+      "discount_price": 70000,
+      "is_green": true,
+      "options": ""
+    },
+    {
+      "id": 5,
+      "name": "제품5",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 58000,
+      "description": "이 제품 좋아요 5",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-05",
+      "stock": 0,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 58000,
+      "is_green": true,
+      "options": ""
+    },
+    {
+      "id": 6,
+      "name": "배달이친구들 케이블타이",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 60000,
+      "description": "이 제품 좋아요 6",
+      "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
+      "update_date": "2022-01-06",
+      "stock": 300,
+      "is_sale": true,
+      "discount_rate": 30,
+      "discount_price": 42000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "제품7",
+      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "price": 66000,
+      "description": "이 제품 좋아요 7",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-07",
+      "stock": 200,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 66000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "제품8",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 64000,
+      "description": "이 제품 좋아요 8",
+      "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
+      "update_date": "2022-01-08",
+      "stock": 100,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 64000,
+      "is_green": false,
+      "options": ""
+    },
+    {
+      "id": 9,
+      "name": "제품9",
+      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "price": 70000,
+      "description": "이 제품 좋아요 9",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-09",
+      "stock": 0,
+      "is_sale": true,
+      "discount_rate": 30,
+      "discount_price": 49000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "제품10",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 82000,
+      "description": "이 제품 좋아요 10",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-10",
+      "stock": 300,
+      "is_sale": true,
+      "discount_rate": 30,
+      "discount_price": 57400,
+      "is_green": false,
+      "options": ""
+    },
+    {
+      "id": 11,
+      "name": "제품11",
+      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "price": 80000,
+      "description": "이 제품 좋아요 11",
+      "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
+      "update_date": "2022-01-11",
+      "stock": 300,
+      "is_sale": true,
+      "discount_rate": 30,
+      "discount_price": 56000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "제품12",
+      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "price": 80000,
+      "description": "이 제품 좋아요 12",
+      "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
+      "update_date": "2022-01-12",
+      "stock": 0,
+      "is_sale": false,
+      "discount_rate": 0,
+      "discount_price": 80000,
+      "is_green": false,
+      "options": [
+        { "id": 1, "size": 1 },
+        { "id": 2, "size": 2 },
+        { "id": 3, "size": 3 }
+      ]
+    }
+  ]
+}

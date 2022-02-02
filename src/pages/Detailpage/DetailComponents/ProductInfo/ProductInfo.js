@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import ProductBasicInfo from './ProductBasicInfo';
-import ProductBasicImg from './ProductBasicImg';
-import ProductOptionBox from './ProductOptionBox';
-import ImageModal from './ImageModal';
-import './ItemInfo.scss';
+import ProductBasicImg from '../ProductBasicImg/ProductBasicImg';
+import ProductBasicInfo from '../ProductBasicInfo/ProductBasicInfo';
+import ProductOptionBox from '../ProductOptionBox/ProductOptionBox';
+import ImageModal from '../ImageModal/ImageModal';
+import './ProductInfo.scss';
 
-const ItemInfo = ({
-  itemName,
-  itemImg,
+const ProductInfo = ({
+  name,
+  product_img,
   price,
-  discount,
+  discount_rate,
+  discount_price,
+  is_sale,
+  is_green,
   options,
   modal,
   setModal,
@@ -17,11 +20,9 @@ const ItemInfo = ({
 }) => {
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
-  const salePrice = discount ? price * (100 - discount) * 0.01 : price;
-
   const [saveOptions, setSaveOptions] = useState([]);
-
-  console.log(saveOptions.length);
+  const renderPriceCondition =
+    typeof quantityInput === 'number' && Number(quantityInput) > 0;
 
   const checkDupOption = e => {
     if (saveOptions.length > 0 && saveOptions.includes(e.target.value)) {
@@ -38,15 +39,31 @@ const ItemInfo = ({
     setQuantityInput(e.target.value);
   };
 
-  const renderPriceCondition =
-    Number(quantityInput) && Number(quantityInput) > 0;
+  const onBlur = () => {
+    Number(quantityInput) > 0
+      ? setQuantityInput(Number(quantityInput))
+      : setQuantityInput(1, alertMessage());
+  };
+
+  const checkNumber = () => {
+    typeof quantityInput === 'string' && Number(quantityInput) > 0
+      ? setQuantityInput(Number(quantityInput))
+      : setQuantityInput(1, alertMessage());
+  };
 
   const alertMessage = () => {
     alert('최소수량은 1이상입니다.');
   };
 
-  const sumPrice = (quantityInput, salePrice) => {
-    return quantityInput * salePrice;
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      checkNumber();
+      return;
+    }
+  }
+
+  const sumPrice = (quantityInput, discount_price) => {
+    return quantityInput * discount_price;
   };
 
   const onClick = e => {
@@ -63,23 +80,13 @@ const ItemInfo = ({
       return;
     }
   };
-  const checkNumber = () => {
-    Number(quantityInput) && Number(quantityInput) > 0
-      ? sumPrice(quantityInput, salePrice)
-      : setQuantityInput(1, alertMessage());
-  };
 
-  function handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      checkNumber();
-    }
-  }
   return (
     <article className="productInfo">
-      <ProductBasicImg itemImg={itemImg} toggleModal={toggleModal} />
+      <ProductBasicImg product_img={product_img} toggleModal={toggleModal} />
       <ImageModal
-        itemName={itemName}
-        itemImg={itemImg}
+        name={name}
+        product_img={product_img}
         modal={modal}
         setModal={setModal}
         toggleModal={toggleModal}
@@ -87,10 +94,10 @@ const ItemInfo = ({
 
       <div className="InfoTextBox">
         <ProductBasicInfo
-          itemName={itemName}
-          discount={discount}
+          name={name}
           price={price}
-          salePrice={salePrice}
+          discount_rate={discount_rate}
+          discount_price={discount_price}
         />
         {options.length ? (
           <>
@@ -105,10 +112,10 @@ const ItemInfo = ({
                 <option className="optionContents" value="">
                   사이즈를 선택해주세요
                 </option>
-                {options.map((option, id) => (
+                {options.map(option => (
                   <option
                     className="optionContents"
-                    key={id}
+                    key={option.id}
                     value={option.size}
                   >
                     {option.size}
@@ -120,27 +127,29 @@ const ItemInfo = ({
             {saveOptions.map((option, idx) => (
               <ProductOptionBox
                 key={idx}
-                itemName={itemName + option}
+                name={name + option}
                 handleQuantityInput={handleQuantityInput}
                 handleKeyPress={handleKeyPress}
-                quantityInput={quantityInput}
                 onClick={onClick}
+                onBlur={onBlur}
                 renderPriceCondition={renderPriceCondition}
+                discount_price={discount_price}
+                quantityInput={quantityInput}
                 sumPrice={sumPrice}
-                salePrice={salePrice}
               />
             ))}
           </>
         ) : (
           <ProductOptionBox
-            itemName={itemName}
+            name={name}
             handleQuantityInput={handleQuantityInput}
             handleKeyPress={handleKeyPress}
-            quantityInput={quantityInput}
             onClick={onClick}
+            onBlur={onBlur}
             renderPriceCondition={renderPriceCondition}
+            discount_price={discount_price}
+            quantityInput={quantityInput}
             sumPrice={sumPrice}
-            salePrice={salePrice}
           />
         )}
 
@@ -149,8 +158,9 @@ const ItemInfo = ({
             <span className="payTitle">총 합계 금액</span>
             <span className="payPrice">
               {renderPriceCondition
-                ? sumPrice(quantityInput, salePrice).toLocaleString() + '원'
-                : salePrice.toLocaleString() + '원'}
+                ? sumPrice(quantityInput, discount_price).toLocaleString() +
+                  '원'
+                : discount_price.toLocaleString() + '원'}
             </span>
           </div>
         ) : null}
@@ -160,8 +170,9 @@ const ItemInfo = ({
             <span className="payTitle">총 합계 금액</span>
             <span className="payPrice">
               {renderPriceCondition
-                ? sumPrice(quantityInput, salePrice).toLocaleString() + '원'
-                : salePrice.toLocaleString() + '원'}
+                ? sumPrice(quantityInput, discount_price).toLocaleString() +
+                  '원'
+                : discount_price.toLocaleString() + '원'}
             </span>
           </div>
         )}
@@ -178,4 +189,4 @@ const ItemInfo = ({
   );
 };
 
-export default ItemInfo;
+export default ProductInfo;

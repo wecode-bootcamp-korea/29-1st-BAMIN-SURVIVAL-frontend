@@ -2,8 +2,6 @@
   margin: auto auto 0 auto;
   position: absolute;
   top: 202px;
-  display: flex;
-  flex-direction: column;
 
   .article {
     margin: 30px 150px 0 150px;
@@ -14,10 +12,9 @@
   margin: auto auto 0 auto;
   position: absolute;
   top: 102px;
-  display: flex;
-  flex-direction: column;
 
   .article {
     margin: 30px 150px 0 150px;
+    padding-bottom: 60px;
   }
 }

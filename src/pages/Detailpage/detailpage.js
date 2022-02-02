@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemInfo from './ItemInfo/ItemInfo';
+import ProductInfo from './DetailComponents/ProductInfo/ProductInfo';
 import Nav from '../Nav/Nav';
 import './Detailpage.scss';
 
 const Detailpage = () => {
-  const [detailItems, setDetailItems] = useState([]);
+  const [productsData, setProductsData] = useState([]);
   const [isMainScroll, setIsMainScroll] = useState(true);
   const [modal, setModal] = useState(false);
   const { id } = useParams();
-  const detailItem = detailItems.filter(x => x.id === Number(id));
+  const productData = productsData.filter(x => x.id === Number(id));
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -20,7 +20,7 @@ const Detailpage = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setDetailItems(data);
+        setProductsData(data.result);
       });
   }, [id]);
 
@@ -39,17 +39,17 @@ const Detailpage = () => {
     <>
       <Nav />
       <main className={isMainScroll ? 'detailWrraper' : 'detailWrraper2'}>
-        {detailItem.map((item, id) => (
-          <ItemInfo
-            itemName={item.itemName}
-            itemImg={item.itemImg}
-            price={item.price}
-            key={id}
-            description={item.description}
-            discount={item.discountRate}
-            sale={item.sale}
-            green={item.green}
-            options={item.options}
+        {productData.map(product => (
+          <ProductInfo
+            key={product.id}
+            name={product.name}
+            product_img={product.product_img}
+            price={product.price}
+            discount_rate={product.discount_rate}
+            discount_price={product.discount_price}
+            is_sale={product.is_sale}
+            is_green={product.is_green}
+            options={product.options}
             modal={modal}
             setModal={setModal}
             toggleModal={toggleModal}

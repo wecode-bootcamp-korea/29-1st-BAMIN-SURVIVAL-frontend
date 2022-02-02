@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import Nav from '../Nav/Nav';
 import Carousel from './MainComponents/Section/Carousel';
 import SortCategory from './MainComponents/Section/SortCategory';
-import ItemList from './MainComponents/ItemList/ItemList';
-import Nav from '../Nav/Nav';
+import ProductsList from './MainComponents/ProductsList/ProductsList';
+import Footer from '../Footer/Footer';
 import './Main.scss';
 
 const Main = () => {
-  const [items, setItems] = useState([]);
-  const [carouselItems, setCarouselItems] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [carouselProducts, setCarouselProducts] = useState([]);
   const [isMainScroll, setIsMainScroll] = useState(true);
 
   useEffect(() => {
@@ -16,8 +17,10 @@ const Main = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setItems(data);
-        setCarouselItems(data.filter(item => item.price > 70000).slice(0, 4));
+        setCarouselProducts(
+          data.result.filter(x => x.price > 70000).slice(0, 4)
+        );
+        setProducts(data.result);
       });
   }, []);
 
@@ -29,23 +32,27 @@ const Main = () => {
   }, []);
 
   const sortFucntion = e => {
-    const recent = [...items].sort(function (a, b) {
-      let dateA = new Date(a.updateDate).getTime();
-      let dateB = new Date(b.updateDate).getTime();
+    const recent = [...products].sort(function (a, b) {
+      let dateA = new Date(a.update_date).getTime();
+      let dateB = new Date(b.update_date).getTime();
       return dateA < dateB ? 1 : -1;
     });
-    const ascend = [...items].sort((a, b) => a.price - b.price);
-    const decend = [...items].sort((a, b) => b.price - a.price);
+    const ascend = [...products].sort(
+      (a, b) => a.discount_price - b.discount_price
+    );
+    const decend = [...products].sort(
+      (a, b) => b.discount_price - a.discount_price
+    );
     if (e.target.innerText === '최신순') {
-      setItems(recent);
+      setProducts(recent);
       return;
     }
     if (e.target.innerText === '낮은가격순') {
-      setItems(ascend);
+      setProducts(ascend);
       return;
     }
     if (e.target.innerText === '높은가격순') {
-      setItems(decend);
+      setProducts(decend);
       return;
     }
   };
@@ -58,14 +65,15 @@ const Main = () => {
     <>
       <Nav />
       <main className={isMainScroll ? 'main' : 'mainWithNav'}>
-        <Carousel carouselItems={carouselItems} />
+        <Carousel carouselProducts={carouselProducts} />
         <SortCategory
-          totalNumberItems={items.length}
+          totalNumberItems={products.length}
           sortFucntion={sortFucntion}
         />
         <article className="article">
-          <ItemList items={items} />
+          <ProductsList products={products} />
         </article>
+        <Footer />
       </main>
     </>
   );

@@ -1,12 +1,12 @@
 import React from 'react';
 import './ProductBasicImg.scss';
 
-const ProductBasicImg = ({ itemImg, toggleModal }) => {
+const ProductBasicImg = ({ product_img, toggleModal }) => {
   return (
     <div className="InfoImgBox">
       <img
         className="productImg"
-        src={itemImg}
+        src={product_img}
         alt="제품이미지"
         onClick={toggleModal}
       />

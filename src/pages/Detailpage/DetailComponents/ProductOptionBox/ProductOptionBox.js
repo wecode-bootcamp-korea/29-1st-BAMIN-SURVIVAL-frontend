@@ -1,18 +1,19 @@
 import React from 'react';
 
 const ProductOptionBox = ({
-  itemName,
+  name,
   handleQuantityInput,
   handleKeyPress,
-  quantityInput,
   onClick,
+  onBlur,
   renderPriceCondition,
+  discount_price,
+  quantityInput,
   sumPrice,
-  salePrice,
 }) => {
   return (
     <div className="quantityOptionBox">
-      <div className="smallNameBox">{itemName}</div>
+      <div className="smallNameBox">{name}</div>
       <div className="quantityInputBox">
         <input
           className="quantityInput"
@@ -20,6 +21,7 @@ const ProductOptionBox = ({
           name="quantity"
           onChange={handleQuantityInput}
           onKeyPress={handleKeyPress}
+          onBlur={onBlur}
           value={quantityInput}
           min="1"
         />
@@ -39,8 +41,8 @@ const ProductOptionBox = ({
       </div>
       <div className="optionPriceBox">
         {renderPriceCondition
-          ? sumPrice(quantityInput, salePrice).toLocaleString() + '원'
-          : salePrice.toLocaleString() + '원'}
+          ? sumPrice(quantityInput, discount_price).toLocaleString() + '원'
+          : discount_price.toLocaleString() + '원'}
       </div>
     </div>
   );
