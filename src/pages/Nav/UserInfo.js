@@ -35,7 +35,7 @@ const UserInfo = () => {
       )}
 
       <li>
-        <Link to="/mypage" className="myPage">
+        <Link to="/mypage" className="myPages">
           마이페이지
         </Link>
         <span className="txtBar" />
