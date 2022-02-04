@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductInfo from './DetailComponents/ProductInfo/ProductInfo';
+import ProductDetail from './DetailComponents/ProductDetail/ProductDetail';
 import Nav from '../Nav/Nav';
 import './Detailpage.scss';
 
@@ -9,7 +10,6 @@ const Detailpage = () => {
   const [isMainScroll, setIsMainScroll] = useState(true);
   const [modal, setModal] = useState(false);
   const { id } = useParams();
-
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -40,13 +40,16 @@ const Detailpage = () => {
       <Nav />
       <main className={isMainScroll ? 'detailWrraper' : 'detailWrraper2'}>
         {productData.map(product => (
-          <ProductInfo
-            product={product}
-            key={product.id}
-            modal={modal}
-            setModal={setModal}
-            toggleModal={toggleModal}
-          />
+          <>
+            <ProductInfo
+              product={product}
+              key={product.id}
+              modal={modal}
+              setModal={setModal}
+              toggleModal={toggleModal}
+            />
+            <ProductDetail description={product.description} key={product.id} />
+          </>
         ))}
       </main>
     </>
