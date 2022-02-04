@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MyPage.scss';
 import Footer from '../Footer/Footer';
-import MyPageHeader from './myPageHeader';
+import MyPageHeader from './MyPageHeader';
+import RecentOrder from './RecentOrder';
 
 const MyPage = () => {
+  const [recentOrders, setRecentOrders] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/MyPage/ORDER_DATA.json')
+      .then(res => res.json())
+      .then(res => setRecentOrders(res));
+  }, []);
+
   return (
     <div className="myPage">
       <main className="myPageMain">
@@ -27,9 +36,32 @@ const MyPage = () => {
             </thead>
             <tbody>
               <tr>
-                <td colSpan="5">
-                  <p className="noData">조회내역이 없습니다.</p>
-                </td>
+                {recentOrders.map(data => {
+                  const {
+                    id,
+                    date,
+                    order_number,
+                    image_url,
+                    name,
+                    option,
+                    price,
+                    quantity,
+                    order_state,
+                  } = data;
+                  return (
+                    <RecentOrder
+                      key={id}
+                      date={date}
+                      orderNumber={order_number}
+                      img={image_url}
+                      name={name}
+                      option={option}
+                      price={price}
+                      quantity={quantity}
+                      orderState={order_state}
+                    />
+                  );
+                })}
               </tr>
             </tbody>
           </table>

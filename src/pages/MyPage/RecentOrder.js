@@ -1,4 +1,5 @@
 import React from 'react';
+import './RecentOrder.scss';
 
 const RecentOrder = props => {
   const { date, orderNumber, img, name, option, price, quantity, orderState } =
@@ -16,7 +17,7 @@ const RecentOrder = props => {
       </td>
       <td className="priceQuantity">
         <span>{price}원/ </span>
-        <span>{quantity}</span>
+        <span>{quantity}개</span>
       </td>
       <td className="orderState">
         <p>{orderState}</p>
