@@ -10,26 +10,25 @@
 
   {
     "id": 1,
-    "name": "돈봉투. 골드에디션 효도"
-    "shipping":
-    "price":
-    "is_green":
-    "is_sale":
-    "category_id":
-    "stock":
-    "discount_price":
-    "discount_rate":
+    "name": "돈봉투. 골드에디션 효도",
+    "image_url": "https://store.baemin.com/data/goods/19/10/43/196/196_detail_08.png",
+    "shipping": "2,500",
+    "price": "3,500",
+    "is_green": false,
+    "is_sale": true,
+    "category_id": 230,
+    "stock": 750,
+    "discount_price": "2,450",
+    "discount_rate": "30%"
   },
 
   {
-    "date":
-    "order_number":
-    "name":
-    "option":
-    "price":
-    "quantity":
-    "order_state":
-    "confirm":
-    "review":
+    "date": "2022.02.04",
+    "order_number": "1238903589",
+    "name": "돈봉투. 골드에디션 효도",
+    "option": "",
+    "price": "2,450",
+    "quantity": 1,
+    "order_state": "결제완료(택배)"
   }
 ]

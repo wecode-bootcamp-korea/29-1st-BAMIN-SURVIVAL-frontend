@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.myPageHeader {
+  margin-bottom: 50px;
+
+  .niceToMeetYou {
+    font-family: 'BMHANNAPro';
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .point {
+    margin-bottom: 30px;
+  }
+
+  .memberGrade {
+    font-size: 18px;
+  }
+}

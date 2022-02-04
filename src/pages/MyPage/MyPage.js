@@ -1,19 +1,13 @@
 import React from 'react';
 import './MyPage.scss';
 import Footer from '../Footer/Footer';
+import MyPageHeader from './myPageHeader';
 
 const MyPage = () => {
   return (
     <div className="myPage">
       <main className="myPageMain">
-        <div className="myPageHeader">
-          <p className="niceToMeetYou">반가워요,</p>
-          <p className="point">포인트</p>
-          <div className="memberGrade">
-            <p>임채현님의</p>
-            <p>회원등급은 일반회원그룹 입니다.</p>
-          </div>
-        </div>
+        <MyPageHeader />
         <div className="recentOrderInfo">
           <div className="recentTitle">
             <h3>
@@ -25,7 +19,7 @@ const MyPage = () => {
             <thead>
               <tr>
                 <th>날짜/주문번호</th>
-                <th className="productName">상품명/옵션</th>
+                <th>상품명/옵션</th>
                 <th>상품금액/수량</th>
                 <th>주문상태</th>
                 <th>확인/리뷰</th>
