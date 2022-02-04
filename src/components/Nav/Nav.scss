@@ -8,17 +8,19 @@ a {
 .nav {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  // align-items: center;
+  align-items: center;
   position: fixed;
   top: 0px;
   width: 100%;
+  z-index: 2;
+  background-color: white;
 
   /* Nav Top */
   .navTop {
+    width: 100%;
     display: flex;
     justify-content: center;
-    height: 45px; //45
+    height: 45px;
     border-bottom: 1px solid $borderColor;
 
     .userInfo {
@@ -30,7 +32,6 @@ a {
       .userInfoList {
         height: 40px;
         display: flex;
-        // justify-content: center;
         align-items: center;
 
         a,
@@ -58,14 +59,15 @@ a {
 
   /* Nav Middle */
   .navMiddle {
+    width: 1100px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
 
     .nothing {
       width: 267px;
-      background-color: yellow;
+      height: 10px;
     }
 
     .navLogo {
@@ -79,7 +81,7 @@ a {
         border: none;
         padding: 7px;
         font-size: 15px;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
       }
       .searchInput:focus {
         outline: none;
@@ -114,6 +116,7 @@ a {
 
   /* Nav Bottom */
   .navBottom {
+    width: 100%;
     margin-top: 20px;
     border-bottom: 1px solid $borderColor;
     height: 37px;
