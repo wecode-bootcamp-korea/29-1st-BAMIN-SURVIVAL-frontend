@@ -1,3 +1,12 @@
 $mintColor: #2bc1bc;
 $textColor: #6d6d6d;
 $lightgreyColor: #f5f5f5;
+$greyBorderColor: #dedede;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} ;
