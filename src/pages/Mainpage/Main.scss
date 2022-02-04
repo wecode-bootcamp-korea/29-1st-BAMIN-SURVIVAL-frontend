@@ -1,0 +1,11 @@
+.main {
+  height: 100vh;
+  min-height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .article {
+    margin: 30px 150px 0 150px;
+  }
+}
