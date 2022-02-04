@@ -38,7 +38,9 @@ const Nav = () => {
 
       {searchInput || (
         <div className="scrollLogo">
-          <img alt="logo" src="/images/Shinung/logo.png" className="scroll" />
+          <Link to="/">
+            <img alt="logo" src="/images/Shinung/logo.png" className="scroll" />
+          </Link>
         </div>
       )}
 
