@@ -12,15 +12,13 @@ const Main = () => {
   const [isMainScroll, setIsMainScroll] = useState(true);
 
   useEffect(() => {
-    fetch('/data/Jihong/ItemListData.json', {
+    fetch('http://localhost:3003/result', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setCarouselProducts(
-          data.result.filter(x => x.price > 70000).slice(0, 4)
-        );
-        setProducts(data.result);
+        setProducts(data);
+        setCarouselProducts(data.filter(x => x.price > 70000).slice(0, 4));
       });
   }, []);
 

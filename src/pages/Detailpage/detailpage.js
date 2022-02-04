@@ -5,22 +5,22 @@ import Nav from '../Nav/Nav';
 import './Detailpage.scss';
 
 const Detailpage = () => {
-  const [productsData, setProductsData] = useState([]);
+  const [productData, setProductData] = useState([]);
   const [isMainScroll, setIsMainScroll] = useState(true);
   const [modal, setModal] = useState(false);
   const { id } = useParams();
-  const productData = productsData.filter(x => x.id === Number(id));
+
   const toggleModal = () => {
     setModal(!modal);
   };
 
   useEffect(() => {
-    fetch(`/data/Jihong/ItemListData.json?id=${id}`, {
+    fetch(`http://localhost:3003/result?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setProductsData(data.result);
+        setProductData(data);
       });
   }, [id]);
 
@@ -41,15 +41,8 @@ const Detailpage = () => {
       <main className={isMainScroll ? 'detailWrraper' : 'detailWrraper2'}>
         {productData.map(product => (
           <ProductInfo
+            product={product}
             key={product.id}
-            name={product.name}
-            product_img={product.product_img}
-            price={product.price}
-            discount_rate={product.discount_rate}
-            discount_price={product.discount_price}
-            is_sale={product.is_sale}
-            is_green={product.is_green}
-            options={product.options}
             modal={modal}
             setModal={setModal}
             toggleModal={toggleModal}

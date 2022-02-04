@@ -1,10 +1,11 @@
 import React from 'react';
+import './ProductOptionBox.scss';
 
 const ProductOptionBox = ({
+  onClick,
   name,
   handleQuantityInput,
   handleKeyPress,
-  onClick,
   onBlur,
   renderPriceCondition,
   discount_price,
@@ -23,7 +24,6 @@ const ProductOptionBox = ({
           onKeyPress={handleKeyPress}
           onBlur={onBlur}
           value={quantityInput}
-          min="1"
         />
       </div>
       <div className="countBtnBox">
@@ -33,8 +33,8 @@ const ProductOptionBox = ({
         <button
           title="감소"
           className="decreaseBtn"
-          onClick={onClick}
           disabled={Number(quantityInput) === 1}
+          onClick={onClick}
         >
           감소
         </button>

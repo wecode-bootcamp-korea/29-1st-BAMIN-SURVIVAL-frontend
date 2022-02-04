@@ -43,7 +43,7 @@ const Carousel = ({ carouselProducts }) => {
         {carouselProducts.map((product, idx) => {
           return (
             <Link
-              to={`/detailpage/${product.id}`}
+              to={`/products/${product.id}`}
               key={product.id}
               className={
                 currentSlide === idx ? 'slideItem slideActive' : 'slideItem'

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "제품1",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 35000,
       "description": "이 제품 좋아요 1",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -13,16 +13,13 @@
       "discount_rate": 0,
       "discount_price": 35000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": false
     },
     {
       "id": 2,
       "name": "매거진F No.19 Whisky",
-      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "img": "/images/Jihong/sampleImg_5.jpeg",
       "price": 34000,
       "description": "이 제품 좋아요 2",
       "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
@@ -32,12 +29,13 @@
       "discount_rate": 0,
       "discount_price": 35000,
       "is_green": false,
-      "options": ""
+      "options": "",
+      "is_option": true
     },
     {
       "id": 3,
       "name": "제품3",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 30000,
       "description": "이 제품 좋아요 3",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -47,16 +45,13 @@
       "discount_rate": 0,
       "discount_price": 35000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": false
     },
     {
       "id": 4,
       "name": "제품4",
-      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "img": "/images/Jihong/sampleImg_5.jpeg",
       "price": 100000,
       "description": "이 제품 좋아요 4",
       "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
@@ -66,12 +61,13 @@
       "discount_rate": 30,
       "discount_price": 70000,
       "is_green": true,
-      "options": ""
+      "options": "",
+      "is_option": true
     },
     {
       "id": 5,
       "name": "제품5",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 58000,
       "description": "이 제품 좋아요 5",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -81,12 +77,13 @@
       "discount_rate": 0,
       "discount_price": 58000,
       "is_green": true,
-      "options": ""
+      "options": "",
+      "is_option": false
     },
     {
       "id": 6,
       "name": "배달이친구들 케이블타이",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 60000,
       "description": "이 제품 좋아요 6",
       "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
@@ -96,16 +93,13 @@
       "discount_rate": 30,
       "discount_price": 42000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": true
     },
     {
       "id": 7,
       "name": "제품7",
-      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "img": "/images/Jihong/sampleImg_5.jpeg",
       "price": 66000,
       "description": "이 제품 좋아요 7",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -115,16 +109,13 @@
       "discount_rate": 0,
       "discount_price": 66000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": true
     },
     {
       "id": 8,
       "name": "제품8",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 64000,
       "description": "이 제품 좋아요 8",
       "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
@@ -134,12 +125,13 @@
       "discount_rate": 0,
       "discount_price": 64000,
       "is_green": false,
-      "options": ""
+      "options": "",
+      "is_option": false
     },
     {
       "id": 9,
       "name": "제품9",
-      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "img": "/images/Jihong/sampleImg_5.jpeg",
       "price": 70000,
       "description": "이 제품 좋아요 9",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -149,16 +141,13 @@
       "discount_rate": 30,
       "discount_price": 49000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": true
     },
     {
       "id": 10,
       "name": "제품10",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 82000,
       "description": "이 제품 좋아요 10",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -168,12 +157,13 @@
       "discount_rate": 30,
       "discount_price": 57400,
       "is_green": false,
-      "options": ""
+      "options": "",
+      "is_option": true
     },
     {
       "id": 11,
       "name": "제품11",
-      "product_img": "/images/Jihong/sampleImg_5.jpeg",
+      "img": "/images/Jihong/sampleImg_5.jpeg",
       "price": 80000,
       "description": "이 제품 좋아요 11",
       "promotion_img": "/images/Jihong/samplePromotionImg_2.jpeg",
@@ -183,16 +173,13 @@
       "discount_rate": 30,
       "discount_price": 56000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": false
     },
     {
       "id": 12,
       "name": "제품12",
-      "product_img": "/images/Jihong/sampleImg_6.jpeg",
+      "img": "/images/Jihong/sampleImg_6.jpeg",
       "price": 80000,
       "description": "이 제품 좋아요 12",
       "promotion_img": "/images/Jihong/samplePromotionImg_1.jpeg",
@@ -202,11 +189,8 @@
       "discount_rate": 0,
       "discount_price": 80000,
       "is_green": false,
-      "options": [
-        { "id": 1, "size": 1 },
-        { "id": 2, "size": 2 },
-        { "id": 3, "size": 3 }
-      ]
+      "options": "",
+      "is_option": true
     }
   ]
 }
