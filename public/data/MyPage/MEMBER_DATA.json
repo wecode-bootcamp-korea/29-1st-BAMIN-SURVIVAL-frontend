@@ -1,0 +1,35 @@
+[
+  {
+    "id": "john9674",
+    "password": "dlacogus74!",
+    "nickname": "채봉이",
+    "email": "klqwrx7004@naver.com",
+    "phone": "01094768945",
+    "point": "100000"
+  },
+
+  {
+    "id": 1,
+    "name": "돈봉투. 골드에디션 효도"
+    "shipping":
+    "price":
+    "is_green":
+    "is_sale":
+    "category_id":
+    "stock":
+    "discount_price":
+    "discount_rate":
+  },
+
+  {
+    "date":
+    "order_number":
+    "name":
+    "option":
+    "price":
+    "quantity":
+    "order_state":
+    "confirm":
+    "review":
+  }
+]
