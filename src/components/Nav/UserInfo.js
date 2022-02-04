@@ -27,7 +27,7 @@ const UserInfo = () => {
         </li>
       ) : (
         <li>
-          <Link to="/signin" className="navSignUp">
+          <Link to="/signup" className="navSignUp">
             회원가입
           </Link>
           <span className="txtBar" />

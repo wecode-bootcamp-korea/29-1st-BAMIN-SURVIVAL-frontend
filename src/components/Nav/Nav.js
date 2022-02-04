@@ -7,6 +7,8 @@ import UserInfo from './UserInfo';
 import Search from './Search';
 
 const Nav = () => {
+  const [user, setUser] = useState([]);
+
   const [searchInput, setSearchInput] = useState(true);
 
   const listenScrollEvent = () => {
@@ -19,6 +21,10 @@ const Nav = () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
+
+  useEffect(() => {
+    fetch('');
+  }, [user]);
 
   return (
     <div className="nav">

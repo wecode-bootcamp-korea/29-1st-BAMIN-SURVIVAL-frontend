@@ -72,7 +72,7 @@ function SignUp() {
   };
 
   const signUpRegister = () => {
-    fetch('http://10.58.5.43/users/signup', {
+    fetch('http://13.125.227.39:8080/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,
