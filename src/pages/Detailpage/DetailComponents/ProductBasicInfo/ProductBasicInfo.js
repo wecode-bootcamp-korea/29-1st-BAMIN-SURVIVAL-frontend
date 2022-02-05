@@ -17,7 +17,9 @@ const ProductBasicInfo = ({ name, price, discount_rate, discount_price }) => {
       <div className="productPriceBox">
         <span className="pdPriceTag">판매가격</span>
         <span className="pdPrice">
-          {discount_price.toLocaleString() + '원'}
+          {typeof discount_price === 'number'
+            ? discount_price.toLocaleString() + '원'
+            : null}
         </span>
       </div>
 

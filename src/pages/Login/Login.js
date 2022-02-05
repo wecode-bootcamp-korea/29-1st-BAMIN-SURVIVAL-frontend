@@ -66,13 +66,13 @@ function Login() {
             </button>
           </div>
           <ul className="loginButtonBox">
-            <li className="signUp buttonList">
+            <li className="loginSignUp buttonList">
               <button className="buttonNoBorder">회원가입</button>
             </li>
-            <li className="findId buttonList">
+            <li className="loginFindId buttonList">
               <button className="buttonNoBorder">아이디 찾기</button>
             </li>
-            <li className="findPw buttonList">
+            <li className="loginFindPw buttonList">
               <button className="buttonNoBorder">비밀번호 찾기</button>
             </li>
           </ul>

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Nav from '../Nav/Nav';
 import Carousel from './MainComponents/Section/Carousel';
 import SortCategory from './MainComponents/Section/SortCategory';
 import ProductsList from './MainComponents/ProductsList/ProductsList';
-import Footer from '../Footer/Footer';
 import './Main.scss';
 
 const Main = () => {
@@ -21,14 +19,12 @@ const Main = () => {
         setCarouselProducts(data.filter(x => x.price > 70000).slice(0, 4));
       });
   }, []);
-
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent);
     return () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
-
   const sortFucntion = e => {
     const recent = [...products].sort(function (a, b) {
       let dateA = new Date(a.update_date).getTime();
@@ -60,20 +56,16 @@ const Main = () => {
   };
 
   return (
-    <>
-      <Nav />
-      <main className={isMainScroll ? 'main' : 'mainWithNav'}>
-        <Carousel carouselProducts={carouselProducts} />
-        <SortCategory
-          totalNumberItems={products.length}
-          sortFucntion={sortFucntion}
-        />
-        <article className="article">
-          <ProductsList products={products} />
-        </article>
-        <Footer />
-      </main>
-    </>
+    <main className={isMainScroll ? 'main' : 'mainWithNav'}>
+      <Carousel carouselProducts={carouselProducts} />
+      <SortCategory
+        totalNumberItems={products.length}
+        sortFucntion={sortFucntion}
+      />
+      <article className="article">
+        <ProductsList products={products} />
+      </article>
+    </main>
   );
 };
 

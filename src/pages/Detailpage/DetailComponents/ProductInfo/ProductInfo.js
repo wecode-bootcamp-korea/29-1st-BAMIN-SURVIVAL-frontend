@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import ProductBasicImg from '../ProductBasicImg/ProductBasicImg';
 import ProductBasicInfo from '../ProductBasicInfo/ProductBasicInfo';
 import ProductOptionBox from '../ProductOptionBox/ProductOptionBox';
@@ -15,6 +15,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
     is_option: product.is_option,
     qty: 1,
   });
+
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const renderPriceCondition =
