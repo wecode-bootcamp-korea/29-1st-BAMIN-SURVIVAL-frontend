@@ -66,7 +66,7 @@ function Login() {
             </button>
           </div>
           <ul className="loginButtonBox">
-            <li className="lginSignUp buttonList">
+            <li className="loginSignUp buttonList">
               <button className="buttonNoBorder">회원가입</button>
             </li>
             <li className="loginFindId buttonList">
