@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MyPage.scss';
 import MyPageHeader from './MyPageHeader';
-import RecentOrder from './RecentOrder';
+import RecentOrderList from './RecentOrderList';
 
 const MyPage = () => {
   const [recentOrders, setRecentOrders] = useState([]);
@@ -34,32 +34,7 @@ const MyPage = () => {
               </tr>
             </thead>
             <tbody>
-              {recentOrders.map(data => {
-                const {
-                  id,
-                  date,
-                  order_number,
-                  image_url,
-                  name,
-                  option,
-                  price,
-                  quantity,
-                  order_state,
-                } = data;
-                return (
-                  <RecentOrder
-                    key={id}
-                    date={date}
-                    orderNumber={order_number}
-                    img={image_url}
-                    name={name}
-                    option={option}
-                    price={price}
-                    quantity={quantity}
-                    orderState={order_state}
-                  />
-                );
-              })}
+              <RecentOrderList recentOrder={recentOrders} />
             </tbody>
           </table>
         </div>
