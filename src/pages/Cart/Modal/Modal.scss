@@ -120,9 +120,10 @@ $borderColor: #eaeaea;
 
       input {
         width: 50px;
-        height: 35px;
+        height: 34px;
         padding-left: 20px;
         border: 1px solid #cccccc;
+        transform: translateX(1px);
       }
 
       input:focus {
@@ -136,6 +137,7 @@ $borderColor: #eaeaea;
         height: 17px;
         background: url('../../../../public/images/Shinung/btn_count_up.png');
         margin: 1px 0;
+        transform: translateY(2px);
       }
 
       .countDown {
@@ -144,6 +146,7 @@ $borderColor: #eaeaea;
         width: 23px;
         height: 17px;
         background: url('../../../../public/images/Shinung/btn_count_down.png');
+        transform: translateY(-1px);
       }
     }
 

@@ -32,6 +32,7 @@ const CartList = ({ item, idx, items, setItems }) => {
           name={item.name}
           onChange={() => onCheck(item.id)}
           checked={item.is_check}
+          disabled={item.qty === 0 && true}
         />
       </td>
       <td className="productImage">
