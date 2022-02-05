@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './MyPage.scss';
-import Footer from '../Footer/Footer';
 import MyPageHeader from './MyPageHeader';
 import RecentOrder from './RecentOrder';
 
@@ -73,7 +72,6 @@ const MyPage = () => {
           <p className="noData">상품이 존재하지 않습니다.</p>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
