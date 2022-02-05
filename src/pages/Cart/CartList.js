@@ -19,7 +19,7 @@ const CartList = ({ item, idx, items, setItems }) => {
     const checkedItems = items.map(item => {
       if (item.qty === 0) {
         return { ...item, is_check: false };
-      } else return { ...item, is_check: true };
+      } else return { ...item };
     });
     setItems(checkedItems);
   }, [item.qty]);

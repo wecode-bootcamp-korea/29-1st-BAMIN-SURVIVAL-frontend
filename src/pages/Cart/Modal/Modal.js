@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Modal.scss';
 
 function Modal({ onClose, item, items, setItems }) {
@@ -8,7 +8,11 @@ function Modal({ onClose, item, items, setItems }) {
   const onSubmit = id => {
     const changeItem = items.map(item => {
       if (item.id === id) {
-        return { ...item, qty: quantity };
+        if (quantity > 0) {
+          return { ...item, qty: quantity, is_check: true };
+        } else {
+          return { ...item, qty: quantity };
+        }
       } else return item;
     });
     setItems(changeItem);
