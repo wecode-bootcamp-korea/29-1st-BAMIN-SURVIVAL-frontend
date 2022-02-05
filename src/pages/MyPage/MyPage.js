@@ -8,7 +8,7 @@ const MyPage = () => {
   const [recentOrders, setRecentOrders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/MyPage/ORDER_DATA.json')
+    fetch('http://localhost:3001/data/MyPage/ORDER_DATA.json')
       .then(res => res.json())
       .then(res => setRecentOrders(res));
   }, []);
