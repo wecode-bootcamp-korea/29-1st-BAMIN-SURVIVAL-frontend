@@ -8,7 +8,7 @@ const MyPage = () => {
   const [recentOrders, setRecentOrders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/data/MyPage/ORDER_DATA.json')
+    fetch('http://localhost:3000/data/MyPage/ORDER_DATA.json')
       .then(res => res.json())
       .then(res => setRecentOrders(res));
   }, []);
@@ -35,34 +35,32 @@ const MyPage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                {recentOrders.map(data => {
-                  const {
-                    id,
-                    date,
-                    order_number,
-                    image_url,
-                    name,
-                    option,
-                    price,
-                    quantity,
-                    order_state,
-                  } = data;
-                  return (
-                    <RecentOrder
-                      key={id}
-                      date={date}
-                      orderNumber={order_number}
-                      img={image_url}
-                      name={name}
-                      option={option}
-                      price={price}
-                      quantity={quantity}
-                      orderState={order_state}
-                    />
-                  );
-                })}
-              </tr>
+              {recentOrders.map(data => {
+                const {
+                  id,
+                  date,
+                  order_number,
+                  image_url,
+                  name,
+                  option,
+                  price,
+                  quantity,
+                  order_state,
+                } = data;
+                return (
+                  <RecentOrder
+                    key={id}
+                    date={date}
+                    orderNumber={order_number}
+                    img={image_url}
+                    name={name}
+                    option={option}
+                    price={price}
+                    quantity={quantity}
+                    orderState={order_state}
+                  />
+                );
+              })}
             </tbody>
           </table>
         </div>

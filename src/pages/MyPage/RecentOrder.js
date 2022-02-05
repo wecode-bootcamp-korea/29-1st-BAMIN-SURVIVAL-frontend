@@ -5,25 +5,25 @@ const RecentOrder = props => {
   const { date, orderNumber, img, name, option, price, quantity, orderState } =
     props;
   return (
-    <>
-      <td className="dateOrderNumber">
+    <tr className="recentOrder">
+      <td className="orderData dateOrderNumber">
         <p>{date}</p>
         <p>{orderNumber}</p>
       </td>
-      <td className="productNameOption">
+      <td className="orderData productNameOption">
         <img className="productImage" alt="상품이미지" src={img} />
-        <span>{name}/ </span>
-        <span>{option}</span>
+        <div>{name} / </div>
+        <div>{option}</div>
       </td>
-      <td className="priceQuantity">
-        <span>{price}원/ </span>
+      <td className="orderData priceQuantity">
+        <span className="price">{price}원 / </span>
         <span>{quantity}개</span>
       </td>
-      <td className="orderState">
+      <td className="orderData orderState">
         <p>{orderState}</p>
       </td>
-      <td className="confirmReview" />
-    </>
+      <td className="orderData confirmReview" />
+    </tr>
   );
 };
 

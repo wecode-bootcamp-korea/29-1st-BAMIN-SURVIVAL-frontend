@@ -1,3 +1,26 @@
-.productImage {
-  width: 50px;
+.recentOrder {
+  .orderData {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .productNameOption {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+
+    .productImage {
+      width: 38px;
+      margin-right: 10px;
+    }
+  }
+
+  .priceQuantity {
+    .price {
+      color: black;
+      font-weight: bold;
+    }
+  }
 }

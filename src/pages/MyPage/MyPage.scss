@@ -15,6 +15,7 @@
   align-items: center;
   margin-top: 250px;
   overflow: auto;
+  padding-bottom: 200px;
 
   .myPageMain {
     font-family: 'Noto Sans', sans-serif;
@@ -53,7 +54,6 @@
 
     .tableRecentOrder {
       width: 960px;
-      height: 186px;
       border-bottom: 1px solid #dbdbdb;
       margin-bottom: 50px;
 
@@ -75,15 +75,6 @@
       tbody {
         font-size: 13px;
         color: #777777;
-
-        td {
-          padding: 15px 10px 14px;
-
-          .noData {
-            padding: 50px 30px;
-            text-align: center;
-          }
-        }
       }
     }
   }
