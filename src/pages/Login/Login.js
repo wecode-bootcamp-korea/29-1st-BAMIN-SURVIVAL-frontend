@@ -44,7 +44,7 @@ function Login() {
       .then(res => res.json())
       .then(result => localStorage.setItem('token', result.JWT));
 
-    navigate('/main');
+    navigate('/all');
   };
 
   return (

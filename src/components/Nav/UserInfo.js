@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const UserInfo = () => {
   const handleLogOUt = () => {
-    sessionStorage.removeItem('token');
-    window.location.replace('/');
+    localStorage.removeItem('token');
+    // window.location.replace('/');
   };
 
   return (
     <ul className="userInfoList">
-      {sessionStorage.getItem('token') ? null : (
+      {localStorage.getItem('token') ? (
+        <li>
+          <span className="userName">리치</span>
+          <span className="userPoint">
+            <p className="pointImage">P</p>
+            1,000,000
+          </span>
+          <span className="txtBar" />
+        </li>
+      ) : (
         <li>
           <Link to="/login" className="logIn">
             로그인
@@ -18,7 +27,7 @@ const UserInfo = () => {
         </li>
       )}
 
-      {sessionStorage.getItem('token') ? (
+      {localStorage.getItem('token') ? (
         <li>
           <Link to="/" className="logOut" onClick={handleLogOUt}>
             로그아웃
