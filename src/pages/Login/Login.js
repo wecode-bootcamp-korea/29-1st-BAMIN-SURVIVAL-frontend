@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
@@ -31,6 +31,8 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const [test, setTest] = useState();
+
   const goToSignUp = e => {
     e.preventDefault();
 
@@ -42,10 +44,22 @@ function Login() {
       }),
     })
       .then(res => res.json())
-      .then(result => localStorage.setItem('token', result.JWT));
+      .then(result =>
+        localStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
+      )
+      .then(setTest('hello'))
+      .then(console.log('login'));
 
     navigate('/all');
   };
+
+  const [count, setCount] = useState(
+    () => JSON.parse(window.localStorage.getItem('token')) || 0
+  );
+
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   return (
     <div className="loginBaeminSurvival">

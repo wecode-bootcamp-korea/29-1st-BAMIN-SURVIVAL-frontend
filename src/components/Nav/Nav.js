@@ -7,8 +7,6 @@ import UserInfo from './UserInfo';
 import Search from './Search';
 
 const Nav = () => {
-  const [user, setUser] = useState([]);
-
   const [searchInput, setSearchInput] = useState(true);
 
   const listenScrollEvent = () => {
@@ -21,25 +19,6 @@ const Nav = () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    // if (token) {
-    //   fetch('http://13.125.227.39:8080/products/all', {
-    //     headers: {
-    //       Authorization: token,
-    //     },
-    //   })
-    //     .then(response => response.json())
-    //     .then(response => {
-    //       console.log(response.data);
-    //     });
-    // }
-    if (token) {
-      console.log(token);
-    }
-  }, []);
-
   return (
     <div className="nav">
       <div className="navTop">

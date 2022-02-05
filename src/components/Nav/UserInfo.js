@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const UserInfo = () => {
   const handleLogOUt = () => {
     localStorage.removeItem('token');
-    // window.location.replace('/');
+    window.location.replace('/');
   };
 
   return (
