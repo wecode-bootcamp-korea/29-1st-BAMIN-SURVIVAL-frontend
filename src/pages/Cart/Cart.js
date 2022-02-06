@@ -7,7 +7,8 @@ import TotalAmount from './TotalAmount';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
-  const checkedItem = items.filter(item => item.is_check === true);
+  const [inputCheck, setInputCheck] = useState(true);
+  const qtyZero = items.filter(item => item.qty === 0);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/Shinung/data.json')
@@ -16,6 +17,8 @@ const Cart = () => {
   }, []);
 
   const onDelete = () => {
+    const checkedItem = items.filter(item => item.is_check === true);
+
     if (
       window.confirm(
         `선택하신 ${checkedItem.length}개상품을 장바구니에서 삭제하시겠습니까?`
@@ -25,6 +28,41 @@ const Cart = () => {
       setItems(deleteItem);
     } else return;
   };
+
+  const handleAllCheck = () => {
+    const checkedItem = items.filter(item => item.is_check);
+    if (checkedItem.length === items.length) {
+      setItems(
+        items.map(item => {
+          return { ...item, is_check: !item.is_check };
+        })
+      );
+      setInputCheck(false);
+    } else if (checkedItem.length <= items.length) {
+      setItems(
+        items.map(item => {
+          return { ...item, is_check: true };
+        })
+      );
+      setInputCheck(true);
+    } else {
+      setItems(
+        items.map(item => {
+          return { ...item, is_check: false };
+        })
+      );
+    }
+  };
+
+  useEffect(() => {
+    const checkTrue = items.filter(item => item.is_check === true);
+
+    if (checkTrue.length === items.length) {
+      return setInputCheck(true);
+    } else if (checkTrue.length < items.length) {
+      return setInputCheck(false);
+    } else return;
+  }, [items]);
 
   return (
     <section className="cart">
@@ -46,7 +84,12 @@ const Cart = () => {
           <thead className="infoHeader">
             <tr>
               <th className="checkTitle">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={handleAllCheck}
+                  checked={inputCheck}
+                  disabled={qtyZero.length === items.length && true}
+                />
               </th>
               <th />
               <th className="optionTitle">상품 / 옵션 정보</th>

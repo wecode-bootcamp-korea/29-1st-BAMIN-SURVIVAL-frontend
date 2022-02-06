@@ -50,7 +50,7 @@ const CartList = ({ item, idx, items, setItems }) => {
             setIsOpen(true);
           }}
         >
-          옵션/수량변경
+          옵션 / 수량변경
         </button>
         {isOpen && (
           <Modal

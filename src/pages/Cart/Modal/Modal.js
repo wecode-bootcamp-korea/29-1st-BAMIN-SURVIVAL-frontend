@@ -30,8 +30,8 @@ function Modal({ onClose, item, items, setItems }) {
   };
 
   const onDecrease = () => {
-    if (quantity <= 0) {
-      setQuantity(0);
+    if (quantity <= 1) {
+      setQuantity(1);
     } else setQuantity(prev => prev - 1);
   };
 
