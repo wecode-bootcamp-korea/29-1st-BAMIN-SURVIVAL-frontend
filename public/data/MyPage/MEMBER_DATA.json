@@ -1,10 +1,8 @@
-[
-  {
-    "id": "john9674",
-    "password": "dlacogus74!",
-    "nickname": "채봉이",
-    "email": "klqwrx7004@naver.com",
-    "phone": "01094768945",
-    "point": "100000"
-  }
-]
+{
+  "id": "john9674",
+  "password": "dlacogus74!",
+  "nickname": "채봉이",
+  "email": "klqwrx7004@naver.com",
+  "phone": "01094768945",
+  "point": "100000"
+}

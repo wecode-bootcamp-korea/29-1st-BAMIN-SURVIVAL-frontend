@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './MyPage.scss';
-import MyPageHeader from './MyPageHeader';
-import RecentOrderList from './RecentOrderList';
+import MyPageHeader from './MyPageHeader/MyPageHeader';
+import RecentOrderList from './RecentOrderList/RecentOrderList';
+import NoDataOrder from './NoData/NoDataOrder';
+import NoDataProduct from './NoData/NoDataProduct';
 
 const MyPage = () => {
+  const [memberData, setMemberData] = useState({});
   const [recentOrders, setRecentOrders] = useState([]);
 
   useEffect(() => {
@@ -12,10 +15,18 @@ const MyPage = () => {
       .then(res => setRecentOrders(res));
   }, []);
 
+  useEffect(() => {
+    fetch('http://localhost:3000/data/MyPage/MEMBER_DATA.json')
+      .then(res => res.json())
+      .then(res => setMemberData(res));
+  }, []);
+
+  const isOrderExists = recentOrders.length > 0;
+
   return (
     <div className="myPage">
       <main className="myPageMain">
-        <MyPageHeader />
+        <MyPageHeader point={memberData.point} nickname={memberData.nickname} />
         <div className="recentOrderInfo">
           <div className="recentTitle">
             <h3>
@@ -34,17 +45,21 @@ const MyPage = () => {
               </tr>
             </thead>
             <tbody>
-              <RecentOrderList recentOrder={recentOrders} />
+              {isOrderExists ? (
+                <RecentOrderList recentOrder={recentOrders} />
+              ) : (
+                <NoDataOrder />
+              )}
             </tbody>
           </table>
         </div>
         <div className="productRecentSeen">
           <div className="recentTitle">
             <h3>
-              최근 본 상품<span>임채현님께서 본 최근 상품입니다.</span>
+              최근 본 상품<span>회원님께서 본 최근 상품입니다.</span>
             </h3>
           </div>
-          <p className="noData">상품이 존재하지 않습니다.</p>
+          <NoDataProduct />
         </div>
       </main>
     </div>

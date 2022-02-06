@@ -1,5 +1,5 @@
 import React from 'react';
-import RecentOrder from './RecentOrder';
+import RecentOrder from '../RecentOrder/RecentOrder';
 
 const RecentOrderList = ({ recentOrder }) => {
   return recentOrder.map(data => {

@@ -15,11 +15,26 @@
     margin-bottom: 30px;
   }
 
-  .point {
+  .pointText {
     margin-bottom: 30px;
+
+    .point {
+      margin-right: 5px;
+      color: #2bc1bc;
+    }
   }
 
   .memberGrade {
     font-size: 18px;
+
+    .nickText {
+      margin-bottom: 10px;
+
+      .nick {
+        font-family: 'BMHANNAPro';
+        font-size: 20px;
+        margin-right: 5px;
+      }
+    }
   }
 }

@@ -1,5 +1,18 @@
 [
   {
+    "id": 1,
+    "date": "2022.02.04",
+    "order_number": "1238903589",
+    "name": "돈봉투. 골드에디션 효도",
+    "image_url": "/images/MyPage/money.png",
+    "option": "",
+    "price": "2,450",
+    "quantity": 1,
+    "order_state": "결제완료(택배)"
+  },
+
+  {
+    "id": 2,
     "date": "2022.02.04",
     "order_number": "1238903589",
     "name": "돈봉투. 골드에디션 효도",
