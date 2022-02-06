@@ -45,13 +45,7 @@ const Cart = () => {
         })
       );
       setInputCheck(true);
-    } else {
-      setItems(
-        items.map(item => {
-          return { ...item, is_check: false };
-        })
-      );
-    }
+    } else return;
   };
 
   useEffect(() => {
