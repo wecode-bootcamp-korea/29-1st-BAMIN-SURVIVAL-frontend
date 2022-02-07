@@ -1,26 +1,30 @@
 @import '../../../../styles/variables.scss';
-
-.sortCategory {
-  height: 50px;
-  padding: 0 10px 0 10px;
-  margin: 30px 150px 0 150px;
+.wrrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 600;
+  justify-content: center;
+  .sortCategory {
+    width: 1200px;
+    height: 50px;
+    padding: 0 10px 0 10px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
 
-  .right {
-    .sortBtn {
-      all: unset;
-      margin-left: 50px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+    .right {
+      .sortBtn {
+        all: unset;
+        margin-left: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
 
-    .sortBtn:focus {
-      color: $mintColor;
+      .sortBtn:focus {
+        color: $mintColor;
+      }
     }
   }
 }

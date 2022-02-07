@@ -14,6 +14,7 @@ const Detailpage = () => {
   };
 
   const users = [
+    //상수데이터 활용
     {
       id: 1,
       username: '최희택',

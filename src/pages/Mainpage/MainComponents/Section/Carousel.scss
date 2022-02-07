@@ -10,8 +10,11 @@ $btnColor: #d6d6d6;
 $btnFocusColor: #bebebe;
 
 .carousel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   .carouselContainer {
-    width: 100%;
+    width: 1600px;
     height: 400px;
     position: relative;
     overflow: hidden;

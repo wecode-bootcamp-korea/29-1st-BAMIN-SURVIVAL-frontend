@@ -26,7 +26,7 @@ const Product = ({ product }) => {
           <img
             className={product.stock ? 'itemImg' : 'soldoutImg'}
             alt="제픔이미지"
-            src={product.img}
+            src="images/Jihong/sampleImg_5.jpeg"
           />
           <div className="soldoutStatus">
             {product.stock ? null : (

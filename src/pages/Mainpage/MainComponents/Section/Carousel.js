@@ -19,7 +19,7 @@ const Carousel = ({ carouselProducts }) => {
         setCurrentSlide(currentSlide =>
           currentSlide === totalSlides ? 0 : currentSlide + 1
         ),
-      1000
+      8000
     );
     return () => {
       resetTimeout();
