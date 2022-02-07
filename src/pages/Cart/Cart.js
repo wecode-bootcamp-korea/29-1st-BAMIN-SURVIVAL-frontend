@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import CartList from './CartList';
 import TotalAmount from './TotalAmount';
+import BASE_URL from '../Config';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -16,22 +17,22 @@ const Cart = () => {
       .then(result => setItems(result));
   }, []);
 
-  useEffect(() => {
-    let token = localStorage.getItem('token');
-    console.log(token);
+  // useEffect(() => {
+  //   let token = localStorage.getItem('token');
+  //   console.log(token);
 
-    fetch('http://10.58.4.21/cart', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: token,
-      },
-    })
-      .then(response => response.json())
-      .then(response => {
-        // console.log(response.data);
-      });
-  }, []);
+  //   fetch(`${BASE_URL}/cart`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: token,
+  //     },
+  //   })
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       // console.log(response.data);
+  //     });
+  // }, []);
 
   const onDelete = () => {
     const checkedItem = items.filter(item => item.is_check === true);
@@ -99,18 +100,20 @@ const Cart = () => {
     } else return;
   };
 
-  const allItemPurchase = () => {};
+  const allItemPurchase = () => {
+    navigate('/complete');
+  };
 
   return (
     <section className="cart">
       <div className="cartHeader">
         <div className="cartTitle">장바구니</div>
         <div className="cartProcess">
-          <span className="ProcessNow">01 장바구니</span>
+          <span className="cartNow">01 장바구니</span>
           <span>
             <i className="fas fa-chevron-right" />
           </span>
-          <span className="orderComplete">02 주문완료</span>
+          <span className="cartNext">02 주문완료</span>
         </div>
       </div>
 
