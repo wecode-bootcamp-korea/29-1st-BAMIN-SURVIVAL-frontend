@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserInfo = () => {
+const UserInfo = ({ cartCount }) => {
   const handleLogOUt = () => {
     sessionStorage.removeItem('token');
     window.location.replace('/');
@@ -42,11 +42,11 @@ const UserInfo = () => {
       </li>
 
       <li>
-        <Link to="/cart" className="myCart">
+        <Link to="/cart" className="cart">
           장바구니
         </Link>
       </li>
-      <span className="cartCount">100</span>
+      <span className="cartCount">{cartCount}</span>
     </ul>
   );
 };

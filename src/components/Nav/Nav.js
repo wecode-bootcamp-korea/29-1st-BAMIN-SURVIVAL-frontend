@@ -19,7 +19,6 @@ const Nav = () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
-
   return (
     <div className="nav">
       <div className="navTop">
@@ -38,7 +37,9 @@ const Nav = () => {
 
       {searchInput || (
         <div className="scrollLogo">
-          <img alt="logo" src="/images/Shinung/logo.png" className="scroll" />
+          <Link to="/">
+            <img alt="logo" src="/images/Shinung/logo.png" className="scroll" />
+          </Link>
         </div>
       )}
 
