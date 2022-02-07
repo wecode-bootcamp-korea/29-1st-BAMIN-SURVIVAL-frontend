@@ -1,0 +1,24 @@
+{
+  "reviewComments": [
+    {
+      "id": 1,
+      "userName": "최희택",
+      "comment": "이 제품 너무 좋습니다."
+    },
+    {
+      "id": 2,
+      "userName": "주지홍",
+      "comment": "이 제품 너무 별로에요."
+    },
+    {
+      "id": 3,
+      "userName": "한신웅",
+      "conmment": "이 제품 너무 짱이에요."
+    },
+    {
+      "id": 4,
+      "userName": "한신웅",
+      "conmment": "이 제품 너무 짱이에요."
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import Footer from './pages/Footer/Footer';
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} exact={true} />

@@ -1,7 +1,83 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './ProductDetail.scss';
+import CreateReview from '../CreateReview/CreateReview';
+import Review from '../Review/Review';
 
-const ProductDetail = () => {
+const ProductDetail = ({ users }) => {
+  const [writeReview, setWriteReview] = useState({
+    comment: '',
+    id: '',
+  });
+  const { comment, id } = writeReview;
+
+  const [userReviews, setUserReviews] = useState(users);
+
+  const nextId = useRef(5);
+  const nextUserName = useRef(5);
+
+  const reviewNum = userReviews.filter(x => x.comment.length > 0).length;
+
+  const [isRegisterBtnClick, setIsRegisterBtnClick] = useState(false);
+  const [isCorrectBtnClick, setIsCorrectBtnClick] = useState(false);
+
+  console.log(isRegisterBtnClick, isCorrectBtnClick);
+
+  const onCreateReview = () => {
+    const newReview = {
+      id: nextId.current,
+      username: nextUserName.current,
+      comment: comment,
+      commentdate: '2022.02.28',
+    };
+    setUserReviews([...userReviews, newReview]);
+    setWriteReview({
+      comment: '',
+    });
+    nextId.current += 1;
+    nextUserName.current += 1;
+    setIsRegisterBtnClick(!isRegisterBtnClick);
+    alert('등록이 완료되었습니다.');
+  };
+
+  const onChangeReview = e => {
+    const { name, value } = e.target;
+    setWriteReview({
+      ...writeReview,
+      [name]: value,
+    });
+  };
+
+  const onClick = () => {
+    setIsRegisterBtnClick(!isRegisterBtnClick);
+  };
+
+  const onUpdateReview = () => {
+    setUserReviews(
+      userReviews.map(x => (x.id === id ? { ...x, comment: comment } : x))
+    );
+    setWriteReview({
+      comment: '',
+      id: '',
+    });
+  };
+
+  const onRemoveReview = id => {
+    setUserReviews(userReviews.filter(x => x.id !== id));
+  };
+
+  const onModifyReview = user => {
+    setIsCorrectBtnClick(!isCorrectBtnClick);
+    setWriteReview({
+      username: user.username,
+      comment: user.comment,
+      id: user.id,
+    });
+  };
+
+  const btnStateReset = () => {
+    setIsRegisterBtnClick(false);
+    setIsCorrectBtnClick(false);
+  };
   return (
     <article className="productDetail">
       <div id="detail">
@@ -125,7 +201,6 @@ const ProductDetail = () => {
           </p>
         </div>
       </div>
-
       <div id="exchange">
         <div className="productDetailTab">
           <ul className="tabWrraper">
@@ -157,7 +232,7 @@ const ProductDetail = () => {
           </ul>
         </div>
         <div className="exchangeReturnInfo">
-          <h4 className="exchangeReturnInfoTitle">교환및 반품안내</h4>
+          <h4 className="exchangeReturnInfoTitle">교환 및 반품안내</h4>
           <p className="exchangeReturnInfoContent">· 배송사 : CJ대한통운</p>
           <p className="exchangeReturnInfoContent">
             · 주문 취소 및 배송지 변경은 “결제완료” 단계에서만 가능합니다.
@@ -179,7 +254,6 @@ const ProductDetail = () => {
           <p className="exchangeReturnInfoContent">· 배송사 : CJ대한통운</p>
         </div>
       </div>
-
       <div id="review">
         <div className="productDetailTab">
           <ul className="tabWrraper">
@@ -212,26 +286,41 @@ const ProductDetail = () => {
         </div>
         <div className="purchaseReview">
           <h4 className="purchaseReviewTitle">상품후기</h4>
-          <p className="writeBtn">상품후기 글쓰기</p>
-          <div className="purchaseInquiryContent">
+          <p className="writeBtn" onClick={onClick}>
+            상품후기 글쓰기
+          </p>
+          <div className="purchaseReviewContent">
             <table className="reviewTable">
               <thead>
-                <tr>
-                  <td className="noReview" colSpan="4">
-                    등록된 상품후기가 없습니다.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="reviewRate">제품명</td>
-                  <td className="reviewTitle">
-                    <span>너무좋아요</span>
-                  </td>
-                  <td className="reviewUser">제품명</td>
-                  <td className="reviewDate">제품명</td>
-                </tr>
+                {reviewNum ? (
+                  userReviews.map(user => (
+                    <Review
+                      key={user.id}
+                      user={user}
+                      onRemove={onRemoveReview}
+                      onModify={onModifyReview}
+                    />
+                  ))
+                ) : (
+                  <tr>
+                    <td className="noReview" colSpan="4">
+                      등록된 상품후기가 없습니다.
+                    </td>
+                  </tr>
+                )}
               </thead>
             </table>
           </div>
+          {isRegisterBtnClick || isCorrectBtnClick ? (
+            <CreateReview
+              onChange={onChangeReview}
+              onCreate={onCreateReview}
+              comment={comment}
+              onUpdate={onUpdateReview}
+              isRegisterBtnClick={isRegisterBtnClick}
+              btnStateReset={btnStateReset}
+            />
+          ) : null}
         </div>
       </div>
       <div id="inquiry">
@@ -266,7 +355,7 @@ const ProductDetail = () => {
         </div>
         <div className="purchaseInquiry">
           <h4 className="purchaseInquiryTitle">상품후기</h4>
-          <p className="writeBtn">상품후기 글쓰기</p>
+          <p className="writeBtn">상품문의 글쓰기</p>
           <div className="purchaseInquiryContent">
             <table className="qnaTable">
               <thead>
