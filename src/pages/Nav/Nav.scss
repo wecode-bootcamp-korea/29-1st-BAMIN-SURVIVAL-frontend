@@ -1,0 +1,153 @@
+@import '/src/styles/variables.scss';
+$borderColor: #eaeaea;
+
+a {
+  color: $textColor;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  // align-items: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+
+  /* Nav Top */
+  .navTop {
+    display: flex;
+    justify-content: center;
+    height: 45px; //45
+    border-bottom: 1px solid $borderColor;
+
+    .userInfo {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 1200px;
+
+      .userInfoList {
+        height: 40px;
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+
+        a,
+        .cartCount {
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        .cartCount {
+          margin: 4px 0 0 5px;
+          color: $mintColor;
+        }
+
+        .txtBar {
+          display: inline-block;
+          width: 1px;
+          height: 9px;
+          margin: 0 10px;
+          background: $borderColor;
+          vertical-align: 0px;
+        }
+      }
+    }
+  }
+
+  /* Nav Middle */
+  .navMiddle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+
+    .nothing {
+      width: 267px;
+      background-color: yellow;
+    }
+
+    .navLogo {
+      width: 160px;
+      cursor: pointer;
+    }
+
+    .search {
+      .searchInput {
+        width: 240px;
+        border: none;
+        padding: 7px;
+        font-size: 15px;
+        border-bottom: 2px solid black;
+      }
+      .searchInput:focus {
+        outline: none;
+      }
+
+      .searchIcon {
+        border: none;
+        background: transparent;
+
+        .fa-search {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .hideNavMiddle {
+    display: none;
+  }
+
+  .scrollLogo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll {
+    width: 160px;
+    cursor: pointer;
+    position: fixed;
+    top: 1px;
+  }
+
+  /* Nav Bottom */
+  .navBottom {
+    margin-top: 20px;
+    border-bottom: 1px solid $borderColor;
+    height: 37px;
+
+    .categoryList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 20px 0;
+
+      li {
+        padding: 0 25px 20px 25px;
+        cursor: pointer;
+
+        .categoryTitle {
+          color: black;
+        }
+
+        .categoryActive {
+          color: $mintColor;
+          font-weight: bold;
+          padding-bottom: 19px;
+          border-bottom: 1px solid $mintColor;
+        }
+        :hover {
+          color: black;
+        }
+      }
+
+      .active {
+        color: $mintColor;
+      }
+    }
+  }
+}

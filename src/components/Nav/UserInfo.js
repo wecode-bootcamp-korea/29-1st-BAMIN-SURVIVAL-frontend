@@ -20,7 +20,7 @@ const UserInfo = () => {
         </li>
       ) : (
         <li>
-          <Link to="/login" className="logIn">
+          <Link to="/login" className="navLogIn">
             로그인
           </Link>
           <span className="txtBar" />
