@@ -19,9 +19,6 @@ const ProductDetail = ({ users }) => {
 
   const [isRegisterBtnClick, setIsRegisterBtnClick] = useState(false);
   const [isCorrectBtnClick, setIsCorrectBtnClick] = useState(false);
-
-  console.log(isRegisterBtnClick, isCorrectBtnClick);
-
   const onCreateReview = () => {
     const newReview = {
       id: nextId.current,

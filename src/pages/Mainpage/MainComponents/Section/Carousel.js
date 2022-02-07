@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Carousel.scss';
 
 const Carousel = ({ carouselProducts }) => {
@@ -37,30 +37,26 @@ const Carousel = ({ carouselProducts }) => {
   const moveDot = idx => {
     setCurrentSlide(idx);
   };
+
   const navigate = useNavigate();
   const moveToDetail = id => {
-    // navigate(`/products/${id}`);
-    console.log(id);
+    navigate(`/products/${id}`);
   };
-  // console.log(carouselProducts);
+
   return (
     <section className="carousel">
       <div className="carouselContainer">
         {carouselProducts.map((product, idx) => {
-          // console.log(product.id);
           return (
-            // <Link to={`/products/${product.id}`} key={product.id}>
             <img
               key={product.id}
               className={
                 currentSlide === idx ? 'slideItem slideActive' : 'slideItem'
               }
               onClick={() => moveToDetail(product)}
-              // className="slideImg"
               alt="제품홍보이미지"
               src={product.promotion_img}
             />
-            // </Link>
           );
         })}
 
