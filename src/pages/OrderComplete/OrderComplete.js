@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './OrderComplete.scss';
 
 const OrderComplete = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="orderComplete">
       <div className="completeHeader">
@@ -15,13 +18,23 @@ const OrderComplete = () => {
         </div>
       </div>
 
-      <div className="completeOrder">주문이 완료되었습니다.</div>
+      <div className="completeOrder">주문이 완료되었습니다. </div>
 
       <div className="completeButton">
-        <button className="completeMain" onClick={() => {}}>
+        <button
+          className="completeMain"
+          onClick={() => {
+            navigate('/all');
+          }}
+        >
           메인으로
         </button>
-        <button className="completeMyPage" onClick={() => {}}>
+        <button
+          className="completeMyPage"
+          onClick={() => {
+            navigate('/mypage');
+          }}
+        >
           주문확인
         </button>
       </div>

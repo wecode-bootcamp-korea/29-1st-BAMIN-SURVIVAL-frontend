@@ -7,10 +7,12 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart/Cart';
 import OrderComplete from './pages/OrderComplete/OrderComplete';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
