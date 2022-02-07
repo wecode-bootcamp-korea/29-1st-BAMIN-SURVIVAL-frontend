@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal/Modal';
 
 const CartList = ({ item, idx, items, setItems }) => {
@@ -14,15 +14,6 @@ const CartList = ({ item, idx, items, setItems }) => {
     });
     setItems(checkedItems);
   };
-
-  useEffect(() => {
-    const checkedItems = items.map(item => {
-      if (item.qty === 0) {
-        return { ...item, is_check: false };
-      } else return { ...item };
-    });
-    setItems(checkedItems);
-  }, [item.qty]);
 
   return (
     <tr>
@@ -63,6 +54,7 @@ const CartList = ({ item, idx, items, setItems }) => {
         )}
       </td>
       <td className="productPrice">{item.qty !== 0 ? itemPrice : 0}원</td>
+
       {idx === 0 && (
         <td className="productDelivery" rowSpan={shippingPrice.length}>
           <p>기본 배송비</p>

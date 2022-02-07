@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Modal.scss';
 
 function Modal({ onClose, item, items, setItems }) {
