@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.loginBaeminSurvival {
+.login {
   @include flex-center;
   margin-top: 250px;
   overflow: auto;
@@ -70,7 +70,7 @@
       padding: 0px 13px;
     }
 
-    .findId {
+    .loginFindId {
       border-left: 1px solid $greyBorderColor;
       border-right: 1px solid $greyBorderColor;
     }
