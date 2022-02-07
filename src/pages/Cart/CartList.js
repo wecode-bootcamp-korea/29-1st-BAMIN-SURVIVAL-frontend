@@ -6,7 +6,7 @@ const CartList = ({ item, idx, items, setItems }) => {
   const itemPrice = (item.price * item.qty).toLocaleString('ko-KR');
   const [isOpen, setIsOpen] = useState(false);
 
-  const onCheck = id => {
+  const itemCheck = id => {
     const checkedItems = items.map(item => {
       if (item.id === id) {
         return { ...item, is_check: !item.is_check };
@@ -21,13 +21,13 @@ const CartList = ({ item, idx, items, setItems }) => {
         <input
           type="checkbox"
           name={item.name}
-          onChange={() => onCheck(item.id)}
+          onChange={() => itemCheck(item.id)}
           checked={item.is_check}
           disabled={item.qty === 0 && true}
         />
       </td>
       <td className="productImage">
-        <img src="/images/Shinung/test.jpeg" alt="제품" />
+        <img alt="제품 이미지" src="/images/Shinung/test.jpeg" />
       </td>
       <td className="productName">
         <p>{item.name}</p>

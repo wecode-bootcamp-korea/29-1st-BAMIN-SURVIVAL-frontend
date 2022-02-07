@@ -7,12 +7,12 @@ import BASE_URL from '../Config';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
-  const [inputCheck, setInputCheck] = useState(true);
+  const [checkAllItem, setInputCheck] = useState(true);
   const qtyZero = items.filter(item => item.qty === 0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/Shinung/data.json')
+    fetch('./data/Shinung/data.json')
       .then(res => res.json())
       .then(result => setItems(result));
   }, []);
@@ -35,7 +35,7 @@ const Cart = () => {
   // }, []);
 
   const onDelete = () => {
-    const checkedItem = items.filter(item => item.is_check === true);
+    const checkedItem = items.filter(item => item.is_check);
     if (
       window.confirm(
         `선택하신 ${checkedItem.length}개상품을 장바구니에서 삭제하시겠습니까?`
@@ -127,7 +127,7 @@ const Cart = () => {
                 <input
                   type="checkbox"
                   onChange={handleAllCheck}
-                  checked={inputCheck}
+                  checked={checkAllItem}
                   disabled={qtyZero.length === items.length && true}
                 />
               </th>

@@ -2,11 +2,11 @@ import React from 'react';
 
 const TotalAmount = ({ items }) => {
   const totalPrice = items
-    .filter(item => item.is_check === true)
+    .filter(item => item.is_check)
     .map(item => item.price * item.qty)
     .reduce((a, b) => a + b, 0);
 
-  const checkedItem = items.filter(item => item.is_check === true);
+  const checkedItem = items.filter(item => item.is_check);
 
   const toKRPrice = totalPrice.toLocaleString('ko-KR');
   const shipping = 2500;
