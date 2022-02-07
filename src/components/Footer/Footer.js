@@ -3,7 +3,7 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <footer className="companyInfo">
+    <footer className="footer">
       <img alt="logo" src="/images/Shinung/logo.png" className="companyLogo" />
       <div className="footerInfo">
         <p className="companyTitle">
