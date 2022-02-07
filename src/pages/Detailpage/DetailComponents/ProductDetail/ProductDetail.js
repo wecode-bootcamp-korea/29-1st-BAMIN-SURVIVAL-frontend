@@ -14,7 +14,6 @@ const ProductDetail = ({ users }) => {
 
   const nextId = useRef(5);
   const nextUserName = useRef(5);
-
   const reviewNum = userReviews.filter(x => x.comment.length > 0).length;
 
   const [isRegisterBtnClick, setIsRegisterBtnClick] = useState(false);
@@ -351,7 +350,7 @@ const ProductDetail = ({ users }) => {
           </ul>
         </div>
         <div className="purchaseInquiry">
-          <h4 className="purchaseInquiryTitle">상품후기</h4>
+          <h4 className="purchaseInquiryTitle">상품문의</h4>
           <p className="writeBtn">상품문의 글쓰기</p>
           <div className="purchaseInquiryContent">
             <table className="qnaTable">

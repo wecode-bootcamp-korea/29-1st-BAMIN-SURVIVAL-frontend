@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductBasicInfo.scss';
 
 const ProductBasicInfo = ({ name, price, discount_rate, discount_price }) => {
+  console.log(discount_price);
+  console.log(price);
   return (
     <>
       <h3 className="productName">{name}</h3>
@@ -9,7 +11,7 @@ const ProductBasicInfo = ({ name, price, discount_rate, discount_price }) => {
         <div className="productPriceBox">
           <span className="pdPriceTag">정가</span>
           <span className="pdOriginalPrice">
-            {price.toLocaleString() + '원'}
+            {typeof price === 'number' ? price.toLocaleString() + '원' : null}
           </span>
         </div>
       ) : null}
@@ -17,7 +19,7 @@ const ProductBasicInfo = ({ name, price, discount_rate, discount_price }) => {
       <div className="productPriceBox">
         <span className="pdPriceTag">판매가격</span>
         <span className="pdPrice">
-          {typeof discount_price === 'number'
+          {typeof price === 'number'
             ? discount_price.toLocaleString() + '원'
             : null}
         </span>

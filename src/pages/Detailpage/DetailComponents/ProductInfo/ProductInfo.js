@@ -15,11 +15,11 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
     is_option: product.is_option,
     qty: 1,
   });
-
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const renderPriceCondition =
     typeof quantityInput === 'number' && Number(quantityInput) > 0;
+
   const handleQuantityInput = e => {
     setQuantityInput(e.target.value);
   };
@@ -55,17 +55,15 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
   };
 
   const handleKeyPress = e => {
-    if (e.key === 'Enter') {
-      checkNumber();
-      return;
-    }
+    if (e.key === 'Enter') checkNumber();
+    return;
   };
 
   const sumPrice = (quantityInput, discount_price) => {
     return quantityInput * discount_price;
   };
 
-  const onClick = e => {
+  const countBtnClick = e => {
     if (e.target.outerText === '증가') {
       Number(quantityInput)
         ? setQuantityInput(
@@ -150,7 +148,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
                   discount_price={product.discount_price}
                   quantityInput={quantityInput}
                   sumPrice={sumPrice}
-                  onClick={onClick}
+                  onClick={countBtnClick}
                 />
                 <div className="payBox">
                   <span className="payTitle">총 합계 금액</span>
@@ -179,7 +177,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
               discount_price={product.discount_price}
               quantityInput={quantityInput}
               sumPrice={sumPrice}
-              onClick={onClick}
+              onClick={countBtnClick}
             />
             <div className="payBox">
               <span className="payTitle">총 합계 금액</span>

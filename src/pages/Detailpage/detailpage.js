@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductInfo from './DetailComponents/ProductInfo/ProductInfo';
 import ProductDetail from './DetailComponents/ProductDetail/ProductDetail';
@@ -9,70 +9,53 @@ const Detailpage = () => {
   const [isMainScroll, setIsMainScroll] = useState(true);
   const [modal, setModal] = useState(false);
   const { id } = useParams();
+  const [reviewUsers, setReviewUsers] = useState([]);
+
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  const users = [
-    //상수데이터 활용
-    {
-      id: 1,
-      username: '최희택',
-      comment: '이 제품 너무 좋습니다.',
-      commentdate: '2022.02.16',
-    },
-    {
-      id: 2,
-      username: '주지홍',
-      comment: '이 제품 너무 별로에요.',
-      commentdate: '2022.02.18',
-    },
-    {
-      id: 3,
-      username: '한신웅',
-      comment: '이 제품 너무 짱이에요.',
-      commentdate: '2022.02.20',
-    },
-    {
-      id: 4,
-      username: '임채현',
-      comment: '이 제품 너무 짱이에요.',
-      commentdate: '2022.02.21',
-    },
-  ];
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setIsMainScroll(false) : setIsMainScroll(true);
+  };
 
   useEffect(() => {
-    fetch(`http://localhost:3003/result?id=${id}`, {
+    fetch('/data/Jihong/user.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setProductData(data);
+        setReviewUsers(data.reviewUsers);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://13.125.227.39:8080/products/${id}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setProductData(data.result);
       });
   }, [id]);
+
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent);
     return () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
-  const listenScrollEvent = () => {
-    window.scrollY > 10 ? setIsMainScroll(false) : setIsMainScroll(true);
-  };
+
   return (
     <main className={isMainScroll ? 'detailWrraper' : 'detailWrraper2'}>
-      {productData.map(product => (
-        <Fragment key={product.id}>
-          <ProductInfo
-            product={product}
-            modal={modal}
-            setModal={setModal}
-            toggleModal={toggleModal}
-            key={product.id}
-          />
-          <ProductDetail key={product.name} users={users} />
-        </Fragment>
-      ))}
+      <ProductInfo
+        product={productData}
+        modal={modal}
+        setModal={setModal}
+        toggleModal={toggleModal}
+        key={productData.id}
+      />
+      <ProductDetail users={reviewUsers} />
     </main>
   );
 };

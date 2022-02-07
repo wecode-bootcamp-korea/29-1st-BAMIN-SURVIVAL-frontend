@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 
-const Product = ({ product }) => {
+const Product = ({ product, id }) => {
   return (
     <div className="itemBox">
       <div className="itemType">
@@ -21,7 +21,7 @@ const Product = ({ product }) => {
           />
         ) : null}
       </div>
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/${id}`}>
         <div className="itemImgBox">
           <img
             className={product.stock ? 'itemImg' : 'soldoutImg'}
@@ -43,7 +43,7 @@ const Product = ({ product }) => {
         <span className="discountRate">
           {product.discount_rate ? product.discount_rate + '%' : null}
         </span>
-        <Link className="itemName" to={`/products/${product.id}`}>
+        <Link className="itemName" to={`/products/${id}`}>
           {product.name}
         </Link>
         <span

@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+// import { useNavigate, useLocation } from 'react-router-dom';
 import Carousel from './MainComponents/Section/Carousel';
 import SortCategory from './MainComponents/Section/SortCategory';
 import ProductsList from './MainComponents/ProductsList/ProductsList';
 import './Main.scss';
-import PaginationButton from '../../components/PaginationButton/PaginationButton';
+// import PaginationButton from '../../components/PaginationButton/PaginationButton';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
   const [carouselProducts, setCarouselProducts] = useState([]);
   const [isMainScroll, setIsMainScroll] = useState(true);
-  const location = useLocation();
-  const navigate = useNavigate();
-  useEffect(() => {
-    fetch(
-      `http://10.58.4.21/products/all${location.search || `limit=16&offset=0`}`
-    )
-      .then(res => res.json())
-      .then(res => setProducts(res.result));
-  }, [location.search]);
+  // const location = useLocation();
+  // const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3001/data/Jihong/ItemListData.json', {
+    // fetch(`http://10.58.4.21/products/${location.search || `page=1`}`) //쿼리파라미터로 써야하는 부분
+    fetch('http://13.125.227.39:8080/products/')
+      .then(res => res.json())
+      .then(data => setProducts(data.result));
+  }, []);
+
+  useEffect(() => {
+    fetch('http://13.125.227.39:8080/products/all', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         setCarouselProducts(
-          data.result.filter(x => x.price > 70000).slice(0, 4)
+          data.result.filter(product => product.price > 70000).slice(0, 4)
         );
       });
   }, []);
@@ -39,12 +39,10 @@ const Main = () => {
     };
   }, []);
 
-  const updateOffset = buttonIndex => {
-    const limit = 16;
-    const offset = buttonIndex * limit;
-
-    navigate(`/main?page=${limit}&offset=${offset}`);
-  };
+  // const updateOffset = buttonIndex => {
+  //   const page = buttonIndex;
+  //   navigate(`/main?page=${page}`);
+  // };
 
   const sortFucntion = e => {
     const recent = [...products].sort(function (a, b) {
@@ -85,7 +83,7 @@ const Main = () => {
       />
       <article className="article">
         <ProductsList products={products} />
-        <PaginationButton updateOffset={updateOffset} />
+        {/* <PaginationButton updateOffset={updateOffset} /> 페이지네이션에 필요한 컴포넌트*/}
       </article>
     </main>
   );
