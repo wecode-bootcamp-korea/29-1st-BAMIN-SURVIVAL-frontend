@@ -3,16 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const Category = ({ category }) => {
   return (
-    <li>
-      <NavLink
-        to={category.url}
-        className={({ isActive }) =>
-          isActive ? 'categoryActive' : 'categoryTitle'
-        }
-      >
-        {category.title}
-      </NavLink>
-    </li>
+    <NavLink
+      to={category.url}
+      className={({ isActive }) =>
+        isActive ? 'categoryActive' : 'categoryTitle'
+      }
+    >
+      <li>{category.title} </li>
+    </NavLink>
   );
 };
 
