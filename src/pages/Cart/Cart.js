@@ -16,6 +16,23 @@ const Cart = () => {
       .then(result => setItems(result));
   }, []);
 
+  useEffect(() => {
+    let token = localStorage.getItem('token');
+    console.log(token);
+
+    fetch('http://10.58.4.21/cart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    })
+      .then(response => response.json())
+      .then(response => {
+        // console.log(response.data);
+      });
+  }, []);
+
   const onDelete = () => {
     const checkedItem = items.filter(item => item.is_check === true);
     if (

@@ -19,6 +19,7 @@ const Nav = () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
   }, []);
+
   return (
     <div className="nav">
       <div className="navTop">

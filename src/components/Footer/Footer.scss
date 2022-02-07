@@ -1,6 +1,6 @@
 @import '/src/styles/variables.scss';
 
-.companyInfo {
+.footer {
   width: 100%;
   height: 200px;
   display: flex;
@@ -8,6 +8,8 @@
   align-items: center;
   background-color: #f6f6f6;
   margin-top: 150px;
+  position: relative;
+  transform: translateY(100%);
 
   .companyLogo {
     width: 200px;

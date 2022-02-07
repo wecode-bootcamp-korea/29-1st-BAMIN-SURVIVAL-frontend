@@ -34,7 +34,7 @@ function Login() {
   const goToSignUp = e => {
     e.preventDefault();
 
-    fetch('http://13.125.227.39:8080/users/signin', {
+    fetch('http://10.58.4.21/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         account: loginId,
