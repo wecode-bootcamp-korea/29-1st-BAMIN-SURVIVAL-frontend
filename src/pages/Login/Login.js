@@ -36,7 +36,7 @@ function Login() {
   };
 
   return (
-    <div className="loginBaeminSurvival">
+    <div className="login">
       <form className="loginForm" onSubmit={loginValidation}>
         <div className="loginContainer">
           <div className="loginBox">

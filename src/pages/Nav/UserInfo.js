@@ -11,7 +11,7 @@ const UserInfo = () => {
     <ul className="userInfoList">
       {sessionStorage.getItem('token') ? null : (
         <li>
-          <Link to="/login" className="navlogIn">
+          <Link to="/login" className="navLogIn">
             로그인
           </Link>
           <span className="txtBar" />
