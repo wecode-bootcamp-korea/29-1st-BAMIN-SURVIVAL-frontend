@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import CartList from './CartList';
 import TotalAmount from './TotalAmount';
-import BASE_URL from '../Config';
+// import BASE_URL from '../Config';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
