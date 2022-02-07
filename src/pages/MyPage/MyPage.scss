@@ -10,15 +10,20 @@
 
 .myPage {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 300px;
   overflow: auto;
 
-  .myPageMain {
+  .myPageNavList {
+    margin-bottom: 300px;
+    margin-right: 150px;
     font-family: 'Noto Sans', sans-serif;
+  }
+
+  .myPageMain {
     width: 960px;
+    font-family: 'Noto Sans', sans-serif;
 
     .recentTitle {
       display: flex;

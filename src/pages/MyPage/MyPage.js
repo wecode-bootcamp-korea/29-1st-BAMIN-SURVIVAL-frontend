@@ -5,7 +5,7 @@ import RecentOrderList from './RecentOrderList/RecentOrderList';
 import NoDataOrder from './NoData/NoDataOrder';
 import NoDataProduct from './NoData/NoDataProduct';
 import ProductsList from '../Mainpage/MainComponents/ProductsList/ProductsList';
-
+import MyPageNavList from './MyPageNav/MyPageNavList';
 const MyPage = () => {
   const [memberData, setMemberData] = useState({});
   const [recentOrders, setRecentOrders] = useState([]);
@@ -34,6 +34,7 @@ const MyPage = () => {
 
   return (
     <div className="myPage">
+      <MyPageNavList />
       <main className="myPageMain">
         <MyPageHeader point={memberData.point} nickname={memberData.nickname} />
         <div className="recentOrderInfo">
