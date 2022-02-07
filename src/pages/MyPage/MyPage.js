@@ -4,10 +4,12 @@ import MyPageHeader from './MyPageHeader/MyPageHeader';
 import RecentOrderList from './RecentOrderList/RecentOrderList';
 import NoDataOrder from './NoData/NoDataOrder';
 import NoDataProduct from './NoData/NoDataProduct';
+import ProductsList from '../Mainpage/MainComponents/ProductsList/ProductsList';
 
 const MyPage = () => {
   const [memberData, setMemberData] = useState({});
   const [recentOrders, setRecentOrders] = useState([]);
+  const [recentProducts, setRecentProducts] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/MyPage/ORDER_DATA.json')
@@ -21,7 +23,14 @@ const MyPage = () => {
       .then(res => setMemberData(res));
   }, []);
 
+  useEffect(() => {
+    fetch('http://localhost:3000/data/MyPage/RECENT_PRODUCT_DATA.json')
+      .then(res => res.json())
+      .then(res => setRecentProducts(res));
+  }, []);
+
   const isOrderExists = recentOrders.length > 0;
+  const isProductExists = recentProducts.length > 0;
 
   return (
     <div className="myPage">
@@ -56,10 +65,18 @@ const MyPage = () => {
         <div className="productRecentSeen">
           <div className="recentTitle">
             <h3>
-              최근 본 상품<span>회원님께서 본 최근 상품입니다.</span>
+              최근 본 상품
+              <span>{memberData.nickname}님께서 본 최근 상품입니다.</span>
             </h3>
           </div>
-          <NoDataProduct />
+          {isProductExists ? (
+            <ProductsList
+              className="recentProductsList"
+              products={recentProducts.slice(-4)}
+            />
+          ) : (
+            <NoDataProduct />
+          )}
         </div>
       </main>
     </div>

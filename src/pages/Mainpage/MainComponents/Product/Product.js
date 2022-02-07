@@ -1,27 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Item.scss';
+import './Product.scss';
 
-const Item = ({
-  itemName,
-  price,
-  itemImg,
-  sale,
-  green,
-  discount,
-  isInventoryStatus,
-}) => {
+const Product = ({ product }) => {
   return (
     <div className="itemBox">
       <div className="itemType">
-        {sale ? (
+        {product.is_sale ? (
           <img
             className="saleLogo"
             alt="할인제품"
             src="images/Jihong/saleLogo.png"
           />
         ) : null}
-        {green ? (
+        {product.is_green ? (
           <img
             className="greenLogo"
             alt="친환경제품"
@@ -29,15 +21,15 @@ const Item = ({
           />
         ) : null}
       </div>
-      <Link to="/">
+      <Link to={`/products/${product.id}`}>
         <div className="itemImgBox">
           <img
-            className={isInventoryStatus ? 'itemImg' : 'soldoutImg'}
+            className={product.stock ? 'itemImg' : 'soldoutImg'}
             alt="제픔이미지"
-            src={itemImg}
+            src={product.img}
           />
           <div className="soldoutStatus">
-            {isInventoryStatus ? null : (
+            {product.stock ? null : (
               <img
                 className="soldoutLogo"
                 alt="품절"
@@ -48,16 +40,22 @@ const Item = ({
         </div>
       </Link>
       <div className="itemInfo">
-        <span className="discountRate">{discount ? discount + '%' : null}</span>
-        <Link className="itemName" to="/">
-          {itemName}
+        <span className="discountRate">
+          {product.discount_rate ? product.discount_rate + '%' : null}
+        </span>
+        <Link className="itemName" to={`/products/${product.id}`}>
+          {product.name}
         </Link>
-        <span className={discount ? 'smallRegularPrice' : 'regularPrice'}>
-          {price.toLocaleString() + '원'}
+        <span
+          className={
+            product.discount_rate ? 'smallRegularPrice' : 'regularPrice'
+          }
+        >
+          {product.price.toLocaleString() + '원'}
         </span>
         <span className="bargainPrice">
-          {discount
-            ? (price * (100 - discount) * 0.01).toLocaleString() + '원'
+          {product.discount_rate
+            ? product.discount_price.toLocaleString() + '원'
             : null}
         </span>
       </div>
@@ -65,4 +63,4 @@ const Item = ({
   );
 };
 
-export default Item;
+export default Product;

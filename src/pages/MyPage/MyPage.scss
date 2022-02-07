@@ -18,11 +18,13 @@
 
   .myPageMain {
     font-family: 'Noto Sans', sans-serif;
+    width: 960px;
 
     .recentTitle {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #999999;
+      width: 100%;
       padding-bottom: 10px;
 
       h3 {
@@ -68,6 +70,10 @@
         font-size: 13px;
         color: #777777;
       }
+    }
+
+    .itemList {
+      margin-top: 30px;
     }
   }
 }
