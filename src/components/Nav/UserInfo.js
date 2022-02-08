@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserInfo = () => {
+const UserInfo = ({ path }) => {
   const handleLogOUt = () => {
     localStorage.removeItem('token');
   };
 
   return (
     <ul className="userInfoList">
-      {localStorage.getItem('token') ? (
+      {path === '/all' ? (
         <li>
           <span className="userName">리치</span>
           <span className="userPoint">
@@ -26,7 +26,7 @@ const UserInfo = () => {
         </li>
       )}
 
-      {localStorage.getItem('token') ? (
+      {path === '/all' ? (
         <li>
           <Link to="/" className="logOut" onClick={handleLogOUt}>
             로그아웃
@@ -54,7 +54,7 @@ const UserInfo = () => {
           장바구니
         </Link>
       </li>
-      <span className="cartCount">100</span>
+      {path === '/all' && <span className="cartCount">100</span>}
     </ul>
   );
 };
