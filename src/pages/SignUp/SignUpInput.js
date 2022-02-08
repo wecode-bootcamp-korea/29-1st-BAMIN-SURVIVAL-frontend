@@ -9,6 +9,9 @@ function SignUpInput({
   placeholder,
   setSignupInfo,
   name,
+  isError,
+  isMandatory,
+  warning,
 }) {
   const onChange = e => {
     setSignupInfo({
@@ -17,19 +20,21 @@ function SignUpInput({
     });
   };
   return (
-    <div className="SignUpInput">
+    <div className="signUpInput">
       <div className="inputTextBox">
         <p className="inputText">{`* ${text}`}</p>
       </div>
       <div className="inputWrapper">
         <input
-          className="signUpInput"
+          className="input"
           name={name}
           onChange={onChange}
           type={type}
           placeholder={placeholder}
           value={value}
         />
+        {isError ? <div className="warning">{warning}</div> : null}
+        {isMandatory && <div className="mandatory">필수항목입니다</div>}
       </div>
     </div>
   );

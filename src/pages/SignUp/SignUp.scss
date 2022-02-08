@@ -5,6 +5,10 @@
   margin-top: 350px;
   font-family: 'Nanum Gothic', sans-serif;
 
+  button {
+    cursor: pointer;
+  }
+
   .signUpHeader {
     display: flex;
     justify-content: space-between;

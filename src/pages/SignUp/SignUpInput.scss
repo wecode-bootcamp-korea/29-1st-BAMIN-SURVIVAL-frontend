@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.SignUpInput {
+.signUpInput {
   display: flex;
   position: relative;
   border-bottom: 1px solid $greyBorderColor;
@@ -22,16 +22,22 @@
 
   .inputWrapper {
     flex: 8;
+    position: relative;
     height: 100px;
     padding: 0px 20px;
-  }
 
-  .signUpInput {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    width: 60%;
-    height: 50%;
+    .warning {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .input {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      width: 80%;
+      height: 50%;
+    }
   }
 }

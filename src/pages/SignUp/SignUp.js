@@ -46,59 +46,50 @@ function SignUp() {
     return phoneRegex.test(value);
   };
 
-  const isFilledMandatory =
-    !signUpId ||
-    !signUpPw ||
-    !signUpPwCheck ||
-    !signUpEmail ||
-    !signUpNick ||
-    !signUpPhone;
+  const isFilledMandatory = () => {
+    return Object.values(signUpInfo).includes('') ? true : false;
+  };
 
-  const signUpValidation = e => {
+  const signUpRegister = e => {
     e.preventDefault();
     if (isFilledMandatory) {
       alert('필수항목을 입력해주세요!');
-    } else if (!isValidPw(signUpPw)) {
-      alert(
-        '사용불가! 영문자,숫자,특수문자 조합으로 8-16글자 범위로 입력해주세요! '
-      );
-    } else if (isPwSame) {
-      alert('비밀번호와 비밀번호확인은 같아야 합니다.');
-    } else if (!isValidEmail(signUpEmail)) {
-      alert('올바른 이메일 형식이 아닙니다.');
-    } else if (!isValidPhone(signUpPhone)) {
-      alert('올바른 전화번호 형식이 아닙니다.');
+    } else {
+      fetch('http://10.58.5.43/users/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          account: signUpId,
+          password: signUpPw,
+          email: signUpEmail,
+          phone: signUpPhone,
+          nickname: signUpNick,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message === 'ACCOUNT ALREADY EXISTS') {
+            alert('중복된 아이디입니다!');
+          } else if (res.message === 'NICKNAME ALREADY EXISTS') {
+            alert('중복된 닉네임입니다!');
+          } else if (res.message === 'E-MAIL ALREADY EXISTS') {
+            alert('중복된 이메일입니다!');
+          } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
+            alert('중복된 휴대폰번호입니다!');
+          }
+        });
     }
   };
 
-  const signUpRegister = () => {
-    fetch('http://10.58.5.43/users/signup', {
-      method: 'POST',
-      body: JSON.stringify({
-        account: signUpId,
-        password: signUpPw,
-        email: signUpEmail,
-        phone: signUpPhone,
-        nickname: signUpNick,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          alert('중복된 아이디입니다!');
-        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          alert('중복된 닉네임입니다!');
-        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          alert('중복된 이메일입니다!');
-        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          alert('중복된 휴대폰번호입니다!');
-        }
-      });
+  const validator = {
+    signUpPw: !isValidPw(signUpPw) && signUpPw.length > 7,
+    signUpPwCheck: isPwSame && signUpPwCheck.length > 7,
+    signUpEmail: !isValidEmail(signUpEmail) && signUpEmail.length > 7,
+    signUpPhone: !isValidPhone(signUpPhone) && signUpPhone.length > 5,
   };
 
   return (
     <div className="signUp">
-      <form className="signUpForm" onSubmit={signUpValidation}>
+      <form className="signUpForm" onSubmit={signUpRegister}>
         <header className="signUpHeader">
           <h1 className="info">기본정보</h1>
           <h4 className="sideInfo">
@@ -108,6 +99,7 @@ function SignUp() {
         <SignUpInputList
           setSignupInfo={setSignUpInfo}
           signupInfo={signUpInfo}
+          validator={validator}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>
