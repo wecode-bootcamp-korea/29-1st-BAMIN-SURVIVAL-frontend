@@ -1,0 +1,62 @@
+[
+  {
+    "id": 2,
+    "name": "샌드백",
+    "shipping": "2500",
+    "price": 35000,
+    "is_green": false,
+    "is_sale": false,
+    "category_id": 3,
+    "stock": null,
+    "discount_price": 35000,
+    "discount_rate": 0,
+    "option": "large",
+    "qty": 1,
+    "is_check": true
+  },
+  {
+    "id": 3,
+    "name": "투명망토",
+    "shipping": "2500",
+    "price": 23000,
+    "is_green": false,
+    "is_sale": false,
+    "category_id": 3,
+    "stock": null,
+    "discount_price": 23000,
+    "discount_rate": 0,
+    "option": "medium",
+    "qty": 4,
+    "is_check": true
+  },
+  {
+    "id": 4,
+    "name": "휴대용 산소통",
+    "shipping": "2500",
+    "price": 44500,
+    "is_green": false,
+    "is_sale": false,
+    "category_id": 3,
+    "stock": null,
+    "discount_price": 44500,
+    "discount_rate": 0,
+    "option": null,
+    "qty": 2,
+    "is_check": true
+  },
+  {
+    "id": 5,
+    "name": "최고급형 토르 망치",
+    "shipping": "2500",
+    "price": 99000,
+    "is_green": false,
+    "is_sale": false,
+    "category_id": 3,
+    "stock": null,
+    "discount_price": 99000,
+    "discount_rate": 0,
+    "option": "small",
+    "qty": 4,
+    "is_check": true
+  }
+]
