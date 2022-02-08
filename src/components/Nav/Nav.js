@@ -9,7 +9,8 @@ import Search from './Search';
 const Nav = () => {
   const [searchInput, setSearchInput] = useState(true);
   const location = useLocation();
-  const path = location.pathname;
+  // const path = location.pathname;
+  console.log(location);
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setSearchInput(false) : setSearchInput(true);
@@ -17,6 +18,7 @@ const Nav = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent);
+
     return () => {
       window.removeEventListener('scroll', listenScrollEvent);
     };
@@ -25,7 +27,7 @@ const Nav = () => {
     <div className="nav">
       <div className="navTop">
         <div className="userInfo">
-          <UserInfo path={path} />
+          <UserInfo />
         </div>
       </div>
 

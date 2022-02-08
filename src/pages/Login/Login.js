@@ -33,6 +33,7 @@ function Login() {
 
   const goToSignUp = e => {
     e.preventDefault();
+    sessionStorage.setItem('token', '123');
 
     fetch('http://10.58.4.21/users/signin', {
       method: 'POST',
@@ -46,7 +47,7 @@ function Login() {
         localStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
       );
 
-    navigate('/all');
+    navigate('/');
   };
 
   return (
