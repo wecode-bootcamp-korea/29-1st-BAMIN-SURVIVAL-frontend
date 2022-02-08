@@ -14,7 +14,7 @@ const Router = () => {
       <ScrollToTop />
       <Nav />
       <Routes>
-        <Route path="/main" element={<Main />} exact={true} />
+        <Route path="/" element={<Main />} exact={true} />
         <Route path="/products/:id" element={<Detailpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

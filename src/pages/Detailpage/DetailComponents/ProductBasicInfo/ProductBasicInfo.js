@@ -2,8 +2,6 @@ import React from 'react';
 import './ProductBasicInfo.scss';
 
 const ProductBasicInfo = ({ name, price, discount_rate, discount_price }) => {
-  console.log(discount_price);
-  console.log(price);
   return (
     <>
       <h3 className="productName">{name}</h3>
