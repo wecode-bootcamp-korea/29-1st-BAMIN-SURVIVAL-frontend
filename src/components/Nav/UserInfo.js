@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserInfo = () => {
+const UserInfo = ({ path }) => {
   const handleLogOUt = () => {
     localStorage.removeItem('token');
-    window.location.replace('/');
   };
 
   return (
@@ -55,7 +54,7 @@ const UserInfo = () => {
           장바구니
         </Link>
       </li>
-      <span className="cartCount">100</span>
+      {path === '/all' && <span className="cartCount">100</span>}
     </ul>
   );
 };
