@@ -17,23 +17,6 @@ const Cart = () => {
       .then(result => setItems(result));
   }, []);
 
-  // useEffect(() => {
-  //   let token = localStorage.getItem('token');
-  //   console.log(token);
-
-  //   fetch(`${BASE_URL}/cart`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: token,
-  //     },
-  //   })
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       // console.log(response.data);
-  //     });
-  // }, []);
-
   const onDelete = () => {
     const checkedItem = items.filter(item => item.is_check);
     if (
@@ -81,20 +64,6 @@ const Cart = () => {
     if (window.confirm(`선택하신 ${checkedItem.length}개상품만 주문합니다.`)) {
       const deleteItem = items.filter(item => item.is_check === false);
       setItems(deleteItem);
-
-      // fetch('http://13.125.227.39:8080/users/signin', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     account: loginId,
-      //     password: loginPw,
-      //   }),
-      // })
-      //   .then(res => res.json())
-      //   .then(result =>
-      //     localStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
-      //   )
-      //   .then(setTest('hello'))
-      //   .then(console.log('login'));
 
       navigate('/complete');
     } else return;
