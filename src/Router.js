@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Main from './pages/Mainpage/Main';
 import Detailpage from './pages/Detailpage/Detailpage';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
-import Nav from './pages/Nav/Nav';
-import Footer from './pages/Footer/Footer';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
+import Cart from './pages/Cart/Cart';
+import OrderComplete from './pages/OrderComplete/OrderComplete';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const Router = () => {
   return (
@@ -18,6 +20,8 @@ const Router = () => {
         <Route path="/products/:id" element={<Detailpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/complete" element={<OrderComplete />} />
       </Routes>
       <Footer />
     </BrowserRouter>
