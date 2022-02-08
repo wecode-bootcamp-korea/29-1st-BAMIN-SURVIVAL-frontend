@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUpInput.scss';
 
 function SignUpInput({
@@ -13,12 +13,22 @@ function SignUpInput({
   isMandatory,
   warning,
 }) {
+  const [isBlur, setIsBlur] = useState(false);
   const onChange = e => {
     setSignupInfo({
       ...signupInfo,
       [e.target.name]: e.target.value,
     });
   };
+
+  const onBlur = () => {
+    setIsBlur(true);
+  };
+
+  const onFocus = () => {
+    setIsBlur(false);
+  };
+
   return (
     <div className="signUpInput">
       <div className="inputTextBox">
@@ -32,9 +42,15 @@ function SignUpInput({
           type={type}
           placeholder={placeholder}
           value={value}
+          onBlur={onBlur}
+          onFocus={onFocus}
         />
-        {isError ? <div className="warning">{warning}</div> : null}
-        {isMandatory && <div className="mandatory">필수항목입니다</div>}
+        {isError && isBlur ? (
+          <div className="warningShowUp">{warning}</div>
+        ) : (
+          <div className="warning">{warning}</div>
+        )}
+        {/* {isMandatory && <div className="mandatory">필수항목입니다</div>} */}
       </div>
     </div>
   );

@@ -50,33 +50,37 @@ function SignUp() {
     return Object.values(signUpInfo).includes('') ? true : false;
   };
 
+  const signUpFetch = () => {
+    fetch('http://10.58.5.43/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        account: signUpId,
+        password: signUpPw,
+        email: signUpEmail,
+        phone: signUpPhone,
+        nickname: signUpNick,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ACCOUNT ALREADY EXISTS') {
+          alert('중복된 아이디입니다!');
+        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
+          alert('중복된 닉네임입니다!');
+        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
+          alert('중복된 이메일입니다!');
+        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
+          alert('중복된 휴대폰번호입니다!');
+        }
+      });
+  };
+
   const signUpRegister = e => {
     e.preventDefault();
     if (isFilledMandatory) {
       alert('필수항목을 입력해주세요!');
     } else {
-      fetch('http://10.58.5.43/users/signup', {
-        method: 'POST',
-        body: JSON.stringify({
-          account: signUpId,
-          password: signUpPw,
-          email: signUpEmail,
-          phone: signUpPhone,
-          nickname: signUpNick,
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.message === 'ACCOUNT ALREADY EXISTS') {
-            alert('중복된 아이디입니다!');
-          } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-            alert('중복된 닉네임입니다!');
-          } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-            alert('중복된 이메일입니다!');
-          } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-            alert('중복된 휴대폰번호입니다!');
-          }
-        });
+      signUpFetch();
     }
   };
 

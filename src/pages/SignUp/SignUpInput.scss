@@ -1,5 +1,13 @@
 @import '../../styles/variables.scss';
 
+@mixin warning {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: red;
+}
+
 .signUpInput {
   display: flex;
   position: relative;
@@ -27,8 +35,12 @@
     padding: 0px 20px;
 
     .warning {
-      position: absolute;
-      bottom: 0;
+      @include warning;
+      visibility: hidden;
+    }
+
+    .warningShowUp {
+      @include warning;
     }
 
     .input {
