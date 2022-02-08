@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import OrderComplete from './pages/OrderComplete/OrderComplete';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Main from './pages/Mainpage/Main';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<Main />} />
         <Route path="/complete" element={<OrderComplete />} />
       </Routes>
       <Footer />

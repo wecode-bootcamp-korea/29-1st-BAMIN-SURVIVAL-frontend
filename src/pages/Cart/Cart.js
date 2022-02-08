@@ -7,12 +7,12 @@ import TotalAmount from './TotalAmount';
 
 const Cart = () => {
   const [items, setItems] = useState([]);
-  const [checkAllItem, setInputCheck] = useState(true);
+  const isAllItemChecked = items.every(item => item.is_check);
   const qtyZero = items.filter(item => item.qty === 0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('./data/Shinung/data.json')
+    fetch('/data/Shinung/data.json')
       .then(res => res.json())
       .then(result => setItems(result));
   }, []);
@@ -34,13 +34,13 @@ const Cart = () => {
   //     });
   // }, []);
 
-  const onDelete = () => {
+  const deleteCheckedItem = () => {
     const checkedItem = items.filter(item => item.is_check);
-    if (
-      window.confirm(
-        `선택하신 ${checkedItem.length}개상품을 장바구니에서 삭제하시겠습니까?`
-      )
-    ) {
+    const isUserConfirmDelete = window.confirm(
+      `선택하신 ${checkedItem.length}개상품을 장바구니에서 삭제하시겠습니까?`
+    );
+
+    if (isUserConfirmDelete) {
       const deleteItem = items.filter(item => item.is_check === false);
       setItems(deleteItem);
     } else return;
@@ -54,26 +54,14 @@ const Cart = () => {
           return { ...item, is_check: !item.is_check };
         })
       );
-      setInputCheck(false);
     } else if (checkedItem.length <= items.length) {
       setItems(
         items.map(item => {
           return { ...item, is_check: true };
         })
       );
-      setInputCheck(true);
     } else return;
   };
-
-  useEffect(() => {
-    const checkTrue = items.filter(item => item.is_check === true);
-
-    if (checkTrue.length === items.length) {
-      return setInputCheck(true);
-    } else if (checkTrue.length < items.length) {
-      return setInputCheck(false);
-    } else return;
-  }, [items]);
 
   const checkedItemPurchase = e => {
     e.preventDefault();
@@ -127,7 +115,7 @@ const Cart = () => {
                 <input
                   type="checkbox"
                   onChange={handleAllCheck}
-                  checked={checkAllItem}
+                  checked={isAllItemChecked}
                   disabled={qtyZero.length === items.length && true}
                 />
               </th>
@@ -167,7 +155,7 @@ const Cart = () => {
       {items.length !== 0 && (
         <div className="controlProduct">
           <div className="choiceProduct">
-            <button className="deleteProduct" onClick={onDelete}>
+            <button className="deleteProduct" onClick={deleteCheckedItem}>
               선택 상품 삭제
             </button>
             {/* <button className="likeProduct">선택 상품 찜</button> */}
