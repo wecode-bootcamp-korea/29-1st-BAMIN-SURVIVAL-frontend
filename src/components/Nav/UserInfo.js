@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserInfo = ({ path }) => {
-  const navigate = useNavigate();
-
   const handleLogOUt = () => {
-    sessionStorage.removeItem('token');
-    // navigate('/');
+    localStorage.removeItem('token');
   };
 
   return (
     <ul className="userInfoList">
-      {sessionStorage.getItem('token') ? (
+      {localStorage.getItem('token') ? (
         <li>
           <span className="userName">리치</span>
           <span className="userPoint">
@@ -29,7 +26,7 @@ const UserInfo = ({ path }) => {
         </li>
       )}
 
-      {sessionStorage.getItem('token') ? (
+      {localStorage.getItem('token') ? (
         <li>
           <Link to="/" className="logOut" onClick={handleLogOUt}>
             로그아웃
