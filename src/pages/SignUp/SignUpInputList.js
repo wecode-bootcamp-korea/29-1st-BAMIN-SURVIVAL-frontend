@@ -9,7 +9,6 @@ function SignUpInputList({
   fetch,
   isDuplicate,
   setIsDuplicate,
-  isMandatory,
 }) {
   return (
     <div className="signUpBox">
@@ -21,8 +20,9 @@ function SignUpInputList({
           inputName,
           placeholder,
           validErrorMessage,
-          duplicateError,
+          duplicateErrorMessage,
           mandatoryMessage,
+          clearMessage,
         }) => (
           <SignUpInput
             type={type}
@@ -37,8 +37,9 @@ function SignUpInputList({
             fetch={fetch}
             isDuplicate={isDuplicate}
             setIsDuplicate={setIsDuplicate}
-            duplicateError={duplicateError}
+            duplicateErrorMessage={duplicateErrorMessage}
             mandatoryMessage={mandatoryMessage}
+            clearMessage={clearMessage}
           />
         )
       )}
@@ -87,7 +88,7 @@ const SIGNUP_INPUT_DATA = [
     type: 'email',
     text: '이메일',
     inputName: 'signUpEmail',
-    validErrorMessage: '올바른 이메일 형식이 아닙니다.',
+    validErrorMessage: '❌ 올바른 이메일 형식이 아닙니다.',
     duplicateError: '😰 해당 이메일로 가입하신 계정이 이미 존재합니다.',
     mandatoryMessage: '💌 이메일을 입력하세요.',
     clearMessage: '✅ 사용가능한 이메일입니다.',
@@ -98,9 +99,8 @@ const SIGNUP_INPUT_DATA = [
     type: 'name',
     text: '닉네임',
     inputName: 'signUpNick',
-    validErrorMessage: '중복된 닉네임입니다!',
-    duplicateError: '이미 등록된 닉네임입니다. 다른 닉네임을 입력해 주세요.',
-    mandatoryMessage: '닉네임을 입력하세요.',
+    duplicateError: '🤢 이미 등록된 닉네임입니다. 다른 닉네임을 입력해 주세요.',
+    mandatoryMessage: '🔥 닉네임을 입력하세요.',
     clearMessage: '✅ 사용가능한 닉네임입니다.',
   },
 
@@ -110,8 +110,8 @@ const SIGNUP_INPUT_DATA = [
     text: '휴대폰번호',
     placeholder: ' -없이 입력하세요',
     inputName: 'signUpPhone',
-    validErrorMessage: '올바른 전화번호 형식이 아닙니다.',
-    duplicateError: '해당 휴대폰 번호로 가입하신 계정이 이미 존재합니다.',
+    validErrorMessage: '🌪 올바른 전화번호 형식이 아닙니다.',
+    duplicateError: '💥 해당 휴대폰 번호로 가입하신 계정이 이미 존재합니다.',
     mandatoryMessage: '📞 휴대폰 번호를 입력하세요.',
     clearMessage: '✅ 사용가능한 휴대폰 번호입니다.',
   },

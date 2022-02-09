@@ -34,15 +34,18 @@
     height: 100px;
     padding: 0px 20px;
 
-    .warning {
-      @include warning;
-      visibility: hidden;
-    }
-
     .warningShowUp {
       @include warning;
     }
 
+    .clear {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #00891a;
+      transition: all 1s;
+    }
     .input {
       position: absolute;
       top: 0;

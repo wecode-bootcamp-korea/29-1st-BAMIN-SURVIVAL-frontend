@@ -36,6 +36,11 @@ function SignUp() {
     navigate('/login');
   };
 
+  const isValidId = () => {
+    const idRegex = /^[A-Za-z0-9+]{6,16}$/;
+    const validId = idRegex.test(signUpId);
+    return !validId && signUpId !== '';
+  };
   const isValidPw = () => {
     const pwRegex =
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
@@ -62,6 +67,7 @@ function SignUp() {
   const isFilledMandatory = Object.values(signUpInfo).includes('');
 
   const validator = {
+    signUpId: isValidId(),
     signUpPw: isValidPw(),
     signUpPwCheck: isValidPwCheck,
     signUpEmail: isValidEmail(),
@@ -71,7 +77,7 @@ function SignUp() {
   const isValidator = Object.values(validator).includes(true);
 
   const signUpFetch = () => {
-    fetch('http://13.125.227.39:8080/users/check', {
+    fetch('http://10.58.4.21:9090/users/check', {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,
@@ -96,8 +102,6 @@ function SignUp() {
         }
       });
   };
-
-  console.log(isDuplicate);
 
   const signUpRegister = e => {
     e.preventDefault();
