@@ -158,27 +158,22 @@ a {
       align-items: center;
       padding: 0 0 20px 0;
 
+      .categoryTitle {
+        color: black;
+      }
+
+      .categoryActive {
+        color: $mintColor;
+        font-weight: bold;
+        border-bottom: 2px solid $mintColor;
+      }
+      :hover {
+        color: black;
+      }
+
       li {
         padding: 0 25px 20px 25px;
         cursor: pointer;
-
-        .categoryTitle {
-          color: black;
-        }
-
-        .categoryActive {
-          color: $mintColor;
-          font-weight: bold;
-          padding-bottom: 19px;
-          border-bottom: 1px solid $mintColor;
-        }
-        :hover {
-          color: black;
-        }
-      }
-
-      .active {
-        color: $mintColor;
       }
     }
   }

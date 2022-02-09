@@ -45,7 +45,6 @@ const CATEGORIES = [
     id: 8,
     title: '커뮤니티',
     name: 'community',
-
     btnActive: false,
   },
 ];
