@@ -30,7 +30,7 @@ const Detailpage = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://10.58.4.21/products/${id}`, {
+    fetch(`http://10.58.4.21/products/detail?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())

@@ -14,7 +14,7 @@ const SortCategory = ({ totalNumberItems, sortFucntion }) => {
                 className="sortBtn"
                 type="button"
                 key={sortList.id}
-                name={sortList.name}
+                name={sortList.id}
                 onClick={sortFucntion}
               >
                 {sortList.name}

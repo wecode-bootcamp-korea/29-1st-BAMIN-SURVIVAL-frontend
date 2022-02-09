@@ -1,4 +1,4 @@
-import React, { useState, useRef, Fragment } from 'react';
+import React, { useState, useRef } from 'react';
 import DetailTabDescription from './DetailTabDescription';
 import DetailTabShipping from './DetailTabShipping';
 import DetailTabExchange from './DetailTabExchange';
@@ -16,7 +16,6 @@ const ProductDetail = props => {
     comment: '',
     id: '',
   });
-
   const { comment, id } = writeReview;
   const [userReviews, setUserReviews] = useState(props.users);
   const nextId = useRef(5);

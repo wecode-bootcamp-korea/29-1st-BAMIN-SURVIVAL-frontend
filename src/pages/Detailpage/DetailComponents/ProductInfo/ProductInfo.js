@@ -6,7 +6,7 @@ import ImageModal from '../ImageModal/ImageModal';
 import './ProductInfo.scss';
 
 const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
-  const [addCartItem, setAddCartItem] = useState({
+  const addCartItem = {
     id: product.id,
     name: product.name,
     price: product.discount_price,
@@ -14,7 +14,8 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
     option: product.options,
     is_option: product.is_option,
     qty: 1,
-  });
+  };
+
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const renderPriceCondition =
@@ -24,39 +25,36 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
     setQuantityInput(e.target.value);
   };
 
-  const alertMessage = () => {
-    alert('최소수량은 1이상입니다.');
+  const checkIsText = value => {
+    return isNaN(value);
   };
 
-  const onBlur = () => {
-    Number(quantityInput) > 0
-      ? setQuantityInput(
-          Number(quantityInput),
-          setAddCartItem({ ...addCartItem, qty: Number(quantityInput) })
-        )
-      : setQuantityInput(
-          1,
-          alertMessage(),
-          setAddCartItem({ ...addCartItem, qty: 1 })
-        );
+  const checkIsLessThanOne = value => {
+    return Number(value) < 1;
   };
 
-  const checkNumber = () => {
-    typeof quantityInput === 'string' && Number(quantityInput) > 0
-      ? setQuantityInput(
-          Number(quantityInput),
-          setAddCartItem({ ...addCartItem, qty: Number(quantityInput) })
-        )
-      : setQuantityInput(
-          1,
-          alertMessage(),
-          setAddCartItem({ ...addCartItem, qty: 1 })
-        );
+  const validateInputValue = e => {
+    if (checkIsText(e.target.value)) {
+      setQuantityInput(1);
+      return alert('한글입니다. 최소 수량은 1이상입니다.');
+    }
+
+    if (checkIsLessThanOne(e.target.value)) {
+      setQuantityInput(1);
+      return alert('음수입니다. 최소 수량은 1이상입니다.');
+    }
+
+    setQuantityInput(Number(e.target.value));
+  };
+
+  const onBlur = e => {
+    validateInputValue(e);
   };
 
   const handleKeyPress = e => {
-    if (e.key === 'Enter') checkNumber();
-    return;
+    if (e.key === 'Enter') {
+      validateInputValue(e);
+    }
   };
 
   const sumPrice = (quantityInput, discount_price) => {
@@ -65,32 +63,17 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
 
   const countBtnClick = e => {
     if (e.target.outerText === '증가') {
-      Number(quantityInput)
-        ? setQuantityInput(
-            Number(quantityInput) + 1,
-            setAddCartItem({ ...addCartItem, qty: Number(quantityInput) + 1 })
-          )
-        : setQuantityInput(1, setAddCartItem({ ...addCartItem, qty: 1 }));
+      setQuantityInput(quantityInput + 1);
       return;
     }
     if (e.target.outerText === '감소') {
-      Number(quantityInput) >= 1
-        ? setQuantityInput(
-            Number(quantityInput) - 1,
-            setAddCartItem({ ...addCartItem, qty: Number(quantityInput) - 1 })
-          )
-        : setQuantityInput(
-            1,
-            alertMessage(),
-            setAddCartItem({ ...addCartItem, qty: 1 })
-          );
+      setQuantityInput(quantityInput - 1);
       return;
     }
   };
 
   const checkDupOption = e => {
     if (addCartItem.is_option) {
-      setAddCartItem({ ...addCartItem, option: e.target.value });
     }
     if (addCartItem.option.includes(e.target.value)) {
       alert('이미 담긴 상품입니다.');
@@ -148,7 +131,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
                   discount_price={product.discount_price}
                   quantityInput={quantityInput}
                   sumPrice={sumPrice}
-                  onClick={countBtnClick}
+                  countBtnClick={countBtnClick}
                 />
                 <div className="payBox">
                   <span className="payTitle">총 합계 금액</span>
@@ -177,7 +160,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
               discount_price={product.discount_price}
               quantityInput={quantityInput}
               sumPrice={sumPrice}
-              onClick={countBtnClick}
+              countBtnClick={countBtnClick}
             />
             <div className="payBox">
               <span className="payTitle">총 합계 금액</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Mainpage/Main';
-import Detailpage from './pages/Detailpage/Detailpage';
+import Detailpage from './pages/Detailpage/DetailPage';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Nav from './components/Nav/Nav';
@@ -16,10 +16,10 @@ const Router = () => {
       <ScrollToTop />
       <Nav />
       <Routes>
-        <Route path="/" element={<Main />} exact={true} />
-        <Route path="/products/:id" element={<Detailpage />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/products/:id" element={<Detailpage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<OrderComplete />} />
       </Routes>
