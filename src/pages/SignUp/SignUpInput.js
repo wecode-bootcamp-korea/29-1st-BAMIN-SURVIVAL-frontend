@@ -10,6 +10,10 @@ function SignUpInput({
   name,
   isError,
   warning,
+  fetch,
+  isDuplicate,
+  setIsDuplicate,
+  duplicateError,
 }) {
   const [isBlur, setIsBlur] = useState(false);
 
@@ -19,7 +23,10 @@ function SignUpInput({
 
   const onFocus = () => {
     setIsBlur(false);
+    setIsDuplicate(false);
   };
+
+  const onBlurFetch = isBlur ? fetch() : null;
 
   return (
     <div className="signUpInput">
@@ -39,6 +46,11 @@ function SignUpInput({
         />
         {isError && isBlur ? (
           <div className="warningShowUp">{warning}</div>
+        ) : (
+          <div className="warning">{warning}</div>
+        )}
+        {isDuplicate && isBlur ? (
+          <div className="warningShowUp">{duplicateError}</div>
         ) : (
           <div className="warning">{warning}</div>
         )}

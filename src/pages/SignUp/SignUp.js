@@ -12,7 +12,6 @@ function SignUp() {
     signUpNick: '',
     signUpPhone: '',
   });
-  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const {
     signUpId,
@@ -55,9 +54,7 @@ function SignUp() {
     return phoneRegex.test(value);
   };
 
-  const isFilledMandatory = () => {
-    return Object.values(signUpInfo).includes('') ? true : false;
-  };
+  const isFilledMandatory = Object.values(signUpInfo).includes('');
 
   const validator = {
     signUpPw: !isValidPw(signUpPw) && signUpPw !== '',
@@ -68,34 +65,41 @@ function SignUp() {
 
   const isValidator = Object.values(validator).includes(true);
 
+  const falseTotrue = bool => {
+    bool = !bool;
+    return bool;
+  };
+
   const signUpFetch = () => {
     fetch('http://13.125.227.39:8080/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,
-        password: signUpPw,
-        email: signUpEmail,
-        phone: signUpPhone,
-        nickname: signUpNick,
+        password: 'dasjkjdaoiw12312@@',
+        email: 'dvhniu@naver.com',
+        phone: '010238249380',
+        nickname: 'dsjdwhiwss',
       }),
     })
       .then(res => res.json())
       .then(res => {
         if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          setIsDuplicate(true);
+          falseTotrue(bool);
         } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          setIsDuplicate(true);
+          falseTotrue(bool);
         } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          setIsDuplicate(true);
+          falseTotrue(bool);
         } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          setIsDuplicate(true);
+          falseTotrue(bool);
+        } else {
+          falseTotrue(bool);
         }
       });
   };
 
   const signUpRegister = e => {
     e.preventDefault();
-    if (isFilledMandatory()) {
+    if (isFilledMandatory) {
       alert('필수항목을 입력해주세요!');
     } else if (isValidator) {
       alert('경고 문구를 해결해주세요!');
@@ -118,6 +122,8 @@ function SignUp() {
           signUpInfo={signUpInfo}
           onChange={onChange}
           validator={validator}
+          isDuplicate={isDuplicate}
+          fetch={signUpFetch}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>

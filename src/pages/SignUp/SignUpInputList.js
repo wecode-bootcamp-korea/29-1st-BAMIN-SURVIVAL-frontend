@@ -2,11 +2,26 @@ import React from 'react';
 import SignUpInput from './SignUpInput';
 import './SignUpInputList.scss';
 
-function SignUpInputList({ signUpInfo, onChange, validator }) {
+function SignUpInputList({
+  signUpInfo,
+  onChange,
+  validator,
+  fetch,
+  isDuplicate,
+  setIsDuplicate,
+}) {
   return (
     <div className="signUpBox">
       {SIGNUP_INPUT_DATA.map(
-        ({ type, text, id, inputName, placeholder, warning }) => (
+        ({
+          type,
+          text,
+          id,
+          inputName,
+          placeholder,
+          warning,
+          duplicateError,
+        }) => (
           <SignUpInput
             type={type}
             text={text}
@@ -17,6 +32,10 @@ function SignUpInputList({ signUpInfo, onChange, validator }) {
             placeholder={placeholder}
             isError={validator[inputName]}
             warning={warning}
+            fetch={fetch}
+            isDuplicate={isDuplicate}
+            setIsDuplicate={setIsDuplicate}
+            duplicateError={duplicateError}
           />
         )
       )}
@@ -32,7 +51,9 @@ const SIGNUP_INPUT_DATA = [
     type: 'text',
     text: '아이디',
     inputName: 'signUpId',
-    warning: '중복된 ID입니다!',
+    warning: '사용불가! 영문자,숫자 조합으로 6-16글자 범위로 입력해주세요.',
+    isDuplicate: false,
+    duplicateError: '이미 등록된 아이디입니다. 다른 아이디를 입력해 주세요',
   },
 
   {
@@ -41,7 +62,7 @@ const SIGNUP_INPUT_DATA = [
     text: '비밀번호',
     inputName: 'signUpPw',
     warning:
-      '사용불가! 영문자,숫자,특수문자 조합으로 8-16글자 범위로 입력해주세요!',
+      '사용불가! 영문자,숫자,특수문자 조합으로 8-16글자 범위로 입력해주세요.',
   },
 
   {
@@ -58,6 +79,8 @@ const SIGNUP_INPUT_DATA = [
     text: '이메일',
     inputName: 'signUpEmail',
     warning: '올바른 이메일 형식이 아닙니다.',
+    isDuplicate: false,
+    duplicateError: '사용불가! 해당 이메일로 가입하신 계정이 이미 존재합니다.',
   },
 
   {
@@ -66,6 +89,8 @@ const SIGNUP_INPUT_DATA = [
     text: '닉네임',
     inputName: 'signUpNick',
     warning: '중복된 닉네임입니다!',
+    isDuplicate: false,
+    duplicateError: '사용불가! 중복된 닉네임입니다.',
   },
 
   {
@@ -75,5 +100,7 @@ const SIGNUP_INPUT_DATA = [
     placeholder: ' -없이 입력하세요',
     inputName: 'signUpPhone',
     warning: '올바른 전화번호 형식이 아닙니다.',
+    isDuplicate: false,
+    duplicateError: '사용불가! 번호로 가입하신 계정이 이미 존재합니다',
   },
 ];
