@@ -18,14 +18,39 @@ function Login() {
     });
   };
 
+  const loginFetch = () => {
+    fetch('http://10.58.5.43/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        account: loginId,
+        password: loginPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ACCOUNT ALREADY EXISTS') {
+          alert('중복된 아이디입니다!');
+        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
+          alert('중복된 닉네임입니다!');
+        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
+          alert('중복된 이메일입니다!');
+        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
+          alert('중복된 휴대폰번호입니다!');
+        } else {
+          alert('회원가입이 완료되었습니다!');
+        }
+      });
+  };
+
   const loginValidation = () => {
     if (loginId === '') {
       alert('아이디를 입력해주세요');
       return;
-    }
-    if (loginPw === '') {
+    } else if (loginPw === '') {
       alert('패스워드를 입력해주세요');
       return;
+    } else {
+      loginFetch();
     }
   };
 
@@ -61,9 +86,7 @@ function Login() {
               <input type="checkbox" className="idCheck" />
               <span className="idSave">아이디저장</span>
             </div>
-            <button className="loginButton buttonNoBorder" onClick={goToSignUp}>
-              로그인
-            </button>
+            <button className="loginButton buttonNoBorder">로그인</button>
           </div>
           <ul className="loginButtonBox">
             <li className="loginSignUp buttonList">

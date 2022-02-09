@@ -2,12 +2,7 @@ import React from 'react';
 import SignUpInput from './SignUpInput';
 import './SignUpInputList.scss';
 
-function SignUpInputList({
-  signupInfo,
-  setSignupInfo,
-  isMandatory,
-  validator,
-}) {
+function SignUpInputList({ signUpInfo, onChange, validator }) {
   return (
     <div className="signUpBox">
       {SIGNUP_INPUT_DATA.map(
@@ -17,12 +12,10 @@ function SignUpInputList({
             text={text}
             key={id}
             name={inputName}
-            value={signupInfo[inputName]}
-            signupInfo={signupInfo}
+            value={signUpInfo[inputName]}
+            onChange={onChange}
             placeholder={placeholder}
-            setSignupInfo={setSignupInfo}
             isError={validator[inputName]}
-            isMandatory={isMandatory}
             warning={warning}
           />
         )

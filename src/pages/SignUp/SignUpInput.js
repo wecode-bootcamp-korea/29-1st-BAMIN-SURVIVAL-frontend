@@ -3,22 +3,15 @@ import './SignUpInput.scss';
 
 function SignUpInput({
   type,
-  signupInfo,
+  onChange,
   value,
   text,
   placeholder,
-  setSignupInfo,
   name,
   isError,
   warning,
 }) {
   const [isBlur, setIsBlur] = useState(false);
-  const onChange = e => {
-    setSignupInfo({
-      ...signupInfo,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const onBlur = () => {
     setIsBlur(true);
@@ -49,7 +42,6 @@ function SignUpInput({
         ) : (
           <div className="warning">{warning}</div>
         )}
-        {/* {isMandatory && <div className="mandatory">필수항목입니다</div>} */}
       </div>
     </div>
   );

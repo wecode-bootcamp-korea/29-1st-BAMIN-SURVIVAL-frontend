@@ -12,6 +12,7 @@ function SignUp() {
     signUpNick: '',
     signUpPhone: '',
   });
+  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const {
     signUpId,
@@ -21,6 +22,13 @@ function SignUp() {
     signUpNick,
     signUpPhone,
   } = signUpInfo;
+
+  const onChange = e => {
+    setSignUpInfo({
+      ...signUpInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const navigate = useNavigate();
 
@@ -34,6 +42,7 @@ function SignUp() {
     return pwRegex.test(value);
   };
   const isPwSame = signUpPw !== signUpPwCheck;
+  const isPwNotBlank = signUpPw !== '' && signUpPwCheck !== '';
 
   const isValidEmail = value => {
     let emailRegex =
@@ -50,8 +59,17 @@ function SignUp() {
     return Object.values(signUpInfo).includes('') ? true : false;
   };
 
+  const validator = {
+    signUpPw: !isValidPw(signUpPw) && signUpPw !== '',
+    signUpPwCheck: isPwSame && isPwNotBlank,
+    signUpEmail: !isValidEmail(signUpEmail) && signUpEmail !== '',
+    signUpPhone: !isValidPhone(signUpPhone) && signUpPhone !== '',
+  };
+
+  const isValidator = Object.values(validator).includes(true);
+
   const signUpFetch = () => {
-    fetch('http://10.58.5.43/users/signup', {
+    fetch('http://13.125.227.39:8080/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,
@@ -64,31 +82,27 @@ function SignUp() {
       .then(res => res.json())
       .then(res => {
         if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          alert('중복된 아이디입니다!');
+          setIsDuplicate(true);
         } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          alert('중복된 닉네임입니다!');
+          setIsDuplicate(true);
         } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          alert('중복된 이메일입니다!');
+          setIsDuplicate(true);
         } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          alert('중복된 휴대폰번호입니다!');
+          setIsDuplicate(true);
         }
       });
   };
 
   const signUpRegister = e => {
     e.preventDefault();
-    if (isFilledMandatory) {
+    if (isFilledMandatory()) {
       alert('필수항목을 입력해주세요!');
+    } else if (isValidator) {
+      alert('경고 문구를 해결해주세요!');
     } else {
       signUpFetch();
+      alert('회원가입이 완료되었습니다!');
     }
-  };
-
-  const validator = {
-    signUpPw: !isValidPw(signUpPw),
-    signUpPwCheck: isPwSame,
-    signUpEmail: !isValidEmail(signUpEmail) && signUpEmail.length > 7,
-    signUpPhone: !isValidPhone(signUpPhone) && signUpPhone.length > 5,
   };
 
   return (
@@ -97,21 +111,19 @@ function SignUp() {
         <header className="signUpHeader">
           <h1 className="info">기본정보</h1>
           <h4 className="sideInfo">
-            *표시는 반드시 입력하셔야 하는 항목입니다.
+            *표시는 반드시 입력하셔야 하는 필수항목입니다.
           </h4>
         </header>
         <SignUpInputList
-          setSignupInfo={setSignUpInfo}
-          signupInfo={signUpInfo}
+          signUpInfo={signUpInfo}
+          onChange={onChange}
           validator={validator}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>
             취소
           </button>
-          <button className="signUpBtn" onClick={signUpRegister}>
-            회원가입
-          </button>
+          <button className="signUpBtn">회원가입</button>
         </div>
       </form>
     </div>
