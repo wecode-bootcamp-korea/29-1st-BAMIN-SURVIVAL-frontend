@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Detailpage from './pages/Detailpage/DetailPage';
+import Detailpage from './pages/Detailpage/Detailpage';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Mainpage/Main';
@@ -20,7 +20,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
         <Route path="/products/:id" element={<Detailpage />} />
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main />} exact={true} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<OrderComplete />} />
       </Routes>

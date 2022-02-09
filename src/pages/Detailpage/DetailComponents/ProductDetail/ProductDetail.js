@@ -20,7 +20,7 @@ const ProductDetail = users => {
   const [userReviews, setUserReviews] = useState(users);
   const nextId = useRef(5);
   const nextUserName = useRef(5);
-  const reviewNum = userReviews.filter(user => user.comment.length > 0).length;
+  // const reviewNum = userReviews.filter(user => user.comment.length > 0).length;
   const [isRegisterBtnClick, setIsRegisterBtnClick] = useState(false);
   const [isCorrectBtnClick, setIsCorrectBtnClick] = useState(false);
 
@@ -113,7 +113,7 @@ const ProductDetail = users => {
           <div className="purchaseReviewContent">
             <table className="reviewTable">
               <thead>
-                {reviewNum ? (
+                {null ? (
                   userReviews.map(user => (
                     <Review
                       key={user.id}

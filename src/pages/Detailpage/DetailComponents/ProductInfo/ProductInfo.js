@@ -15,9 +15,27 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
     is_option: product.is_option,
     qty: 1,
   };
-
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
+
+  const onSubmitCart = e => {
+    e.preventDefault();
+  };
+
+  fetch(`http://13.125.227.39:8080/cart`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      product_id: product.id,
+      quantity: quantityInput,
+    }),
+  }).then(res => {
+    if (res.ok) {
+      alert('장바구니로 보냈습니다');
+    }
+  });
   const renderPriceCondition =
     typeof quantityInput === 'number' && Number(quantityInput) > 0;
 
@@ -177,14 +195,10 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
         ) : null}
         <div className="linkBox">
           {product.stock ? (
-            <>
-              <button type="button" className="cartBtn">
-                장바구니
-              </button>
-              <button type="button" className="buyNowBtn">
-                바로구매
-              </button>
-            </>
+            <form onSubmit={onSubmitCart}>
+              <button className="cartBtn">장바구니</button>
+              <button className="buyNowBtn">바로구매</button>
+            </form>
           ) : (
             <button type="button" className="soldOutBtn" disabled="disabled">
               SOLD OUT
