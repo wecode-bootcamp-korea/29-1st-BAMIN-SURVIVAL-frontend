@@ -11,13 +11,13 @@ import Review from '../Review/Review';
 import CreateReview from '../CreateReview/CreateReview';
 import './ProductDetail.scss';
 
-const ProductDetail = props => {
+const ProductDetail = users => {
   const [writeReview, setWriteReview] = useState({
     comment: '',
     id: '',
   });
   const { comment, id } = writeReview;
-  const [userReviews, setUserReviews] = useState(props.users);
+  const [userReviews, setUserReviews] = useState(users);
   const nextId = useRef(5);
   const nextUserName = useRef(5);
   const reviewNum = userReviews.filter(user => user.comment.length > 0).length;
