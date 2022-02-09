@@ -3,7 +3,7 @@ import Modal from './Modal/Modal';
 
 const CartList = ({ item, idx, items, setItems }) => {
   const shippingPrice = item.shipping.toLocaleString('ko-KR');
-  const itemPrice = (item.price * item.qty).toLocaleString('ko-KR');
+  const itemPrice = (item.price * item.quantity).toLocaleString('ko-KR');
   const [isOpen, setIsOpen] = useState(false);
 
   const itemCheck = id => {
@@ -22,7 +22,7 @@ const CartList = ({ item, idx, items, setItems }) => {
           type="checkbox"
           name={item.name}
           onChange={() => itemCheck(item.id)}
-          checked={item.is_check}
+          // checked={item.is_check}
           disabled={item.qty === 0 && true}
         />
       </td>
@@ -34,7 +34,7 @@ const CartList = ({ item, idx, items, setItems }) => {
         {item.option && <p>옵션 : {item.option}</p>}
       </td>
       <td className="productOption">
-        <p>{item.qty}개</p>
+        <p>{item.quantity}개</p>
         <button
           className="productModify"
           onClick={() => {

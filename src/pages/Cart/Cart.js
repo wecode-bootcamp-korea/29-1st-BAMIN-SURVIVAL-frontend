@@ -12,9 +12,15 @@ const Cart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('./data/Shinung/data.json')
+    fetch('http://172.20.10.5:8080/cart', {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.jzHWKkmLlxqbzHGjzqoUPLbUYFpRFwXzwjnfaVR7Hyw',
+      },
+    })
       .then(res => res.json())
-      .then(result => setItems(result));
+      .then(res => setItems(res.result));
   }, []);
 
   const onDelete = () => {

@@ -3,7 +3,7 @@ import React from 'react';
 const TotalAmount = ({ items }) => {
   const totalPrice = items
     .filter(item => item.is_check)
-    .map(item => item.price * item.qty)
+    .map(item => item.price * item.quantity)
     .reduce((a, b) => a + b, 0);
 
   const checkedItem = items.filter(item => item.is_check);

@@ -2,20 +2,48 @@ import React, { useState } from 'react';
 import './Modal.scss';
 
 function Modal({ onClose, item, items, setItems }) {
-  const [quantity, setQuantity] = useState(item.qty);
+  const [quantity, setQuantity] = useState(item.quantity);
   const itemPrice = (item.price * quantity).toLocaleString('ko-KR');
+  console.log(item);
 
   const onSubmit = id => {
     const changeItem = items.map(item => {
       if (item.id === id) {
         if (quantity > 0) {
-          return { ...item, qty: quantity, is_check: true };
+          return { ...item, quantity: quantity, is_check: true };
         } else {
-          return { ...item, qty: quantity };
+          return { ...item, quantity: quantity };
         }
       } else return item;
     });
     setItems(changeItem);
+
+    fetch(`http://172.20.10.5:8080/cart/${item.cart_id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.jzHWKkmLlxqbzHGjzqoUPLbUYFpRFwXzwjnfaVR7Hyw',
+      },
+      body: JSON.stringify({
+        cart_id: item.id,
+        quantity: item.quantity,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.result.message === 'SUCCESS') {
+          fetch('http://172.20.10.5:8080/cart', {
+            method: 'GET',
+            headers: {
+              Authorization:
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.jzHWKkmLlxqbzHGjzqoUPLbUYFpRFwXzwjnfaVR7Hyw',
+            },
+          })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
+      });
+
     onClose();
   };
 
