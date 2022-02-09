@@ -28,16 +28,14 @@ function Login() {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          alert('중복된 아이디입니다!');
-        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
+        if (res.message === 'SUCCESS') {
+          goToSignUp();
+        } else if (res.message === 'INVALID_USER') {
           alert('중복된 닉네임입니다!');
-        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
+        } else if (res.message === 'DOES NOT EXIST USER') {
           alert('중복된 이메일입니다!');
-        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
+        } else if (res.message === 'KEY_ERROR') {
           alert('중복된 휴대폰번호입니다!');
-        } else {
-          alert('회원가입이 완료되었습니다!');
         }
       });
   };
