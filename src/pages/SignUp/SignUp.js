@@ -12,6 +12,7 @@ function SignUp() {
     signUpNick: '',
     signUpPhone: '',
   });
+  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const {
     signUpId,
@@ -35,73 +36,72 @@ function SignUp() {
     navigate('/login');
   };
 
-  const isValidPw = value => {
-    let pwRegex =
+  const isValidPw = () => {
+    const pwRegex =
       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
-    return pwRegex.test(value);
+    const validPw = pwRegex.test(signUpPw);
+    return !validPw && signUpPw !== '';
   };
   const isPwSame = signUpPw !== signUpPwCheck;
   const isPwNotBlank = signUpPw !== '' && signUpPwCheck !== '';
+  const isValidPwCheck = isPwSame && isPwNotBlank;
 
-  const isValidEmail = value => {
-    let emailRegex =
+  const isValidEmail = () => {
+    const emailRegex =
       /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return emailRegex.test(value);
+    const validEmail = emailRegex.test(signUpEmail);
+    return !validEmail && signUpEmail !== '';
   };
 
   const isValidPhone = value => {
-    let phoneRegex = /^[0-9\b -]{0,13}$/;
-    return phoneRegex.test(value);
+    const phoneRegex = /^[0-9\b -]{0,13}$/;
+    const validPhone = phoneRegex.test(value);
+    return validPhone && signUpPhone !== '';
   };
 
   const isFilledMandatory = Object.values(signUpInfo).includes('');
 
   const validator = {
-    signUpPw: !isValidPw(signUpPw) && signUpPw !== '',
-    signUpPwCheck: isPwSame && isPwNotBlank,
-    signUpEmail: !isValidEmail(signUpEmail) && signUpEmail !== '',
-    signUpPhone: !isValidPhone(signUpPhone) && signUpPhone !== '',
+    signUpPw: isValidPw(),
+    signUpPwCheck: isValidPwCheck,
+    signUpEmail: isValidEmail(),
+    signUpPhone: isValidPhone(),
   };
 
   const isValidator = Object.values(validator).includes(true);
 
-  const falseTotrue = bool => {
-    bool = !bool;
-    return bool;
-  };
-
   const signUpFetch = () => {
-    fetch('http://13.125.227.39:8080/users/signup', {
+    fetch('http://13.125.227.39:8080/users/check', {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,
-        password: 'dasjkjdaoiw12312@@',
-        email: 'dvhniu@naver.com',
-        phone: '010238249380',
-        nickname: 'dsjdwhiwss',
+        password: signUpPw,
+        email: signUpEmail,
+        phone: signUpPhone,
+        nickname: signUpNick,
       }),
     })
       .then(res => res.json())
       .then(res => {
         if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          falseTotrue(bool);
+          setIsDuplicate(true);
         } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          falseTotrue(bool);
+          setIsDuplicate(true);
         } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          falseTotrue(bool);
+          setIsDuplicate(true);
         } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          falseTotrue(bool);
+          setIsDuplicate(true);
         } else {
-          falseTotrue(bool);
+          setIsDuplicate(false);
         }
       });
   };
 
+  console.log(isDuplicate);
+
   const signUpRegister = e => {
     e.preventDefault();
-    if (isFilledMandatory) {
-      alert('필수항목을 입력해주세요!');
-    } else if (isValidator) {
+    if (isValidator && isFilledMandatory) {
       alert('경고 문구를 해결해주세요!');
     } else {
       signUpFetch();
@@ -123,6 +123,7 @@ function SignUp() {
           onChange={onChange}
           validator={validator}
           isDuplicate={isDuplicate}
+          setIsDuplicate={setIsDuplicate}
           fetch={signUpFetch}
         />
         <div className="signUpButtonWrapper">

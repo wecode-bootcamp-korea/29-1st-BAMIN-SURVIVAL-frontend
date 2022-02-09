@@ -9,24 +9,24 @@ function SignUpInput({
   placeholder,
   name,
   isError,
-  warning,
+  validErrorMessage,
   fetch,
   isDuplicate,
   setIsDuplicate,
   duplicateError,
+  mandatoryMessage,
 }) {
   const [isBlur, setIsBlur] = useState(false);
 
   const onBlur = () => {
     setIsBlur(true);
+    fetch();
   };
 
   const onFocus = () => {
     setIsBlur(false);
     setIsDuplicate(false);
   };
-
-  const onBlurFetch = isBlur ? fetch() : null;
 
   return (
     <div className="signUpInput">
@@ -45,14 +45,19 @@ function SignUpInput({
           onFocus={onFocus}
         />
         {isError && isBlur ? (
-          <div className="warningShowUp">{warning}</div>
+          <div className="warningShowUp valid">{validErrorMessage}</div>
         ) : (
-          <div className="warning">{warning}</div>
+          <div className="warning">{validErrorMessage}</div>
         )}
-        {isDuplicate && isBlur ? (
-          <div className="warningShowUp">{duplicateError}</div>
+        {isDuplicate && value !== '' && isBlur ? (
+          <div className="warningShowUp duplicate">{duplicateError}</div>
         ) : (
-          <div className="warning">{warning}</div>
+          <div className="warning">{validErrorMessage}</div>
+        )}
+        {value === '' && isBlur ? (
+          <div className="warningShowUp mandatory">{mandatoryMessage}</div>
+        ) : (
+          <div className="warning">{validErrorMessage}</div>
         )}
       </div>
     </div>
