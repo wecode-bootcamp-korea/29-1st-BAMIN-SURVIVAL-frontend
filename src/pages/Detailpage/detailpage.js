@@ -30,7 +30,7 @@ const Detailpage = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://13.125.227.39:8080/products/detail?id=${id}`, {
+    fetch(`http://172.20.10.5:8080/products/detail?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -55,7 +55,10 @@ const Detailpage = () => {
         toggleModal={toggleModal}
         key={productData.id}
       />
-      <ProductDetail users={reviewUsers} />
+      <ProductDetail
+        users={reviewUsers}
+        detail_img={productData.detail_image}
+      />
     </main>
   );
 };

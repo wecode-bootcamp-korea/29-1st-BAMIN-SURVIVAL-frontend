@@ -4,38 +4,38 @@ import ProductBasicInfo from '../ProductBasicInfo/ProductBasicInfo';
 import ProductOptionBox from '../ProductOptionBox/ProductOptionBox';
 import ImageModal from '../ImageModal/ImageModal';
 import './ProductInfo.scss';
+import { useNavigate } from 'react-router-dom';
 
 const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
-  const addCartItem = {
-    id: product.id,
-    name: product.name,
-    price: product.discount_price,
-    img: product.img,
-    option: product.options,
-    is_option: product.is_option,
-    qty: 1,
-  };
   const [quantityInput, setQuantityInput] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
+  const navigate = useNavigate();
 
   const onSubmitCart = e => {
     e.preventDefault();
+    if (sessionStorage.getItem('token')) {
+      fetch(`http://172.20.10.5:8080/cart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: sessionStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          product_id: product.id,
+          quantity: quantityInput,
+        }),
+      }).then(res => {
+        if (res.ok) {
+          alert('장바구니로 보냈습니다');
+          navigate('/cart');
+        }
+      });
+    } else {
+      alert('로그인 해주세요.');
+      navigate('/login');
+    }
   };
 
-  fetch(`http://13.125.227.39:8080/cart`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      product_id: product.id,
-      quantity: quantityInput,
-    }),
-  }).then(res => {
-    if (res.ok) {
-      alert('장바구니로 보냈습니다');
-    }
-  });
   const renderPriceCondition =
     typeof quantityInput === 'number' && Number(quantityInput) > 0;
 
@@ -54,12 +54,12 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
   const validateInputValue = e => {
     if (checkIsText(e.target.value)) {
       setQuantityInput(1);
-      return alert('한글입니다. 최소 수량은 1이상입니다.');
+      return alert('최소 수량은 1이상입니다.');
     }
 
     if (checkIsLessThanOne(e.target.value)) {
       setQuantityInput(1);
-      return alert('음수입니다. 최소 수량은 1이상입니다.');
+      return alert('최소 수량은 1이상입니다.');
     }
 
     setQuantityInput(Number(e.target.value));
@@ -91,21 +91,21 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
   };
 
   const checkDupOption = e => {
-    if (addCartItem.is_option) {
-    }
-    if (addCartItem.option.includes(e.target.value)) {
+    setSelectedOption(e.target.value);
+    if (selectedOption === e.target.value) {
       alert('이미 담긴 상품입니다.');
-      return;
     }
-    setSelectedOption('');
   };
 
   return (
     <article className="productInfo">
-      <ProductBasicImg img={product.img} toggleModal={toggleModal} />
+      <ProductBasicImg
+        img={product.thumbnail_image}
+        toggleModal={toggleModal}
+      />
       <ImageModal
         name={product.name}
-        img={product.img}
+        img={product.thumbnail_image}
         modal={modal}
         setModal={setModal}
         toggleModal={toggleModal}
@@ -121,7 +121,7 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
 
         {product.stock ? (
           <div>
-            {addCartItem.is_option ? (
+            {product.is_option ? (
               <div className="sizeOptionBox">
                 <div className="optionInfo">옵션</div>
                 <div className="selectBox">
@@ -167,10 +167,10 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
           </div>
         ) : null}
 
-        {addCartItem.option ? (
+        {selectedOption.length ? (
           <>
             <ProductOptionBox
-              name={product.name + addCartItem.option}
+              name={product.name + selectedOption}
               handleQuantityInput={handleQuantityInput}
               handleKeyPress={handleKeyPress}
               onBlur={onBlur}

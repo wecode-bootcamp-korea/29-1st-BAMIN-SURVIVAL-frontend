@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DetailInfo = () => {
+const DetailInfo = ({ detail_img }) => {
   return (
     <>
       <div className="detailDescription">
@@ -8,17 +8,7 @@ const DetailInfo = () => {
         <img
           alt="상세설명 및 이미지"
           className="decriptionImg"
-          src="/images/Jihong/sampleDetailImg_1.jpg"
-        />
-        <img
-          alt="상세설명 및 이미지"
-          className="decriptionImg"
-          src="/images/Jihong/sampleDetailImg_2.jpg"
-        />
-        <img
-          alt="상세설명 및 이미지"
-          className="decriptionImg"
-          src="/images/Jihong/sampleDetailImg_3.jpg"
+          src={detail_img}
         />
       </div>
       <div className="requiredInfoTable">

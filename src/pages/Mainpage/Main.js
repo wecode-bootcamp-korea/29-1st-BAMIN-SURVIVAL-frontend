@@ -29,11 +29,10 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetch(`http://13.125.227.39:8080/products${location.search}`)
+    fetch(`http://172.20.10.5:8080/products${location.search}`)
       .then(res => res.json())
       .then(data => setProducts(data.message));
   }, [location.search]);
-
   const updateOffset = buttonIndex => {
     const limit = 16;
     const offset = buttonIndex * limit;

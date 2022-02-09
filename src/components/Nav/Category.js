@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
-  const [linkBtn, setLinkBtn] = useState('all');
+  const [linkBtn, setLinkBtn] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(category.btnActive);
   const changeLinkBtn = e => {
     setLinkBtn(e.target.name);
     setIsBtnActive(!isBtnActive);
   };
-
   return (
     <li>
       <Link
@@ -17,7 +16,7 @@ const Category = ({ category }) => {
             ? `main?&offset=0`
             : `main?category=${category.name}&limit=16&offset=0`
         }
-        className={isBtnActive ? 'categoryActive' : 'categoryTitle'}
+        className="categoryTitle"
         onClick={changeLinkBtn}
         name={category.name}
       >

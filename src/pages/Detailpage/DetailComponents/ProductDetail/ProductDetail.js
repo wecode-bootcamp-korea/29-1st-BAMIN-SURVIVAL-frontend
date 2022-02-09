@@ -11,7 +11,7 @@ import Review from '../Review/Review';
 import CreateReview from '../CreateReview/CreateReview';
 import './ProductDetail.scss';
 
-const ProductDetail = users => {
+const ProductDetail = ({ users, detail_img }) => {
   const [writeReview, setWriteReview] = useState({
     comment: '',
     id: '',
@@ -20,7 +20,6 @@ const ProductDetail = users => {
   const [userReviews, setUserReviews] = useState(users);
   const nextId = useRef(5);
   const nextUserName = useRef(5);
-  // const reviewNum = userReviews.filter(user => user.comment.length > 0).length;
   const [isRegisterBtnClick, setIsRegisterBtnClick] = useState(false);
   const [isCorrectBtnClick, setIsCorrectBtnClick] = useState(false);
 
@@ -63,7 +62,9 @@ const ProductDetail = users => {
 
   const onUpdateReview = () => {
     setUserReviews(
-      userReviews.map(x => (x.id === id ? { ...x, comment: comment } : x))
+      userReviews.map(user =>
+        user.id === id ? { ...user, comment: comment } : user
+      )
     );
     setWriteReview({
       comment: '',
@@ -93,7 +94,7 @@ const ProductDetail = users => {
     <article className="productDetail">
       <div id="detail">
         {TABLIST_OBJ[1]}
-        <DetailInfo />
+        <DetailInfo detail_img={detail_img} />
       </div>
       <div id="shipping">
         {TABLIST_OBJ[2]}
@@ -113,7 +114,7 @@ const ProductDetail = users => {
           <div className="purchaseReviewContent">
             <table className="reviewTable">
               <thead>
-                {null ? (
+                {users.length > 0 ? (
                   userReviews.map(user => (
                     <Review
                       key={user.id}
