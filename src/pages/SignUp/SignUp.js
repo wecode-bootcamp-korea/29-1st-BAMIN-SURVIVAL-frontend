@@ -85,8 +85,8 @@ function SignUp() {
   };
 
   const validator = {
-    signUpPw: !isValidPw(signUpPw) && signUpPw.length > 7,
-    signUpPwCheck: isPwSame && signUpPwCheck.length > 7,
+    signUpPw: !isValidPw(signUpPw),
+    signUpPwCheck: isPwSame,
     signUpEmail: !isValidEmail(signUpEmail) && signUpEmail.length > 7,
     signUpPhone: !isValidPhone(signUpPhone) && signUpPhone.length > 5,
   };

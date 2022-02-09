@@ -10,7 +10,6 @@ function SignUpInput({
   setSignupInfo,
   name,
   isError,
-  isMandatory,
   warning,
 }) {
   const [isBlur, setIsBlur] = useState(false);

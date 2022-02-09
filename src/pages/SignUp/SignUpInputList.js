@@ -11,7 +11,7 @@ function SignUpInputList({
   return (
     <div className="signUpBox">
       {SIGNUP_INPUT_DATA.map(
-        ({ type, text, id, inputName, placeholder, warning, is }) => (
+        ({ type, text, id, inputName, placeholder, warning }) => (
           <SignUpInput
             type={type}
             text={text}
