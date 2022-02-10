@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Carousel.scss';
 
-const Carousel = ({ carouselProducts }) => {
+const Carousel = ({ carouselImages }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = carouselProducts.length - 1;
+  const totalSlides = carouselImages.length - 1;
   const timeoutRef = useRef(null);
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -38,24 +37,18 @@ const Carousel = ({ carouselProducts }) => {
     setCurrentSlide(idx);
   };
 
-  const navigate = useNavigate();
-  const moveToDetail = id => {
-    navigate(`/products/${id}`);
-  };
-
   return (
     <section className="carousel">
       <div className="carouselContainer">
-        {carouselProducts.map((product, idx) => {
+        {carouselImages.map((product, idx) => {
           return (
             <img
               key={product.id}
               className={
                 currentSlide === idx ? 'slideItem slideActive' : 'slideItem'
               }
-              onClick={() => moveToDetail(product)}
               alt="제품홍보이미지"
-              src={product.promotion_img}
+              src={product.images}
             />
           );
         })}
@@ -65,7 +58,7 @@ const Carousel = ({ carouselProducts }) => {
         </button>
 
         <div className="slideDots">
-          {carouselProducts.map((product, idx) => (
+          {carouselImages.map((product, idx) => (
             <div
               key={product.id}
               onClick={() => moveDot(idx)}
