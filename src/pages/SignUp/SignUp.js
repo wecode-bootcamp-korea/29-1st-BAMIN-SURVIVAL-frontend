@@ -13,7 +13,6 @@ function SignUp() {
     signUpNick: '',
     signUpPhone: '',
   });
-  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const {
     signUpId,
@@ -59,23 +58,17 @@ function SignUp() {
     return !validEmail && signUpEmail !== '';
   };
 
+  const isValidNick = () => {
+    const nickRegex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
+    const validNick = nickRegex.test(signUpNick);
+    return !validNick && signUpNick !== '';
+  };
+
   const isValidPhone = value => {
     const phoneRegex = /^[0-9\b -]{0,13}$/;
     const validPhone = phoneRegex.test(value);
     return validPhone && signUpPhone !== '';
   };
-
-  const isFilledMandatory = Object.values(signUpInfo).includes('');
-
-  const validator = {
-    signUpId: isValidId(),
-    signUpPw: isValidPw(),
-    signUpPwCheck: isValidPwCheck,
-    signUpEmail: isValidEmail(),
-    signUpPhone: isValidPhone(),
-  };
-
-  const isValidator = Object.values(validator).includes(true);
 
   const signUpFetch = () => {
     fetch(`${BASE_URL}/users/signup`, {
@@ -87,32 +80,31 @@ function SignUp() {
         phone: signUpPhone,
         nickname: signUpNick,
       }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else {
-          setIsDuplicate(false);
-        }
-      });
+    }).then(res => res.json());
+  };
+
+  const validator = {
+    signUpId: isValidId(),
+    signUpPw: isValidPw(),
+    signUpPwCheck: isValidPwCheck,
+    signUpNick: isValidNick(),
+    signUpEmail: isValidEmail(),
+    signUpPhone: isValidPhone(),
   };
 
   const signUpRegister = e => {
     e.preventDefault();
-    if (isValidator && isFilledMandatory) {
+    if (isValidator || isFilledMandatory) {
       alert('경고 문구를 해결해주세요!');
     } else {
       signUpFetch();
       alert('회원가입이 완료되었습니다!');
     }
   };
+
+  const isFilledMandatory = Object.values(signUpInfo).includes('');
+
+  const isValidator = Object.values(validator).includes(true);
 
   return (
     <div className="signUp">
@@ -127,9 +119,6 @@ function SignUp() {
           signUpInfo={signUpInfo}
           onChange={onChange}
           validator={validator}
-          isDuplicate={isDuplicate}
-          setIsDuplicate={setIsDuplicate}
-          fetch={signUpFetch}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>
