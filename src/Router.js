@@ -7,6 +7,7 @@ import Main from './pages/Mainpage/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart/Cart';
+import Mentor from './pages/Mentor/Mentor';
 import OrderComplete from './pages/OrderComplete/OrderComplete';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import MyPage from './pages/MyPage/MyPage';
@@ -18,6 +19,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/mentor" element={<Mentor />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
         <Route path="/mentor" element={<Main />} />

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
+import BASE_URL from '../Config';
 
 function Login() {
   const [inputLogin, setInputLogin] = useState({
@@ -18,46 +19,10 @@ function Login() {
     });
   };
 
-  const loginFetch = () => {
-    fetch('http://10.58.5.43/users/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        account: loginId,
-        password: loginPw,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'SUCCESS') {
-          goToSignUp();
-        } else if (res.message === 'INVALID_USER') {
-          alert('중복된 닉네임입니다!');
-        } else if (res.message === 'DOES NOT EXIST USER') {
-          alert('중복된 이메일입니다!');
-        } else if (res.message === 'KEY_ERROR') {
-          alert('중복된 휴대폰번호입니다!');
-        }
-      });
-  };
-
-  const loginValidation = () => {
-    if (loginId === '') {
-      alert('아이디를 입력해주세요');
-      return;
-    } else if (loginPw === '') {
-      alert('패스워드를 입력해주세요');
-      return;
-    } else {
-      loginFetch();
-    }
-  };
-
-  const navigate = useNavigate();
-
-  const goToSignUp = e => {
+  const loginFetch = e => {
     e.preventDefault();
 
-    fetch('http://10.58.4.21/users/signin', {
+    fetch(`${BASE_URL}users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         account: loginId,
@@ -66,11 +31,24 @@ function Login() {
     })
       .then(res => res.json())
       .then(result =>
-        localStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
-      );
-
-    navigate('/');
+        sessionStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
+      )
+      .then(() => navigate('/'));
   };
+
+  const loginValidation = e => {
+    if (loginId === '') {
+      alert('아이디를 입력해주세요');
+      return;
+    } else if (loginPw === '') {
+      alert('패스워드를 입력해주세요');
+      return;
+    } else {
+      loginFetch(e);
+    }
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="login">
