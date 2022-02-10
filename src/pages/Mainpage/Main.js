@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import SortCategory from './MainComponents/Section/SortCategory';
+import Carousel from './MainComponents/Section/Carousel';
 import ProductsList from './MainComponents/ProductsList/ProductsList';
 import './Main.scss';
 import PaginationButton from '../../components/PaginationButton/PaginationButton';
@@ -9,6 +10,7 @@ const Main = () => {
   const [products, setProducts] = useState([]);
   const [sortCriteria, setSortCriteria] = useState('recent');
   const [isMainScroll, setIsMainScroll] = useState(true);
+  const [carouselImages, setCarouselImages] = useState([]);
 
   const sortBy = {
     recent: function (a, b) {
@@ -33,6 +35,13 @@ const Main = () => {
       .then(res => res.json())
       .then(data => setProducts(data.message));
   }, [location.search]);
+
+  useEffect(() => {
+    fetch('http://10.58.5.233:8000/products/slide')
+      .then(res => res.json())
+      .then(data => setCarouselImages(data.result));
+  }, []);
+
   const updateOffset = buttonIndex => {
     const limit = 16;
     const offset = buttonIndex * limit;
@@ -55,6 +64,7 @@ const Main = () => {
 
   return (
     <main className={isMainScroll ? 'main' : 'mainWithNav'}>
+      <Carousel carouselImages={carouselImages} />
       <SortCategory
         totalNumberItems={products.length}
         sortFucntion={changeSortCriteria}
