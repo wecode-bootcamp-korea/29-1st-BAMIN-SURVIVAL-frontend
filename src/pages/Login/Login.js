@@ -50,6 +50,10 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const goToSignUp = () => {
+    navigate('/');
+  };
+
   return (
     <div className="login">
       <form className="loginForm" onSubmit={loginValidation}>
@@ -80,7 +84,9 @@ function Login() {
           </div>
           <ul className="loginButtonBox">
             <li className="loginSignUp buttonList">
-              <button className="buttonNoBorder">회원가입</button>
+              <button className="buttonNoBorder" onClick={goToSignUp}>
+                회원가입
+              </button>
             </li>
             <li className="loginFindId buttonList">
               <button className="buttonNoBorder">아이디 찾기</button>
