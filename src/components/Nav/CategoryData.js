@@ -3,49 +3,50 @@ const CATEGORIES = [
     id: 1,
     title: '전체',
     name: 'all',
-    btnActive: false,
+    url: '/main?&offset=0',
   },
   {
     id: 2,
     title: '멘토',
     name: 'mentor',
-    btnActive: false,
+    url: '/mentor',
   },
   {
     id: 3,
     title: '매거진',
     name: 'magazine',
-    btnActive: false,
+
+    url: '/magazine?category=magazine&limit=16&offset=0',
   },
   {
     id: 4,
     title: '회사에서',
     name: 'company',
-    btnActive: false,
+    url: `/company?category=company&limit=16&offset=0`,
   },
   {
     id: 5,
     title: '학교에서',
     name: 'school',
-    btnActive: false,
+    url: '/school?category=school&limit=16&offset=0',
   },
   {
     id: 6,
     title: '코로나에서',
     name: 'covid',
-    btnActive: false,
+    url: '/covid?category=covid&limit=16&offset=0',
   },
   {
     id: 7,
     title: '랜덤박스',
     name: 'randombox',
-    btnActive: false,
+    url: '/randombox?category=randombox&limit=16&offset=0',
   },
   {
     id: 8,
     title: '커뮤니티',
     name: 'community',
-    btnActive: false,
+    url: 'community?category=community&limit=16&offset=0',
   },
 ];
 

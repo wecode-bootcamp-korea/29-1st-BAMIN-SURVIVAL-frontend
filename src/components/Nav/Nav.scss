@@ -162,12 +162,6 @@ a {
         color: black;
       }
 
-      .categoryTitle:focus {
-        color: $mintColor;
-        font-weight: bold;
-        border-bottom: 2px solid $mintColor;
-      }
-
       .categoryActive {
         color: $mintColor;
         font-weight: bold;
