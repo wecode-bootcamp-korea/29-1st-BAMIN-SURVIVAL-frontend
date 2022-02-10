@@ -28,8 +28,8 @@ const CartList = ({ item, idx, items, setItems }) => {
       <td className="productImage">
         <img alt="제품 이미지" src="/images/Shinung/test.jpeg" />
       </td>
-      <td className="productName">
-        <p>{item.name}</p>
+      <td className="cartProductName">
+        <p className="productItemName">{item.name}</p>
         {item.option && <p>옵션 : {item.option}</p>}
       </td>
       <td className="productOption">
