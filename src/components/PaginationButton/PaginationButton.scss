@@ -1,0 +1,19 @@
+$blackColor: #333333;
+$tagColor: #717171;
+$mintColor: #2bc1bc;
+
+.paginationButton {
+  display: flex;
+  justify-content: center;
+  margin: 65px auto 0 auto;
+
+  .pageBtn {
+    all: unset;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    color: $tagColor;
+    cursor: pointer;
+  }
+}

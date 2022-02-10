@@ -2,42 +2,50 @@ const CATEGORIES = [
   {
     id: 1,
     title: '전체',
-    url: '/',
+    name: 'all',
+    btnActive: false,
   },
   {
     id: 2,
     title: '멘토',
-    url: '/mentor',
+    name: 'mentor',
+    btnActive: false,
   },
   {
     id: 3,
     title: '매거진',
-    url: '/magazine',
+    name: 'magazine',
+    btnActive: false,
   },
   {
     id: 4,
     title: '회사에서',
-    url: '/company',
+    name: 'company',
+    btnActive: false,
   },
   {
     id: 5,
     title: '학교에서',
-    url: '/school',
+    name: 'school',
+    btnActive: false,
   },
   {
     id: 6,
     title: '코로나에서',
-    url: '/covid',
+    name: 'covid',
+    btnActive: false,
   },
   {
     id: 7,
     title: '랜덤박스',
-    url: '/randombox',
+    name: 'randombox',
+    btnActive: false,
   },
   {
     id: 8,
     title: '커뮤니티',
-    url: '/community',
+    name: 'community',
+    btnActive: false,
   },
 ];
 

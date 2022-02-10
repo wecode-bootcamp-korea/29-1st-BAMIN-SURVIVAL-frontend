@@ -28,7 +28,7 @@ const UserInfo = ({ path }) => {
 
       {localStorage.getItem('token') ? (
         <li>
-          <Link to="/" className="logOut" onClick={handleLogOUt}>
+          <Link to="/" className="navlogOut" onClick={handleLogOUt}>
             로그아웃
           </Link>
           <span className="txtBar" />

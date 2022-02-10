@@ -1,0 +1,403 @@
+$blackColor: #333333;
+$tagColor: #717171;
+$mintColor: #2bc1bc;
+
+@mixin tdBasic($textAlign, $width) {
+  padding: 13px 10px 15px 18px;
+  border-bottom: 1px solid #dbdbdb;
+  text-align: $textAlign;
+  width: $width;
+  font-size: 12px;
+  color: $blackColor;
+}
+
+@mixin noTdBasic {
+  width: 100%;
+  padding: 30px 30px 30px 30px;
+  text-align: center;
+  border-bottom: 1px solid #dbdbdb;
+  font-size: 12px;
+  color: $blackColor;
+}
+
+@mixin writeBtn {
+  min-width: 120px;
+  position: absolute;
+  top: 32px;
+  right: 0px;
+  padding: 10px 10px 10px 10px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #cccccc;
+  color: white;
+  background-color: $blackColor;
+}
+
+@mixin tableBasic {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-top: 1px solid #999999;
+  text-align: center;
+}
+@mixin inquaryAndReview {
+  width: 964px;
+  min-height: 200px;
+  position: relative;
+}
+
+@mixin inquaryAndReviewTitle {
+  padding: 45px 0 19px 10px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+@mixin tab($marginTop, $zIndex) {
+  width: 140px;
+  position: relative;
+  font-size: 12px;
+  text-align: center;
+  margin-top: $marginTop;
+  z-index: $zIndex;
+}
+
+@mixin tabContent {
+  display: block;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0px 0px -1px;
+  font-size: 12px;
+}
+
+@mixin title {
+  font-size: 18px;
+  font-weight: 800;
+  color: $blackColor;
+  padding: 45px 0 19px 10px;
+}
+
+.productDetail {
+  font-size: 12px;
+  margin: 0 150px 0 150px;
+  padding: 0 60px 10px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .productDetailTab {
+    padding: 80px 0px 0px;
+    width: 964px;
+    border-bottom: 1px solid rgb(187, 187, 187);
+
+    .tabWrraper {
+      width: 700px;
+      height: 57px;
+      margin: 0px auto;
+      padding: 16px 0px 0px;
+      display: flex;
+      position: relative;
+
+      .tabList {
+        @include tab(0, 10);
+
+        .tabContent {
+          @include tabContent;
+          padding: 10px 0px 12px;
+          color: rgb(153, 153, 153);
+          border: 1px solid rgb(219, 219, 219);
+        }
+      }
+
+      .tabListOn {
+        @include tab(-16px, 20);
+        .tabContentOn {
+          @include tabContent;
+          padding: 18px 0px 18px;
+          font-weight: bold;
+          margin-top: 8px;
+          color: $blackColor;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+
+  .detailDescription {
+    padding: 30px 32px;
+    width: 964px;
+    display: flex;
+    flex-direction: column;
+
+    .descriptionTitle {
+      font-size: 18px;
+      font-weight: 800;
+      color: $blackColor;
+      padding: 45px 0 10px 98px;
+    }
+  }
+
+  .requiredInfoTable {
+    width: 964px;
+    padding: 30px 32px;
+
+    .requiredInfoTitle {
+      font-size: 18px;
+      font-weight: 800;
+      color: $blackColor;
+      padding: 0 0 10px 10px;
+    }
+
+    .requiredInfo {
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: 12px;
+      width: 100%;
+      text-align: left;
+
+      .infoLeft {
+        width: 20%;
+        height: 52px;
+        padding: 10px 10px 10px 14px;
+        font-weight: 700;
+        color: #555555;
+        border: 1px solid #dbdbdb;
+        background: #f9f9f9;
+        vertical-align: middle;
+      }
+
+      .infoRight {
+        width: 80%;
+        padding: 10px 10px 10px 18px;
+        border: 1px solid #dbdbdb;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .shippingInfo {
+    width: 964px;
+
+    .shippingInfoTitle {
+      @include title;
+    }
+
+    .shippingInfoContent {
+      line-height: 1.8;
+      color: $blackColor;
+    }
+
+    .shippingInfoContent:nth-child(4) {
+      padding-left: 50px;
+    }
+
+    .shippingInfoContent:nth-child(6) {
+      padding-top: 22px;
+    }
+  }
+
+  .exchangeReturnInfo {
+    width: 964px;
+
+    .exchangeReturnInfoTitle {
+      @include title;
+    }
+
+    .exchangeReturnInfoContent {
+      line-height: 1.8;
+      padding-bottom: 10px;
+      color: $blackColor;
+    }
+    .exchangeReturnInfoContent:last-child {
+      line-height: 1.8;
+      padding-bottom: 0;
+      color: $blackColor;
+    }
+  }
+
+  .purchaseReview {
+    @include inquaryAndReview;
+
+    .purchaseReviewTitle {
+      @include inquaryAndReviewTitle;
+    }
+
+    .writeBtn {
+      @include writeBtn;
+    }
+    .purchaseReviewContent {
+      .reviewTable {
+        @include tableBasic;
+      }
+      .noReview {
+        @include noTdBasic;
+      }
+      .reviewRate,
+      .reviewUser,
+      .reviewDate {
+        @include tdBasic(center, 15%);
+      }
+      .reviewContent {
+        @include tdBasic(left, 45%);
+      }
+
+      .reviewDel {
+        @include tdBasic(left, 10%);
+
+        .reviewDelBtn {
+          padding: 0;
+          width: 50%;
+          height: 100%;
+          background-color: transparent;
+          border: 0;
+          font-size: 5px;
+        }
+      }
+
+      .reviewRate {
+        .starBtn {
+          all: unset;
+          padding: 0;
+
+          .fas {
+            font-size: 15px;
+            color: teal;
+          }
+          .far {
+            font-size: 15px;
+            color: #cccccc;
+          }
+        }
+      }
+    }
+
+    .reviewBox {
+      margin-top: 30px;
+      width: 964px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+      background-color: rgb(248, 248, 248);
+
+      .rateBox {
+        display: flex;
+        flex-direction: column;
+        padding-left: 40px;
+        padding-right: 30px;
+
+        .rateTitle {
+          font-weight: 600;
+          font-size: 18px;
+          padding-top: 18px;
+          color: #333333;
+        }
+        .rateContent {
+          font-size: 14px;
+          padding-top: 18px;
+          color: #333333;
+        }
+
+        .starBox {
+          padding-top: 18px;
+
+          .starBtn {
+            all: unset;
+            padding: 0;
+
+            .fas {
+              font-size: 30px;
+              color: teal;
+            }
+            .far {
+              font-size: 30px;
+              color: #cccccc;
+            }
+          }
+        }
+      }
+
+      .reviewInputBox {
+        width: 100%;
+        height: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 18px;
+        height: 370px;
+        display: flex;
+        flex-direction: column;
+
+        .reviewInput {
+          width: 100%;
+          height: 260px;
+          border: 1px solid #cccccc;
+          border-radius: 10px;
+          padding: 10px;
+          color: #333333;
+        }
+
+        .btnBox {
+          display: flex;
+          justify-content: flex-end;
+
+          .closeBtn {
+            margin-top: 18px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            background-color: $mintColor;
+            color: white;
+            width: 20%;
+          }
+
+          .submitBtn {
+            margin-top: 18px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            background-color: $mintColor;
+            color: white;
+            width: 20%;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .purchaseInquiry {
+    @include inquaryAndReview;
+
+    .purchaseInquiryTitle {
+      @include inquaryAndReviewTitle;
+    }
+
+    .writeBtn {
+      @include writeBtn;
+    }
+
+    .qnaTable {
+      @include tableBasic;
+
+      .noQna {
+        @include noTdBasic;
+      }
+
+      .qnaNum {
+        @include tdBasic(center, 8%);
+      }
+
+      .qnaType {
+        width: 56%;
+        @include tdBasic(center, 53%);
+      }
+
+      .qnaUser,
+      .qnaDate,
+      .qnaStatus {
+        @include tdBasic(center, 13%);
+      }
+    }
+  }
+}
