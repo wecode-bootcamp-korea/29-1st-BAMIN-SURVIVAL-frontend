@@ -93,7 +93,7 @@ function SignUp() {
 
   const signUpRegister = e => {
     e.preventDefault();
-    if (isValidator && isFilledMandatory) {
+    if (isValidator || isFilledMandatory) {
       alert('경고 문구를 해결해주세요!');
     } else {
       signUpFetch();
