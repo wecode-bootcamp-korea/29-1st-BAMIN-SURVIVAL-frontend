@@ -1,0 +1,180 @@
+@import '/src/styles/variables.scss';
+$borderColor: #eaeaea;
+
+a {
+  color: $textColor;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+
+  /* Nav Top */
+  .navTop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    border-bottom: 1px solid $borderColor;
+
+    .userInfo {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 1200px;
+
+      .userName {
+        font-size: 12px;
+        font-weight: 700;
+        color: #6d6d6d;
+      }
+
+      .userInfoList {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+
+        .userPoint {
+          display: inline;
+          margin-left: 5px;
+          font-size: 12px;
+          color: $mintColor;
+        }
+
+        .pointImage {
+          display: inline-block;
+          font-size: 5px;
+          width: 16px;
+          height: 16px;
+          margin-right: 3px;
+          border-radius: 50%;
+          line-height: 16px;
+          text-align: center;
+          color: white;
+          background-color: $mintColor;
+          opacity: 0.8;
+        }
+
+        a,
+        .cartCount {
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        .cartCount {
+          margin: 4px 0 0 5px;
+          color: $mintColor;
+        }
+
+        .txtBar {
+          display: inline-block;
+          width: 1px;
+          height: 9px;
+          margin: 0 10px;
+          background: $borderColor;
+          vertical-align: 0px;
+        }
+      }
+    }
+  }
+
+  /* Nav Middle */
+  .navMiddle {
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    .nothing {
+      width: 267px;
+      height: 10px;
+    }
+
+    .navLogo {
+      width: 160px;
+      cursor: pointer;
+    }
+
+    .search {
+      .searchInput {
+        width: 240px;
+        border: none;
+        padding: 7px;
+        font-size: 15px;
+        border-bottom: 1px solid black;
+      }
+      .searchInput:focus {
+        outline: none;
+      }
+
+      .searchIcon {
+        border: none;
+        background: transparent;
+
+        .fa-search {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .hideNavMiddle {
+    display: none;
+  }
+
+  .scrollLogo {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 10px;
+    justify-content: center;
+  }
+
+  .scroll {
+    width: 160px;
+    cursor: pointer;
+    align-self: center;
+    top: 1px;
+  }
+
+  /* Nav Bottom */
+  .navBottom {
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid $borderColor;
+    height: 37px;
+
+    .categoryList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 20px 0;
+
+      .categoryTitle {
+        color: black;
+      }
+
+      .categoryActive {
+        color: $mintColor;
+        font-weight: bold;
+        border-bottom: 2px solid $mintColor;
+      }
+      :hover {
+        color: black;
+      }
+
+      li {
+        padding: 0 25px 20px 25px;
+        cursor: pointer;
+      }
+    }
+  }
+}

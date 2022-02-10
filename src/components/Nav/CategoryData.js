@@ -2,7 +2,7 @@ const CATEGORIES = [
   {
     id: 1,
     title: '전체',
-    url: '/all',
+    url: '/',
   },
   {
     id: 2,
@@ -17,22 +17,22 @@ const CATEGORIES = [
   {
     id: 4,
     title: '회사에서',
-    url: '/atCompany',
+    url: '/company',
   },
   {
     id: 5,
     title: '학교에서',
-    url: '/atSchool',
+    url: '/school',
   },
   {
     id: 6,
     title: '코로나에서',
-    url: '/atCovid',
+    url: '/covid',
   },
   {
     id: 7,
     title: '랜덤박스',
-    url: '/randomBox',
+    url: '/randombox',
   },
   {
     id: 8,

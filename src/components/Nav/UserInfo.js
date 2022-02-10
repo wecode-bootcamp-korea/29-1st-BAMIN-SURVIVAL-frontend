@@ -1,15 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserInfo = () => {
+const UserInfo = ({ path }) => {
   const handleLogOUt = () => {
     sessionStorage.removeItem('token');
-    window.location.replace('/');
   };
 
   return (
     <ul className="userInfoList">
-      {sessionStorage.getItem('token') ? null : (
+      {sessionStorage.getItem('token') ? (
+        <li>
+          <span className="userName">리치</span>
+          <span className="userPoint">
+            <p className="pointImage">P</p>
+            1,000,000
+          </span>
+          <span className="txtBar" />
+        </li>
+      ) : (
         <li>
           <Link to="/login" className="navLogIn">
             로그인
@@ -18,7 +26,7 @@ const UserInfo = () => {
         </li>
       )}
 
-      {sessionStorage.getItem('token') ? (
+      {localStorage.getItem('token') ? (
         <li>
           <Link to="/" className="logOut" onClick={handleLogOUt}>
             로그아웃
@@ -27,7 +35,7 @@ const UserInfo = () => {
         </li>
       ) : (
         <li>
-          <Link to="/signin" className="navSignUp">
+          <Link to="/signup" className="navSignUp">
             회원가입
           </Link>
           <span className="txtBar" />
@@ -46,7 +54,7 @@ const UserInfo = () => {
           장바구니
         </Link>
       </li>
-      <span className="cartCount">100</span>
+      {path === '/all' && <span className="cartCount">100</span>}
     </ul>
   );
 };

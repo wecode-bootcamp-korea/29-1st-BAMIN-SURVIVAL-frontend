@@ -54,8 +54,22 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const goToSignUp = () => {
-    navigate('/signup');
+  const goToSignUp = e => {
+    e.preventDefault();
+
+    fetch('http://10.58.4.21/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        account: loginId,
+        password: loginPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(result =>
+        localStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
+      );
+
+    navigate('/');
   };
 
   return (
