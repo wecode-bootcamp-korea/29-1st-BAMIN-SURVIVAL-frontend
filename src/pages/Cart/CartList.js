@@ -8,9 +8,8 @@ const CartList = ({ item, idx, items, setItems }) => {
 
   const itemCheck = id => {
     const checkedItems = items.map(item => {
-      if (item.id === id) {
-        return { ...item, is_check: !item.is_check };
-      } else return item;
+      if (item.id === id) return { ...item, is_check: !item.is_check };
+      else return item;
     });
     setItems(checkedItems);
   };
@@ -22,7 +21,7 @@ const CartList = ({ item, idx, items, setItems }) => {
           type="checkbox"
           name={item.name}
           onChange={() => itemCheck(item.id)}
-          // checked={item.is_check}
+          checked={item.is_check}
           disabled={item.qty === 0 && true}
         />
       </td>

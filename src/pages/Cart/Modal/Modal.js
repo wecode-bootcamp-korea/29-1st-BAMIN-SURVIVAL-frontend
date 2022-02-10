@@ -1,28 +1,25 @@
 import React, { useState } from 'react';
 import './Modal.scss';
+import BASE_URL from '../../Config';
 
 function Modal({ onClose, item, items, setItems }) {
   const [quantity, setQuantity] = useState(item.quantity);
   const itemPrice = (item.price * quantity).toLocaleString('ko-KR');
-  console.log(item);
 
-  const onSubmit = id => {
+  const changeItemOptionSubmit = id => {
     const changeItem = items.map(item => {
       if (item.id === id) {
-        if (quantity > 0) {
+        if (quantity > 0)
           return { ...item, quantity: quantity, is_check: true };
-        } else {
-          return { ...item, quantity: quantity };
-        }
+        else return { ...item, quantity: quantity };
       } else return item;
     });
     setItems(changeItem);
 
-    fetch(`http://172.20.10.5:8080/cart/${item.cart_id}`, {
+    fetch(`${BASE_URL}cart/${item.cart_id}`, {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.jzHWKkmLlxqbzHGjzqoUPLbUYFpRFwXzwjnfaVR7Hyw',
+        Authorization: sessionStorage.getItem('token'),
       },
       body: JSON.stringify({
         cart_id: item.id,
@@ -32,11 +29,10 @@ function Modal({ onClose, item, items, setItems }) {
       .then(res => res.json())
       .then(res => {
         if (res.result.message === 'SUCCESS') {
-          fetch('http://172.20.10.5:8080/cart', {
+          fetch(`${BASE_URL}cart`, {
             method: 'GET',
             headers: {
-              Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.jzHWKkmLlxqbzHGjzqoUPLbUYFpRFwXzwjnfaVR7Hyw',
+              Authorization: sessionStorage.getItem('token'),
             },
           })
             .then(res => res.json())
@@ -47,7 +43,7 @@ function Modal({ onClose, item, items, setItems }) {
     onClose();
   };
 
-  const onChange = (e, id) => {
+  const changeOption = (e, id) => {
     const changeValue = e.target.value;
     const changeOption = items.map(item => {
       if (item.id === id) {
@@ -57,7 +53,7 @@ function Modal({ onClose, item, items, setItems }) {
     setItems(changeOption);
   };
 
-  const onDecrease = () => {
+  const itemQtyDecrease = () => {
     if (quantity <= 1) {
       setQuantity(1);
     } else setQuantity(prev => prev - 1);
@@ -77,7 +73,7 @@ function Modal({ onClose, item, items, setItems }) {
         <div className="item">
           <img
             className="itemImage"
-            src="./images/shinung/test.jpeg"
+            src="/images/shinung/test.jpeg"
             alt="선택한 제품"
           />
           <div className="itemInfo">
@@ -88,8 +84,7 @@ function Modal({ onClose, item, items, setItems }) {
 
         {item.option ? (
           <div className="itemOption">
-            {/* <p>디자인</p> */}
-            <select name="" onChange={e => onChange(e, item.id)}>
+            <select name="" onChange={e => changeOption(e, item.id)}>
               <option value="" className="optionDefault">
                 = 옵션 선택 =
               </option>
@@ -116,7 +111,7 @@ function Modal({ onClose, item, items, setItems }) {
                   setQuantity(prev => prev + 1);
                 }}
               />
-              <button className="countDown" onClick={onDecrease} />
+              <button className="countDown" onClick={itemQtyDecrease} />
             </span>
           </span>
           <div className="productTotal">
@@ -131,7 +126,7 @@ function Modal({ onClose, item, items, setItems }) {
           <button
             className="modalConfirm"
             onClick={() => {
-              onSubmit(item.id);
+              changeItemOptionSubmit(item.id);
             }}
           >
             확인

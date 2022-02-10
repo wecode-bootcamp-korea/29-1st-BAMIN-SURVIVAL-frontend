@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 import BASE_URL from '../Config';
@@ -45,9 +45,8 @@ function Login() {
       .then(res => res.json())
       .then(result =>
         sessionStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
-      );
-
-    navigate('/');
+      )
+      .then(navigate('/'));
   };
 
   return (
