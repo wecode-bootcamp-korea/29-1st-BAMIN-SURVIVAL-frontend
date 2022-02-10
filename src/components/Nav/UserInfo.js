@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const UserInfo = ({ path }) => {
   const handleLogOUt = () => {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
   };
 
   return (
     <ul className="userInfoList">
-      {localStorage.getItem('token') ? (
+      {sessionStorage.getItem('token') ? (
         <li>
           <span className="userName">리치</span>
           <span className="userPoint">
@@ -26,7 +26,7 @@ const UserInfo = ({ path }) => {
         </li>
       )}
 
-      {localStorage.getItem('token') ? (
+      {sessionStorage.getItem('token') ? (
         <li>
           <Link to="/" className="logOut" onClick={handleLogOUt}>
             로그아웃
