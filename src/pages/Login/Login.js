@@ -35,7 +35,7 @@ function Login() {
   const goToSignUp = e => {
     e.preventDefault();
 
-    fetch(`${BASE_URL}/users/signin`, {
+    fetch(`${BASE_URL}users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         account: loginId,

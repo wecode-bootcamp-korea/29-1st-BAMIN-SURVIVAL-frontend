@@ -36,7 +36,7 @@ function Modal({ onClose, item, items, setItems }) {
             },
           })
             .then(res => res.json())
-            .then(res => console.log(res));
+            .then(res => setItems({ ...item, qty: res.quantity }));
         }
       });
 

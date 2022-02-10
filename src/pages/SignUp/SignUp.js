@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignUpInputList from './SignUpInputList';
 import './SignUp.scss';
+import BASE_URL from '../Config';
 
 function SignUp() {
   const [signUpInfo, setSignUpInfo] = useState({
@@ -72,7 +73,7 @@ function SignUp() {
   };
 
   const signUpRegister = () => {
-    fetch('http://13.125.227.39:8080/users/signup', {
+    fetch(`${BASE_URL}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,

@@ -11,7 +11,7 @@
     "discount_price": 35000,
     "discount_rate": 0,
     "option": "large",
-    "qty": 1,
+    "quantity": 1,
     "is_check": true
   },
   {
@@ -26,7 +26,7 @@
     "discount_price": 23000,
     "discount_rate": 0,
     "option": "medium",
-    "qty": 4,
+    "quantity": 4,
     "is_check": true
   },
   {
@@ -41,7 +41,7 @@
     "discount_price": 44500,
     "discount_rate": 0,
     "option": null,
-    "qty": 2,
+    "quantity": 2,
     "is_check": true
   },
   {
@@ -56,7 +56,7 @@
     "discount_price": 99000,
     "discount_rate": 0,
     "option": "small",
-    "qty": 4,
+    "quantity": 4,
     "is_check": true
   }
 ]
