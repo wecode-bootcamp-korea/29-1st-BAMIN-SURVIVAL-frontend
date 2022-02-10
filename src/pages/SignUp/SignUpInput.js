@@ -11,12 +11,13 @@ function SignUpInput({
   backname,
   isError,
   validErrorMessage,
+  isDuplicate,
+  setIsDuplicate,
   duplicateErrorMessage,
   mandatoryMessage,
   clearMessage,
 }) {
   const [isBlur, setIsBlur] = useState(false);
-  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const signUpInputFetch = () => {
     fetch(`http://10.58.5.233:8000/users/check-${backname}`, {
@@ -28,7 +29,7 @@ function SignUpInput({
       .then(res => res.json())
       .then(res => {
         if (res.message === 'ALREADY EXISTS') {
-          setIsDuplicate(true);
+          setIsDuplicate(prev => ({ ...prev, [name]: true }));
         }
       });
   };
@@ -40,7 +41,7 @@ function SignUpInput({
 
   const onFocus = () => {
     setIsBlur(false);
-    setIsDuplicate(false);
+    setIsDuplicate(prev => ({ ...prev, [name]: false }));
   };
 
   return (
@@ -61,11 +62,11 @@ function SignUpInput({
         />
         {isError && isBlur ? (
           <div className="warningShowUp valid">{validErrorMessage}</div>
-        ) : isDuplicate && value !== '' && isBlur ? (
+        ) : isDuplicate[name] && value !== '' && isBlur ? (
           <div className="warningShowUp duplicate">{duplicateErrorMessage}</div>
         ) : value === '' && isBlur ? (
           <div className="warningShowUp mandatory">{mandatoryMessage}</div>
-        ) : !isError && !isDuplicate && value !== '' && isBlur ? (
+        ) : !isError && !isDuplicate[name] && value !== '' && isBlur ? (
           <div className="clear">{clearMessage}</div>
         ) : null}
       </div>
