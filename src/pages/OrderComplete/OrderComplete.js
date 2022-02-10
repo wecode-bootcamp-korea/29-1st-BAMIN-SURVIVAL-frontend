@@ -24,7 +24,7 @@ const OrderComplete = () => {
         <button
           className="completeMain"
           onClick={() => {
-            navigate('/all');
+            navigate('/');
           }}
         >
           메인으로

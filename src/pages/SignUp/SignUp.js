@@ -71,7 +71,7 @@ function SignUp() {
   };
 
   const signUpFetch = () => {
-    fetch(`${BASE_URL}/users/signup`, {
+    fetch(`${BASE_URL}users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         account: signUpId,

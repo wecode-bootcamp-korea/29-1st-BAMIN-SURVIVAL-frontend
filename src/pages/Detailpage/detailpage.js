@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ProductInfo from './DetailComponents/ProductInfo/ProductInfo';
 import ProductDetail from './DetailComponents/ProductDetail/ProductDetail';
 import './Detailpage.scss';
+import BASE_URL from '../Config';
 
 const Detailpage = () => {
   const [productData, setProductData] = useState([]);
@@ -30,7 +31,7 @@ const Detailpage = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://172.20.10.5:8080/products/detail?id=${id}`, {
+    fetch(`${BASE_URL}products/detail?id=${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
