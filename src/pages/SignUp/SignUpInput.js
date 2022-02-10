@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SignUpInput.scss';
+import BASE_URL from '../Config';
 
 function SignUpInput({
   type,
@@ -20,7 +21,7 @@ function SignUpInput({
   const [isBlur, setIsBlur] = useState(false);
 
   const signUpInputFetch = () => {
-    fetch(`http://10.58.5.233:8000/users/check-${backname}`, {
+    fetch(`${BASE_URL}users/check-${backname}`, {
       method: 'POST',
       body: JSON.stringify({
         [backname]: value,
