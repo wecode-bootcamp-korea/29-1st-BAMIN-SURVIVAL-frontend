@@ -1,55 +1,77 @@
 import React, { useState, useEffect } from 'react';
-import Carousel from './MainComponents/Section/Carousel';
+import { useNavigate, useLocation } from 'react-router-dom';
 import SortCategory from './MainComponents/Section/SortCategory';
-import ItemList from './MainComponents/ItemList/ItemList';
+import Carousel from './MainComponents/Section/Carousel';
+import ProductsList from './MainComponents/ProductsList/ProductsList';
 import './Main.scss';
+import PaginationButton from '../../components/PaginationButton/PaginationButton';
 
 const Main = () => {
-  const [items, setItems] = useState([]);
-  const [carouselItems, setCarouselItems] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [sortCriteria, setSortCriteria] = useState('recent');
+  const [isMainScroll, setIsMainScroll] = useState(true);
+  const [carouselImages, setCarouselImages] = useState([]);
 
-  useEffect(() => {
-    fetch('/data/Jihong/ItemListData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setItems(data);
-        setCarouselItems(data.filter(item => item.price > 70000).slice(0, 4));
-      });
-  }, []);
-
-  const sortFucntion = e => {
-    const recent = [...items].sort(function (a, b) {
-      let dateA = new Date(a.updateDate).getTime();
-      let dateB = new Date(b.updateDate).getTime();
+  const sortBy = {
+    recent: function (a, b) {
+      let dateA = new Date(a.update_date).getTime();
+      let dateB = new Date(b.update_date).getTime();
       return dateA < dateB ? 1 : -1;
-    });
-    const ascend = [...items].sort((a, b) => a.price - b.price);
-    const decend = [...items].sort((a, b) => b.price - a.price);
-    if (e.target.innerText === '최신순') {
-      setItems(recent);
-      return;
-    }
-    if (e.target.innerText === '낮은가격순') {
-      setItems(ascend);
-      return;
-    }
-    if (e.target.innerText === '높은가격순') {
-      setItems(decend);
-      return;
-    }
+    },
+    ascend: (a, b) => a.discount_price - b.discount_price,
+    decend: (a, b) => b.discount_price - a.discount_price,
   };
 
+  const sortedProducts = [...products].sort(sortBy[sortCriteria]);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const changeSortCriteria = e => {
+    setSortCriteria(e.target.name);
+  };
+
+  useEffect(() => {
+    fetch(`http://172.20.10.5:8080/products${location.search}`)
+      .then(res => res.json())
+      .then(data => setProducts(data.message));
+  }, [location.search]);
+
+  useEffect(() => {
+    fetch('http://10.58.5.233:8000/products/slide')
+      .then(res => res.json())
+      .then(data => setCarouselImages(data.result));
+  }, []);
+
+  const updateOffset = buttonIndex => {
+    const limit = 16;
+    const offset = buttonIndex * limit;
+    const queryString = `&limit=${limit}&offset=${offset}`;
+    navigate(
+      location.search.slice(0, location.search.indexOf('&')) + queryString
+    );
+  };
+
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setIsMainScroll(false) : setIsMainScroll(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+    return () => {
+      window.removeEventListener('scroll', listenScrollEvent);
+    };
+  }, []);
+
   return (
-    <main className="main">
-      <Carousel carouselItems={carouselItems} />
+    <main className={isMainScroll ? 'main' : 'mainWithNav'}>
+      <Carousel carouselImages={carouselImages} />
       <SortCategory
-        totalNumberItems={items.length}
-        sortFucntion={sortFucntion}
+        totalNumberItems={products.length}
+        sortFucntion={changeSortCriteria}
       />
       <article className="article">
-        <ItemList items={items} />
+        <ProductsList products={sortedProducts} />
+        <PaginationButton updateOffset={updateOffset} />
       </article>
     </main>
   );

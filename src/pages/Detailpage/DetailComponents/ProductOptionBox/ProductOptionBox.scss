@@ -1,0 +1,68 @@
+$blackColor: #333333;
+.quantityOptionBox {
+  width: 480px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  .smallNameBox {
+    width: 273px;
+    padding: 23.5px 0 23.5px 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .quantityInputBox {
+    padding: 13.5px 0;
+
+    .quantityInput {
+      width: 43px;
+      height: 33px;
+      padding: 0 5px;
+      color: $blackColor;
+      font-size: 12px;
+      line-height: 31px;
+      text-align: center;
+      outline-style: none;
+      outline: none;
+      border: 1px solid #ccc;
+      border-right: 0;
+    }
+  }
+
+  .countBtnBox {
+    display: flex;
+    flex-direction: column;
+    border-collapse: separate;
+    padding: 13.5px 17px 13.5px 0;
+
+    .increaseBtn {
+      background-image: url(../../../../../public/images/Jihong/btn_count_up.png);
+      width: 23px;
+      height: 17px;
+      border: 0 none;
+      text-indent: -9999px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: -1px;
+    }
+
+    .decreaseBtn {
+      background-image: url(../../../../../public/images/Jihong/btn_count_down.png);
+      width: 23px;
+      height: 17px;
+      border: 0 none;
+      text-indent: -9999px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: -1px 0;
+    }
+  }
+
+  .optionPriceBox {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 22px 0 22px 20px;
+  }
+}

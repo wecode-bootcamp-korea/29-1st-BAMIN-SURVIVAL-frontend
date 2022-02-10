@@ -19,20 +19,7 @@ function Login() {
     });
   };
 
-  const loginValidation = () => {
-    if (loginId === '') {
-      alert('아이디를 입력해주세요');
-      return;
-    }
-    if (loginPw === '') {
-      alert('패스워드를 입력해주세요');
-      return;
-    }
-  };
-
-  const navigate = useNavigate();
-
-  const goToSignUp = e => {
+  const loginFetch = e => {
     e.preventDefault();
 
     fetch(`${BASE_URL}users/signin`, {
@@ -48,6 +35,20 @@ function Login() {
       )
       .then(() => navigate('/'));
   };
+
+  const loginValidation = e => {
+    if (loginId === '') {
+      alert('아이디를 입력해주세요');
+      return;
+    } else if (loginPw === '') {
+      alert('패스워드를 입력해주세요');
+      return;
+    } else {
+      loginFetch(e);
+    }
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="login">
@@ -75,9 +76,7 @@ function Login() {
               <input type="checkbox" className="idCheck" />
               <span className="idSave">아이디저장</span>
             </div>
-            <button className="loginButton buttonNoBorder" onClick={goToSignUp}>
-              로그인
-            </button>
+            <button className="loginButton buttonNoBorder">로그인</button>
           </div>
           <ul className="loginButtonBox">
             <li className="loginSignUp buttonList">

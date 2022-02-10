@@ -1,35 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUpInput.scss';
 
 function SignUpInput({
   type,
-  signupInfo,
+  onChange,
   value,
   text,
   placeholder,
-  setSignupInfo,
   name,
+  isError,
+  validErrorMessage,
+  fetch,
+  isDuplicate,
+  setIsDuplicate,
+  duplicateErrorMessage,
+  mandatoryMessage,
+  clearMessage,
 }) {
-  const onChange = e => {
-    setSignupInfo({
-      ...signupInfo,
-      [e.target.name]: e.target.value,
-    });
+  const [isBlur, setIsBlur] = useState(false);
+
+  const onBlur = () => {
+    setIsBlur(true);
+    fetch();
   };
+
+  const onFocus = () => {
+    setIsBlur(false);
+    setIsDuplicate(false);
+  };
+
   return (
-    <div className="SignUpInput">
+    <div className="signUpInput">
       <div className="inputTextBox">
         <p className="inputText">{`* ${text}`}</p>
       </div>
       <div className="inputWrapper">
         <input
-          className="signUpInput"
+          className="input"
           name={name}
           onChange={onChange}
           type={type}
           placeholder={placeholder}
           value={value}
+          onBlur={onBlur}
+          onFocus={onFocus}
         />
+        {isError && isBlur ? (
+          <div className="warningShowUp valid">{validErrorMessage}</div>
+        ) : isDuplicate && value !== '' && isBlur ? (
+          <div className="warningShowUp duplicate">{duplicateErrorMessage}</div>
+        ) : value === '' && isBlur ? (
+          <div className="warningShowUp mandatory">{mandatoryMessage}</div>
+        ) : !isError && !isDuplicate && value !== '' && isBlur ? (
+          <div className="clear">{clearMessage}</div>
+        ) : null}
       </div>
     </div>
   );

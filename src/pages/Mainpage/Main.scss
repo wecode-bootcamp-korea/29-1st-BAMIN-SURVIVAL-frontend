@@ -1,11 +1,18 @@
 .main {
-  height: 100vh;
-  min-height: 100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-
+  margin: 202px auto 0 auto;
+  width: 100%;
   .article {
-    margin: 30px 150px 0 150px;
+    width: 1200px;
+    margin: 30px auto;
+  }
+}
+
+.mainWithNav {
+  margin: 102px auto 0 auto;
+  width: 100%;
+  .article {
+    width: 1200px;
+    margin: 30px auto;
+    padding-bottom: 60px;
   }
 }
