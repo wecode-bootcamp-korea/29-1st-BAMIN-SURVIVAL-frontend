@@ -12,7 +12,9 @@ function SignUp() {
     signUpNick: '',
     signUpPhone: '',
   });
+
   const [isDuplicate, setIsDuplicate] = useState(false);
+  const [isClear, setIsClear] = useState(false);
 
   const {
     signUpId,
@@ -58,23 +60,79 @@ function SignUp() {
     return !validEmail && signUpEmail !== '';
   };
 
+  const isValidNick = () => {
+    const nickRegex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
+    const validNick = nickRegex.test(signUpNick);
+    return !validNick && signUpNick !== '';
+  };
+
   const isValidPhone = value => {
     const phoneRegex = /^[0-9\b -]{0,13}$/;
     const validPhone = phoneRegex.test(value);
     return validPhone && signUpPhone !== '';
   };
 
-  const isFilledMandatory = Object.values(signUpInfo).includes('');
-
-  const validator = {
-    signUpId: isValidId(),
-    signUpPw: isValidPw(),
-    signUpPwCheck: isValidPwCheck,
-    signUpEmail: isValidEmail(),
-    signUpPhone: isValidPhone(),
+  const signUpIdFetch = () => {
+    fetch('http://10.58.5.233:8000/users/check-account', {
+      method: 'POST',
+      body: JSON.stringify({
+        account: signUpId,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ALREADY EXISTS') {
+          setIsDuplicate(true);
+        }
+      });
+  };
+  const signUpEmailFetch = () => {
+    fetch('http://10.58.5.233:8000/users/check-email', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: signUpEmail,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ALREADY EXISTS') {
+          setIsDuplicate(true);
+          if (isDuplicate === false) {
+            setIsClear(true);
+          }
+        }
+      });
   };
 
-  const isValidator = Object.values(validator).includes(true);
+  const signUpNickFetch = () => {
+    fetch('http://10.58.5.233:8000/users/check-nickname', {
+      method: 'POST',
+      body: JSON.stringify({
+        nickname: signUpNick,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ALREADY EXISTS') {
+          setIsDuplicate(true);
+        }
+      });
+  };
+
+  const signUpPhoneFetch = () => {
+    fetch('http://10.58.5.233:8000/users/check-phone', {
+      method: 'POST',
+      body: JSON.stringify({
+        phone: signUpPhone,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ALREADY EXISTS') {
+          setIsDuplicate(true);
+        }
+      });
+  };
 
   const signUpFetch = () => {
     fetch('http://10.58.4.21:9090/users/check', {
@@ -86,21 +144,16 @@ function SignUp() {
         phone: signUpPhone,
         nickname: signUpNick,
       }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ACCOUNT ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'NICKNAME ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'E-MAIL ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else if (res.message === 'PHONE-NUMBER ALREADY EXISTS') {
-          setIsDuplicate(true);
-        } else {
-          setIsDuplicate(false);
-        }
-      });
+    }).then(res => res.json());
+  };
+
+  const validator = {
+    signUpId: [isValidId(), signUpIdFetch],
+    signUpPw: [isValidPw(), 'pw'],
+    signUpPwCheck: [isValidPwCheck, 'pwcheck'],
+    signUpNick: [isValidNick(), signUpNickFetch],
+    signUpEmail: [isValidEmail(), signUpEmailFetch],
+    signUpPhone: [isValidPhone(), signUpPhoneFetch],
   };
 
   const signUpRegister = e => {
@@ -112,6 +165,10 @@ function SignUp() {
       alert('회원가입이 완료되었습니다!');
     }
   };
+
+  const isFilledMandatory = Object.values(signUpInfo).includes('');
+
+  const isValidator = Object.values(validator).includes(true);
 
   return (
     <div className="signUp">
@@ -128,7 +185,6 @@ function SignUp() {
           validator={validator}
           isDuplicate={isDuplicate}
           setIsDuplicate={setIsDuplicate}
-          fetch={signUpFetch}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>
