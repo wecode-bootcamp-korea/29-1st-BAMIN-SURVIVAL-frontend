@@ -9,7 +9,7 @@ const CATEGORIES = [
     id: 2,
     title: '멘토',
     name: 'mentor',
-    url: '/mentor?category=mentor&limit=16&offset=0',
+    url: '/mentor',
   },
   {
     id: 3,
