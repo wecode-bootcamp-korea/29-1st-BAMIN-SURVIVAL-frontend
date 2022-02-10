@@ -5,6 +5,7 @@ import ProductOptionBox from '../ProductOptionBox/ProductOptionBox';
 import ImageModal from '../ImageModal/ImageModal';
 import './ProductInfo.scss';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../../../Config';
 
 const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
   const [quantityInput, setQuantityInput] = useState(1);
@@ -14,7 +15,8 @@ const ProductInfo = ({ product, modal, setModal, toggleModal }) => {
   const onSubmitCart = e => {
     e.preventDefault();
     if (sessionStorage.getItem('token')) {
-      fetch(`http://172.20.10.5:8080/cart`, {
+      fetch(`${BASE_URL}cart`, {
+        //jjj
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

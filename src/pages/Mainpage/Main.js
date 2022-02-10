@@ -5,6 +5,7 @@ import Carousel from './MainComponents/Section/Carousel';
 import ProductsList from './MainComponents/ProductsList/ProductsList';
 import './Main.scss';
 import PaginationButton from '../../components/PaginationButton/PaginationButton';
+import BASE_URL from '../Config';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
@@ -31,13 +32,13 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetch(`http://172.20.10.5:8080/products${location.search}`)
+    fetch(`${BASE_URL}products${location.search}`) //
       .then(res => res.json())
       .then(data => setProducts(data.message));
   }, [location.search]);
 
   useEffect(() => {
-    fetch('http://10.58.5.233:8000/products/slide')
+    fetch(`${BASE_URL}products/slide`) //
       .then(res => res.json())
       .then(data => setCarouselImages(data.result));
   }, []);
