@@ -82,7 +82,7 @@ const Cart = () => {
       {items.length === 0 ? (
         <div className="cartEmpty">장바구니에 담겨있는 상품이 없습니다.</div>
       ) : (
-        <table className="productInfo">
+        <table className="cartProductInfo">
           <thead className="infoHeader">
             <tr>
               <th className="checkTitle">

@@ -48,7 +48,7 @@ $borderColor: #eaeaea;
     border-bottom: 1px solid $borderColor;
   }
 
-  table {
+  .cartProductInfo {
     width: 1100px;
     margin-top: 50px;
     margin-bottom: 10px;
@@ -80,7 +80,7 @@ $borderColor: #eaeaea;
       }
     }
 
-    tbody {
+    .productList {
       .productCheck {
         width: 30px;
         height: 80px;
@@ -94,10 +94,15 @@ $borderColor: #eaeaea;
         }
       }
 
-      .productName {
+      .cartProductName {
         padding-left: 10px;
         width: 630px;
         vertical-align: middle;
+        border-bottom: 1px solid $borderColor;
+
+        .productItemName {
+          font-size: 15px;
+        }
 
         :nth-child(2) {
           margin-top: 5px;
