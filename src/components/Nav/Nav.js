@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CATEGORIES from './CategoryData';
 import Category from './Category';
 import './Nav.scss';
@@ -8,6 +8,7 @@ import Search from './Search';
 
 const Nav = () => {
   const [searchInput, setSearchInput] = useState(true);
+  const location = useLocation();
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setSearchInput(false) : setSearchInput(true);

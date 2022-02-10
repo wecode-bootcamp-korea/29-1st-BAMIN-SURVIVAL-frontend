@@ -46,7 +46,7 @@ function Login() {
       .then(result =>
         sessionStorage.setItem('token', result.SUCCESS.ACCESS_TOKEN)
       )
-      .then(navigate('/'));
+      .then(() => navigate('/'));
   };
 
   return (
