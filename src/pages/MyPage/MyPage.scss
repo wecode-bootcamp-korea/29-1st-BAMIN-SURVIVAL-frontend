@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans:wght@700&display=swap');
+
+.myPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+  overflow: auto;
+
+  .myPageNavList {
+    margin-bottom: 300px;
+    margin-right: 150px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .myPageMain {
+    width: 960px;
+    font-family: 'Noto Sans', sans-serif;
+
+    .recentTitle {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #999999;
+      width: 100%;
+      padding-bottom: 10px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+
+        span {
+          font-size: 12px;
+          padding-left: 5px;
+          color: #777777;
+          font-weight: normal;
+        }
+      }
+
+      .btnMoreRecentOrder {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    .tableRecentOrder {
+      width: 960px;
+      border-bottom: 1px solid #dbdbdb;
+      margin-bottom: 50px;
+
+      thead {
+        font-size: 12px;
+
+        th {
+          padding: 10px;
+          border-bottom: 1px solid #dbdbdb;
+          background-color: #f7f7f7;
+          font-weight: bold;
+        }
+
+        .productName {
+          width: 40%;
+        }
+      }
+
+      tbody {
+        font-size: 13px;
+        color: #777777;
+      }
+    }
+
+    .itemList {
+      margin-top: 30px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart/Cart';
 import OrderComplete from './pages/OrderComplete/OrderComplete';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import MyPage from './pages/MyPage/MyPage';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<OrderComplete />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
