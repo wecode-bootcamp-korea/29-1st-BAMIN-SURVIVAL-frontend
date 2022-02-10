@@ -8,20 +8,34 @@ function SignUpInput({
   text,
   placeholder,
   name,
+  backname,
   isError,
   validErrorMessage,
-  fetch,
-  isDuplicate,
-  setIsDuplicate,
   duplicateErrorMessage,
   mandatoryMessage,
   clearMessage,
 }) {
   const [isBlur, setIsBlur] = useState(false);
+  const [isDuplicate, setIsDuplicate] = useState(false);
+
+  const signUpInputFetch = () => {
+    fetch(`http://10.58.5.233:8000/users/check-${backname}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        [backname]: value,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'ALREADY EXISTS') {
+          setIsDuplicate(true);
+        }
+      });
+  };
 
   const onBlur = () => {
     setIsBlur(true);
-    fetch();
+    signUpInputFetch();
   };
 
   const onFocus = () => {

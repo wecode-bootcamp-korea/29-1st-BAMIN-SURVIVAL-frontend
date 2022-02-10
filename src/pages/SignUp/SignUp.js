@@ -13,9 +13,6 @@ function SignUp() {
     signUpPhone: '',
   });
 
-  const [isDuplicate, setIsDuplicate] = useState(false);
-  const [isClear, setIsClear] = useState(false);
-
   const {
     signUpId,
     signUpPw,
@@ -72,68 +69,6 @@ function SignUp() {
     return validPhone && signUpPhone !== '';
   };
 
-  const signUpIdFetch = () => {
-    fetch('http://10.58.5.233:8000/users/check-account', {
-      method: 'POST',
-      body: JSON.stringify({
-        account: signUpId,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ALREADY EXISTS') {
-          setIsDuplicate(true);
-        }
-      });
-  };
-  const signUpEmailFetch = () => {
-    fetch('http://10.58.5.233:8000/users/check-email', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: signUpEmail,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ALREADY EXISTS') {
-          setIsDuplicate(true);
-          if (isDuplicate === false) {
-            setIsClear(true);
-          }
-        }
-      });
-  };
-
-  const signUpNickFetch = () => {
-    fetch('http://10.58.5.233:8000/users/check-nickname', {
-      method: 'POST',
-      body: JSON.stringify({
-        nickname: signUpNick,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ALREADY EXISTS') {
-          setIsDuplicate(true);
-        }
-      });
-  };
-
-  const signUpPhoneFetch = () => {
-    fetch('http://10.58.5.233:8000/users/check-phone', {
-      method: 'POST',
-      body: JSON.stringify({
-        phone: signUpPhone,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'ALREADY EXISTS') {
-          setIsDuplicate(true);
-        }
-      });
-  };
-
   const signUpFetch = () => {
     fetch('http://10.58.4.21:9090/users/check', {
       method: 'POST',
@@ -148,12 +83,12 @@ function SignUp() {
   };
 
   const validator = {
-    signUpId: [isValidId(), signUpIdFetch],
-    signUpPw: [isValidPw(), 'pw'],
-    signUpPwCheck: [isValidPwCheck, 'pwcheck'],
-    signUpNick: [isValidNick(), signUpNickFetch],
-    signUpEmail: [isValidEmail(), signUpEmailFetch],
-    signUpPhone: [isValidPhone(), signUpPhoneFetch],
+    signUpId: isValidId(),
+    signUpPw: isValidPw(),
+    signUpPwCheck: isValidPwCheck,
+    signUpNick: isValidNick(),
+    signUpEmail: isValidEmail(),
+    signUpPhone: isValidPhone(),
   };
 
   const signUpRegister = e => {
@@ -183,8 +118,6 @@ function SignUp() {
           signUpInfo={signUpInfo}
           onChange={onChange}
           validator={validator}
-          isDuplicate={isDuplicate}
-          setIsDuplicate={setIsDuplicate}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>

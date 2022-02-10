@@ -17,6 +17,7 @@ function SignUpInputList({
           text,
           id,
           inputName,
+          backname,
           placeholder,
           validErrorMessage,
           duplicateErrorMessage,
@@ -29,11 +30,11 @@ function SignUpInputList({
             key={id}
             name={inputName}
             value={signUpInfo[inputName]}
+            backname={backname}
             onChange={onChange}
             placeholder={placeholder}
-            isError={validator[inputName][0]}
+            isError={validator[inputName]}
             validErrorMessage={validErrorMessage}
-            fetch={validator[inputName][1]}
             isDuplicate={isDuplicate}
             setIsDuplicate={setIsDuplicate}
             duplicateErrorMessage={duplicateErrorMessage}
@@ -53,6 +54,7 @@ const SIGNUP_INPUT_DATA = [
     id: '1',
     type: 'text',
     text: '아이디',
+    backname: 'account',
     inputName: 'signUpId',
     validErrorMessage: '🤬 영문자,숫자 조합으로 6-16글자 범위로 입력해주세요.',
     duplicateErrorMessage:
@@ -87,6 +89,7 @@ const SIGNUP_INPUT_DATA = [
     type: 'email',
     text: '이메일',
     inputName: 'signUpEmail',
+    backname: 'email',
     validErrorMessage: '❌ 올바른 이메일 형식이 아닙니다.',
     duplicateErrorMessage: '😰 해당 이메일로 가입하신 계정이 이미 존재합니다.',
     mandatoryMessage: '💌 이메일을 입력하세요.',
@@ -98,6 +101,7 @@ const SIGNUP_INPUT_DATA = [
     type: 'name',
     text: '닉네임',
     inputName: 'signUpNick',
+    backname: 'nickname',
     duplicateErrorMessage:
       '🤢 이미 등록된 닉네임입니다. 다른 닉네임을 입력해 주세요.',
     mandatoryMessage: '🔥 닉네임을 입력하세요.',
@@ -110,6 +114,7 @@ const SIGNUP_INPUT_DATA = [
     text: '휴대폰번호',
     placeholder: ' -없이 입력하세요',
     inputName: 'signUpPhone',
+    backname: 'phone',
     validErrorMessage: '🌪 올바른 전화번호 형식이 아닙니다.',
     duplicateErrorMessage:
       '💥 해당 휴대폰 번호로 가입하신 계정이 이미 존재합니다.',
