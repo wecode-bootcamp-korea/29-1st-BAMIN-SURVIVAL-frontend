@@ -1,28 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Category = ({ category }) => {
-  const [linkBtn, setLinkBtn] = useState('');
-  const [isBtnActive, setIsBtnActive] = useState(category.btnActive);
-  const changeLinkBtn = e => {
-    setLinkBtn(e.target.name);
-    setIsBtnActive(!isBtnActive);
-  };
   return (
-    <li>
-      <Link
-        to={
-          linkBtn === 'all'
-            ? `main?&offset=0`
-            : `main?category=${category.name}&limit=16&offset=0`
-        }
-        className="categoryTitle"
-        onClick={changeLinkBtn}
-        name={category.name}
-      >
-        {category.title}
-      </Link>
-    </li>
+    <NavLink
+      to={category.url}
+      className={({ isActive }) =>
+        isActive ? 'categoryActive' : 'categoryTitle'
+      }
+    >
+      <li>{category.title}</li>
+    </NavLink>
   );
 };
 
