@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "돈봉투. 골드에디션 효도",
-    "img": "/images/MyPage/money.png",
+    "thumbnail_image": "/images/MyPage/money.png",
     "shipping": "2,500",
     "price": "3,500",
     "is_green": false,
@@ -16,7 +16,7 @@
   {
     "id": 1,
     "name": "돈봉투. 골드에디션 효도",
-    "img": "/images/MyPage/money.png",
+    "thumbnail_image": "/images/MyPage/money.png",
     "shipping": "2,500",
     "price": "3,500",
     "is_green": false,
@@ -30,7 +30,7 @@
   {
     "id": 1,
     "name": "돈봉투. 골드에디션 효도",
-    "img": "/images/MyPage/money.png",
+    "thumbnail_image": "/images/MyPage/money.png",
     "shipping": "2,500",
     "price": "3,500",
     "is_green": false,
@@ -44,7 +44,7 @@
   {
     "id": 1,
     "name": "돈봉투. 골드에디션 효도",
-    "img": "https://user-images.githubusercontent.com/2377807/153543782-25788a8b-bbeb-4227-ab51-5bfdcccd3f76.png",
+    "thumbnail_image": "/images/MyPage/money.png",
     "shipping": "2,500",
     "price": "3,500",
     "is_green": false,
