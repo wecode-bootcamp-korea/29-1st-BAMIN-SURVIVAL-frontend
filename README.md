@@ -77,7 +77,7 @@
 <img src="https://i.ibb.co/KhVx7K8/Hnet-image.gif" alt="Hnet-image" border="0"> 
 <img src="https://i.ibb.co/XxNtX9b/Hnet-image-1.gif" alt="Hnet-image-1" border="0">
 <img src="https://i.ibb.co/SymVwr9/Hnet-image-2.gif" alt="Hnet-image-2" border="0">
-<img src="https://i.ibb.co/h85SPK6/Hnet-image-3.gif" alt="Hnet-image-3" border="0">
+<img src="https://i.ibb.co/qNb3GR8/ezgif-com-gif-maker-2.gif" alt="ezgif-com-gif-maker-2" border="0">
 
 ### **메인페이지**
 
