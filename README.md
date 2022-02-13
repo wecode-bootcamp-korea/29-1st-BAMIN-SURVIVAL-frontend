@@ -86,7 +86,7 @@
 <img src="https://i.ibb.co/KhVx7K8/Hnet-image.gif" alt="Hnet-image" border="0"> 
 <img src="https://i.ibb.co/XxNtX9b/Hnet-image-1.gif" alt="Hnet-image-1" border="0">
 <img src="https://i.ibb.co/SymVwr9/Hnet-image-2.gif" alt="Hnet-image-2" border="0">
-<img src="https://i.ibb.co/jWLCtb5/Hnet-image-3.gif" alt="Hnet-image-3" border="0">
+<img src="https://i.ibb.co/jWLCtb5/Hnet-image-3.gif" alt="Hnet-image-3" border="0" width="600px">
 
 ### **메인페이지**
 
@@ -95,7 +95,7 @@
 - 쿼리스트링을 활용하여 카테고리 페이지 구현 및 페이지네이션 기능 구현
 
 <img src="https://i.ibb.co/Q82y4vy/image.gif" alt="image" border="0">
-<img src="https://i.ibb.co/ZGQrBwc/image.gif" alt="image" border="0">
+<img src="https://i.ibb.co/ZGQrBwc/image.gif" alt="image" border="0" width="600px">
 
 ### **상세페이지**
 
@@ -116,7 +116,7 @@
 - 리스트에서 체크를 통해 아이템 선택 삭제 및 구매 가능
 - 구매 후 구매 완료 페이지로 이동
 
-<img src="https://i.ibb.co/SvHSkp0/image.gif" alt="image" border="0">
+<img src="https://i.ibb.co/SvHSkp0/image.gif" alt="image" border="0" width = 600px>
 
 ## Build Installation
 
