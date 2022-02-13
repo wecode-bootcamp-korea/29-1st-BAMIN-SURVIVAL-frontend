@@ -86,7 +86,7 @@
 - 쿼리스트링을 활용하여 카테고리 페이지 구현 및 페이지네이션 기능 구현
 
 <img src="https://i.ibb.co/Q82y4vy/image.gif" alt="image" border="0">
-<img src="https://i.ibb.co/wSMXC3F/ezgif-com-gif-maker-6.gif" alt="ezgif-com-gif-maker-6" border="0">
+<img src="https://i.ibb.co/wSMXC3F/ezgif-com-gif-maker-6.gif" alt="ezgif-com-gif-maker-6" border="0" width="100px">
 
 ### **상세페이지**
 
