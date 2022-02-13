@@ -12,19 +12,19 @@ const MyPage = () => {
   const [recentProducts, setRecentProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/MyPage/ORDER_DATA.json')
+    fetch('http://3.36.91.239:8000/data/MyPage/ORDER_DATA.json')
       .then(res => res.json())
       .then(res => setRecentOrders(res));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/MyPage/MEMBER_DATA.json')
+    fetch('http://3.36.91.239:8000/data/MyPage/MEMBER_DATA.json')
       .then(res => res.json())
       .then(res => setMemberData(res));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/MyPage/RECENT_PRODUCT_DATA.json')
+    fetch('http://3.36.91.239:8000/data/MyPage/RECENT_PRODUCT_DATA.json')
       .then(res => res.json())
       .then(res => setRecentProducts(res));
   }, []);

@@ -43,6 +43,10 @@ function SignUp() {
     navigate('/login');
   };
 
+  const goToMain = () => {
+    navigate('/');
+  };
+
   const isValidId = () => {
     const idRegex = /^[A-Za-z0-9+]{6,16}$/;
     const validId = idRegex.test(signUpId);
@@ -112,6 +116,7 @@ function SignUp() {
     } else {
       signUpFetch();
       alert('회원가입이 완료되었습니다!');
+      goToMain();
     }
   };
 

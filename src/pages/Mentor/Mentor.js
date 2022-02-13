@@ -12,7 +12,7 @@ const Mentor = () => {
         <div className="mentor">
           <img
             alt="멘토얼굴"
-            src="/images/shinung/chaehyun.jpg"
+            src="https://user-images.githubusercontent.com/2377807/153403735-10b21e63-ffb2-4ddb-ba34-ad6f709e82fc.jpg"
             className="mentorImage"
           />
           <div className="mentorInfo">
@@ -29,7 +29,7 @@ const Mentor = () => {
         <div className="mentor">
           <img
             alt="멘토얼굴"
-            src="/images/shinung/jihong.jpg"
+            src="https://user-images.githubusercontent.com/2377807/153403756-4cb48537-2785-401e-9d05-b4677c6e6a30.jpg"
             className="mentorImage"
           />
           <div className="mentorInfo">
@@ -47,7 +47,7 @@ const Mentor = () => {
         <div className="mentor">
           <img
             alt="멘토얼굴"
-            src="/images/shinung/heetaek.jpg"
+            src="https://user-images.githubusercontent.com/2377807/153403754-5c599637-48be-4c80-b506-1489efffb2bf.jpg"
             className="mentorImage"
           />
           <div className="mentorInfo">
@@ -65,7 +65,7 @@ const Mentor = () => {
         <div className="mentor">
           <img
             alt="멘토얼굴"
-            src="/images/shinung/shinung.jpg"
+            src="https://user-images.githubusercontent.com/2377807/153403762-b8f74227-ffd6-4564-af65-bb5ec5cb7492.jpg"
             className="mentorImage"
           />
           <div className="mentorInfo">
