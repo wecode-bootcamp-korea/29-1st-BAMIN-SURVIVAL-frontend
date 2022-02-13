@@ -21,24 +21,15 @@
 
 - **tools**
 
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-<img src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white">
-<img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"><img src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white"><img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
 
 - **frontend**
 
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 
 - **backend**
 
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-<img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"><img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"><img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
 
 ## **구현 목표**
 
@@ -86,7 +77,7 @@
 <img src="https://i.ibb.co/KhVx7K8/Hnet-image.gif" alt="Hnet-image" border="0"> 
 <img src="https://i.ibb.co/XxNtX9b/Hnet-image-1.gif" alt="Hnet-image-1" border="0">
 <img src="https://i.ibb.co/SymVwr9/Hnet-image-2.gif" alt="Hnet-image-2" border="0">
-<img src="https://i.ibb.co/jWLCtb5/Hnet-image-3.gif" alt="Hnet-image-3" border="0" width="400px">
+<img src="https://i.ibb.co/FgSTNWN/ezgif-com-gif-maker-4.gif" alt="ezgif-com-gif-maker-4" border="0">
 
 ### **메인페이지**
 
@@ -95,7 +86,7 @@
 - 쿼리스트링을 활용하여 카테고리 페이지 구현 및 페이지네이션 기능 구현
 
 <img src="https://i.ibb.co/Q82y4vy/image.gif" alt="image" border="0">
-<img src="https://i.ibb.co/ZGQrBwc/image.gif" alt="image" border="0" width="600px">
+<img src="https://i.ibb.co/KNRcfwm/ezgif-com-gif-maker-7.gif" alt="ezgif-com-gif-maker-7" border="0">
 
 ### **상세페이지**
 
@@ -116,7 +107,7 @@
 - 리스트에서 체크를 통해 아이템 선택 삭제 및 구매 가능
 - 구매 후 구매 완료 페이지로 이동
 
-<img src="https://i.ibb.co/SvHSkp0/image.gif" alt="image" border="0" width="600px">
+<img src="https://i.ibb.co/DpGsGqr/ezgif-com-gif-maker-8.gif" alt="ezgif-com-gif-maker-8" border="0">
 
 ## Build Installation
 
