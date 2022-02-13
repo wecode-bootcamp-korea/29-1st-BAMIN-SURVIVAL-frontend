@@ -116,7 +116,7 @@
 - 리스트에서 체크를 통해 아이템 선택 삭제 및 구매 가능
 - 구매 후 구매 완료 페이지로 이동
 
-<img src="https://i.ibb.co/SvHSkp0/image.gif" alt="image" border="0" width = 600px>
+<img src="https://i.ibb.co/SvHSkp0/image.gif" alt="image" border="0" width="600px">
 
 ## Build Installation
 
