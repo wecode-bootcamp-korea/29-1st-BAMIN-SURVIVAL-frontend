@@ -14,6 +14,13 @@ function SignUp() {
     signUpPhone: '',
   });
 
+  const [isDuplicate, setIsDuplicate] = useState({
+    signUpId: false,
+    signUpEmail: false,
+    signUpNick: false,
+    signUpPhone: false,
+  });
+
   const {
     signUpId,
     signUpPw,
@@ -92,19 +99,21 @@ function SignUp() {
     signUpPhone: isValidPhone(),
   };
 
+  const isFilledMandatory = Object.values(signUpInfo).includes('');
+
+  const isValidator = Object.values(validator).includes(true);
+
+  const isDuplicateCheck = Object.values(isDuplicate).includes(true);
+
   const signUpRegister = e => {
     e.preventDefault();
-    if (isValidator || isFilledMandatory) {
+    if (isValidator || isFilledMandatory || isDuplicateCheck) {
       alert('경고 문구를 해결해주세요!');
     } else {
       signUpFetch();
       alert('회원가입이 완료되었습니다!');
     }
   };
-
-  const isFilledMandatory = Object.values(signUpInfo).includes('');
-
-  const isValidator = Object.values(validator).includes(true);
 
   return (
     <div className="signUp">
@@ -119,6 +128,8 @@ function SignUp() {
           signUpInfo={signUpInfo}
           onChange={onChange}
           validator={validator}
+          isDuplicate={isDuplicate}
+          setIsDuplicate={setIsDuplicate}
         />
         <div className="signUpButtonWrapper">
           <button className="signUpCancelBtn" onClick={goToLogin}>
